@@ -89,3 +89,50 @@
     screen.hidden = screen.id !== appState.currentScreen;
   });
 })();
+
+// TELA 02 — NAVEGAÇÃO ENTRE FOTOGRAFIAS
+
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = Array.from(
+    document.querySelectorAll("#screen-02 .three-times-slide")
+  );
+
+  const previous = document.getElementById("three-times-prev");
+  const next = document.getElementById("three-times-next");
+  const counter = document.getElementById("three-times-counter");
+
+  if (!slides.length || !previous || !next || !counter) {
+    return;
+  }
+
+  let current = 0;
+
+  function showSlide(index) {
+    current = Math.max(0, Math.min(index, slides.length - 1));
+
+    slides.forEach((slide, position) => {
+      const active = position === current;
+      slide.hidden = !active;
+      slide.classList.toggle("is-active", active);
+    });
+
+    counter.textContent =
+      String(current + 1).padStart(2, "0") +
+      " / " +
+      String(slides.length).padStart(2, "0");
+
+    previous.disabled = current === 0;
+    next.disabled = current === slides.length - 1;
+  }
+
+  previous.addEventListener("click", () => {
+    showSlide(current - 1);
+  });
+
+  next.addEventListener("click", () => {
+    showSlide(current + 1);
+  });
+
+  showSlide(0);
+});
+
