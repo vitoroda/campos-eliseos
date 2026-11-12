@@ -1,56 +1,899 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Do que os Campos Elíseos se lembram?</title>
-  <meta name="description" content="Uma história de riqueza, trabalho e memória nos Campos Elíseos de São Paulo.">
+
+  <meta
+    name="description"
+    content="Uma história de riqueza, trabalho e memória nos Campos Elíseos de São Paulo."
+  >
+
   <meta name="theme-color" content="#253A32">
+
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ==========================================
+       TELAS 02 E 03
+       Estilos adicionais no próprio HTML
+    ========================================== */
+
+    .screen-intro {
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 3.5rem var(--margem-tela, 4vw);
+      background: var(--verde, #253A32);
+      color: var(--creme, #F4EBDD);
+    }
+
+    .intro-inner {
+      max-width: 1250px;
+      min-height: calc(100svh - 7rem);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .intro-label {
+      margin: 0;
+    }
+
+    .intro-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 0;
+    }
+
+    .intro-with-photo {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      align-items: center;
+      gap: clamp(2rem, 5vw, 5rem);
+    }
+
+    .intro-with-photo:has(.intro-photo[hidden]) {
+      display: flex;
+    }
+
+    .intro-copy {
+      min-width: 0;
+    }
+
+    .intro-title {
+      margin: 0;
+      font-family: var(--fonte-titulo, Georgia, serif);
+      font-size: clamp(3rem, 6.5vw, 6.5rem);
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      text-transform: uppercase;
+    }
+
+    .intro-title span {
+      display: block;
+      font-style: italic;
+      color: var(--ouro, #C9AE7C);
+    }
+
+    .intro-text {
+      max-width: 600px;
+      margin-top: 2.5rem;
+    }
+
+    .intro-text p {
+      font-size: clamp(1rem, 1.6vw, 1.25rem);
+      line-height: 1.65;
+    }
+
+    .intro-photo {
+      margin: 0;
+      width: 100%;
+    }
+
+    .intro-photo[hidden] {
+      display: none;
+    }
+
+    .intro-photo img {
+      width: 100%;
+      max-height: 60svh;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      filter: grayscale(100%);
+    }
+
+    .intro-navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(201, 174, 124, 0.35);
+    }
+
+    .intro-back {
+      border: none;
+      background: transparent;
+      padding: 0.75rem 0;
+      color: var(--creme, #F4EBDD);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .intro-back:hover {
+      color: var(--ouro, #C9AE7C);
+    }
+
+    /* ==========================================
+       QUESTIONÁRIO VISUAL
+    ========================================== */
+
+    .survey-content {
+      flex: 1;
+      width: 100%;
+      padding: clamp(2rem, 5vh, 4rem) 0;
+    }
+
+    .survey-progress {
+      margin-bottom: 1rem;
+      color: var(--ouro, #C9AE7C);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+    }
+
+    .survey-title {
+      margin: 0 0 1.75rem;
+      font-family: var(--fonte-titulo, Georgia, serif);
+      font-size: clamp(2.6rem, 5.4vw, 5.6rem);
+      font-weight: 400;
+      line-height: 1.06;
+      text-transform: uppercase;
+    }
+
+    .survey-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      align-items: center;
+      gap: clamp(1.5rem, 4vw, 4rem);
+    }
+
+    .survey-grid[hidden] {
+      display: none;
+    }
+
+    .survey-figure {
+      margin: 0;
+      min-height: 280px;
+      background: var(--verde-escuro, #1B2B25);
+    }
+
+    .survey-figure img {
+      width: 100%;
+      height: clamp(300px, 42vh, 520px);
+      object-fit: contain;
+    }
+
+    .survey-figure img[hidden] {
+      display: none;
+    }
+
+    .survey-image-fallback {
+      display: grid;
+      place-items: center;
+      min-height: 300px;
+      padding: 2rem;
+      color: var(--cinza, #B7B2A6);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .survey-image-fallback[hidden] {
+      display: none;
+    }
+
+    .survey-form label {
+      display: block;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .survey-form textarea {
+      width: 100%;
+      min-height: 190px;
+      padding: 1rem;
+      border: 1px solid rgba(201, 174, 124, 0.65);
+      border-radius: 0;
+      background: rgba(0, 0, 0, 0.13);
+      color: var(--creme, #F4EBDD);
+      font: inherit;
+      resize: vertical;
+    }
+
+    .survey-form textarea::placeholder {
+      color: var(--cinza, #B7B2A6);
+    }
+
+    .survey-help {
+      margin-top: 0.75rem;
+      color: var(--cinza, #B7B2A6);
+      font-size: 0.8rem;
+    }
+
+    .survey-error {
+      margin-top: 0.75rem;
+      color: #f2c2b3;
+      font-size: 0.85rem;
+    }
+
+    .survey-error[hidden] {
+      display: none;
+    }
+
+    .survey-finished {
+      max-width: 650px;
+      font-family: var(--fonte-titulo, Georgia, serif);
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      line-height: 1.5;
+    }
+
+    .survey-finished[hidden] {
+      display: none;
+    }
+
+    .survey-finished p + p {
+      margin-top: 1rem;
+      font-family: var(--fonte-texto, Arial, sans-serif);
+      font-size: 1rem;
+      color: var(--cinza, #B7B2A6);
+    }
+
+    /* ==========================================
+       RESPONSIVIDADE
+    ========================================== */
+
+    @media (max-width: 800px) {
+      .screen-intro {
+        padding: 2.5rem 1.5rem;
+      }
+
+      .intro-inner {
+        min-height: calc(100svh - 5rem);
+      }
+
+      .intro-with-photo,
+      .survey-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-with-photo {
+        gap: 1.5rem;
+      }
+
+      .intro-content {
+        padding: 3rem 0;
+      }
+
+      .intro-title {
+        font-size: clamp(2.7rem, 10vw, 4.5rem);
+      }
+
+      .intro-photo img {
+        max-height: 38svh;
+        aspect-ratio: 16 / 9;
+      }
+
+      .survey-figure {
+        min-height: 0;
+      }
+
+      .survey-figure img {
+        height: min(42svh, 360px);
+      }
+
+      .survey-content {
+        padding: 2.25rem 0;
+      }
+
+      .survey-title {
+        margin-bottom: 1.3rem;
+      }
+
+      .survey-form textarea {
+        min-height: 125px;
+      }
+
+      .intro-navigation .btn-primary {
+        gap: 0.75rem;
+        padding: 0.85rem 1rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .intro-back {
+        transition: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<main id="app">
-  <!-- TELA 01 — ABERTURA -->
-  <section id="screen-01" class="screen screen-opening" aria-labelledby="titulo-abertura">
-    <figure class="opening-figure">
-      <img src="imagens/palacete-abertura.jpg" alt="Estação Júlio Prestes, São Paulo." width="1600" height="1200" fetchpriority="high" decoding="async">
-      <div class="opening-figure-overlay" aria-hidden="true"></div>
-      <figcaption class="opening-credit">Estação Júlio Prestes, São Paulo</figcaption>
-    </figure>
-    <div class="opening-content">
-      <p class="label reveal" style="--i:0"><span class="label-number">N.º 01</span><span class="label-rule" aria-hidden="true"></span>Café, casas e gente</p>
-      <h1 id="titulo-abertura" class="opening-title reveal" style="--i:1">Do que os Campos Elíseos <span class="opening-title-accent">se lembram?</span></h1>
-      <p class="opening-subtitle reveal" style="--i:2">Uma história de riqueza, trabalho e memória nos Campos Elíseos de São Paulo.</p>
-      <div class="opening-action reveal" style="--i:3">
-        <button type="button" class="btn-primary" data-goto="screen-02"><span>Começar</span><svg width="22" height="12" viewBox="0 0 22 12" aria-hidden="true" focusable="false"><path d="M0 6h20M15 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
-        <p class="opening-duration">Um breve passeio! Fique com a gente!</p>
+
+  <main id="app">
+
+    <!-- ======================================
+         TELA 01 — ABERTURA
+    ====================================== -->
+
+    <section
+      id="screen-01"
+      class="screen screen-opening"
+      aria-labelledby="titulo-abertura"
+    >
+
+      <figure class="opening-figure">
+
+        <img
+          src="imagens/palacete-abertura.jpg"
+          alt="Estação Júlio Prestes, São Paulo."
+          width="1600"
+          height="1200"
+          fetchpriority="high"
+          decoding="async"
+        >
+
+        <div
+          class="opening-figure-overlay"
+          aria-hidden="true"
+        ></div>
+
+        <figcaption class="opening-credit">
+          Estação Júlio Prestes, São Paulo
+        </figcaption>
+
+      </figure>
+
+      <div class="opening-content">
+
+        <p class="label reveal" style="--i:0">
+
+          <span class="label-number">N.º 01</span>
+
+          <span
+            class="label-rule"
+            aria-hidden="true"
+          ></span>
+
+          Café, casas e gente
+
+        </p>
+
+        <h1
+          id="titulo-abertura"
+          class="opening-title reveal"
+          style="--i:1"
+        >
+          Do que os Campos Elíseos
+
+          <span class="opening-title-accent">
+            se lembram?
+          </span>
+        </h1>
+
+        <p
+          class="opening-subtitle reveal"
+          style="--i:2"
+        >
+          Uma história de riqueza, trabalho e memória
+          nos Campos Elíseos de São Paulo.
+        </p>
+
+        <div
+          class="opening-action reveal"
+          style="--i:3"
+        >
+
+          <button
+            type="button"
+            class="btn-primary"
+            data-goto="screen-02"
+          >
+            <span>Começar</span>
+
+            <svg
+              width="22"
+              height="12"
+              viewBox="0 0 22 12"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M0 6h20M15 1l5 5-5 5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+            </svg>
+          </button>
+
+          <p class="opening-duration">
+            Um breve passeio! Fique com a gente!
+          </p>
+
+        </div>
+
+        <p
+          class="opening-academic reveal"
+          style="--i:4"
+        >
+          Trabalho de AEX de "Café e Escravidão:
+          uma história global", de Rafael Marquese,
+          FFLCH-USP, Novembro de 2026.
+        </p>
+
+        <div
+          class="opening-team reveal"
+          style="--i:5"
+        >
+          <p class="opening-team-label">
+            Integrantes
+          </p>
+
+          <p class="opening-team-names">
+            Brendon Henrique dos Reis Silva ·
+            Vítor Hugo Oda Comparini ·
+            Nome do integrante 3
+          </p>
+        </div>
+
       </div>
-      <p class="opening-academic reveal" style="--i:4">Trabalho de AEX de "Café e Escravidão: uma história global", de Rafael Marquese, FFLCH-USP, Novembro de 2026.</p>
-      <div class="opening-team reveal" style="--i:5"><p class="opening-team-label">Integrantes</p><p class="opening-team-names">Brendon Henrique dos Reis Silva · Vítor Hugo Oda Comparini · Nome do integrante 3</p></div>
-    </div>
-  </section>
-  <!-- TELA 02 — INTRODUÇÃO -->
-  <section id="screen-02" class="screen screen-intro" aria-labelledby="titulo-tela-02" hidden>
-    <div class="intro-inner">
-      <p class="label intro-label"><span class="label-number">N.º 02</span><span class="label-rule" aria-hidden="true"></span>Café, casas e gente</p>
-      <div class="intro-content">
-        <p class="intro-eyebrow">Primeiras impressões</p>
-        <h2 id="titulo-tela-02" class="intro-title" tabindex="-1">Antes da história, <span>suas impressões.</span></h2>
-        <div class="intro-text"><p>Antes de conhecermos a história dos Campos Elíseos, queremos saber como você imagina esse lugar.</p><p>Nas próximas telas, você verá algumas imagens e responderá a três perguntas. Observe com atenção e escreva o que vier à sua cabeça.</p></div>
-        <p class="intro-note">Não é necessário conhecer o bairro ou sua história. Não existem respostas certas ou erradas.</p>
+
+    </section>
+
+
+    <!-- ======================================
+         TELA 02 — PRIMEIRAS IMPRESSÕES
+    ====================================== -->
+
+    <section
+      id="screen-02"
+      class="screen screen-intro"
+      aria-labelledby="titulo-tela-02"
+      hidden
+    >
+
+      <div class="intro-inner">
+
+        <p class="label intro-label">
+          <span class="label-number">N.º 02</span>
+          <span class="label-rule" aria-hidden="true"></span>
+          Café, casas e gente
+        </p>
+
+        <div class="intro-content intro-with-photo">
+
+          <div class="intro-copy">
+
+            <h2
+              id="titulo-tela-02"
+              class="intro-title"
+              tabindex="-1"
+            >
+              Primeiras
+              <span>impressões.</span>
+            </h2>
+
+            <div class="intro-text">
+              <p>
+                Antes de passearmos pelos Campos,
+                queremos saber como você imagina esse lugar.
+                Não se preocupe, escreva o que vier à sua cabeça!
+              </p>
+            </div>
+
+          </div>
+
+          <!-- FOTOGRAFIA OPCIONAL DA TELA 02 -->
+
+          <figure
+            class="intro-photo"
+            id="intro-photo"
+          >
+            <img
+              src="imagens/foto-introducao.jpg"
+              alt="Fotografia introdutória dos Campos Elíseos"
+              loading="lazy"
+              onerror="this.closest('figure').hidden=true"
+            >
+          </figure>
+
+        </div>
+
+        <nav
+          class="intro-navigation"
+          aria-label="Navegação entre telas"
+        >
+
+          <button
+            type="button"
+            class="intro-back"
+            data-goto="screen-01"
+          >
+            ← Voltar
+          </button>
+
+          <button
+            type="button"
+            class="btn-primary"
+            data-goto="screen-03"
+          >
+            Vamos começar
+            <span aria-hidden="true">→</span>
+          </button>
+
+        </nav>
+
       </div>
-      <nav class="intro-navigation" aria-label="Navegação entre telas"><button type="button" class="intro-back" data-goto="screen-01">← Voltar</button><button type="button" class="btn-primary" data-goto="screen-03">Vamos começar <span aria-hidden="true">→</span></button></nav>
-    </div>
-  </section>
-  <!-- TELA 03 — PROVISÓRIA -->
-  <section id="screen-03" class="screen screen-intro" aria-labelledby="titulo-tela-03" hidden>
-    <div class="intro-inner">
-      <p class="label intro-label"><span class="label-number">N.º 03</span><span class="label-rule" aria-hidden="true"></span>Café, casas e gente</p>
-      <div class="intro-content"><p class="intro-eyebrow">Primeira pergunta</p><h2 id="titulo-tela-03" class="intro-title" tabindex="-1">Quem mora aqui?</h2><p class="intro-note">Em breve, uma fotografia e um espaço para registrar sua resposta.</p></div>
-      <nav class="intro-navigation" aria-label="Navegação entre telas"><button type="button" class="intro-back" data-goto="screen-02">← Voltar</button></nav>
-    </div>
-  </section>
-</main>
-<script src="script.js"></script>
+
+    </section>
+
+
+    <!-- ======================================
+         TELA 03 — QUESTIONÁRIO VISUAL
+    ====================================== -->
+
+    <section
+      id="screen-03"
+      class="screen screen-intro"
+      aria-labelledby="titulo-tela-03"
+      hidden
+    >
+
+      <div class="intro-inner">
+
+        <p class="label intro-label">
+          <span class="label-number">N.º 03</span>
+          <span class="label-rule" aria-hidden="true"></span>
+          Café, casas e gente
+        </p>
+
+        <div class="survey-content">
+
+          <p
+            class="survey-progress"
+            id="survey-progress"
+            aria-live="polite"
+          >
+            PERGUNTA 01 / 03
+          </p>
+
+          <h2
+            id="titulo-tela-03"
+            class="survey-title"
+            tabindex="-1"
+          >
+            Quem mora aqui?
+          </h2>
+
+          <div class="survey-grid">
+
+            <figure class="survey-figure">
+
+              <img
+                id="survey-image"
+                src="imagens/palacete-perguntas.jpg"
+                alt="Fotografia de um palacete"
+                loading="lazy"
+              >
+
+              <div
+                id="survey-image-fallback"
+                class="survey-image-fallback"
+                hidden
+              >
+                Adicione a fotografia em
+                imagens/palacete-perguntas.jpg
+              </div>
+
+            </figure>
+
+            <div class="survey-form">
+
+              <label for="survey-answer">
+                O que você imagina?
+              </label>
+
+              <textarea
+                id="survey-answer"
+                rows="6"
+                maxlength="2000"
+                placeholder="Escreva sua primeira impressão..."
+                required
+              ></textarea>
+
+              <p class="survey-help">
+                Responda com suas próprias palavras
+                para avançar. Não precisa acertar.
+              </p>
+
+              <p
+                class="survey-error"
+                id="survey-error"
+                role="alert"
+                hidden
+              >
+                Escreva uma resposta antes de continuar.
+              </p>
+
+            </div>
+
+          </div>
+
+          <div
+            class="survey-finished"
+            id="survey-finished"
+            hidden
+          >
+            <p>
+              Obrigado por compartilhar suas
+              primeiras impressões.
+            </p>
+
+            <p>
+              Suas respostas foram guardadas neste navegador.
+              A parte histórica da experiência será adicionada
+              em breve.
+            </p>
+          </div>
+
+        </div>
+
+        <nav
+          class="intro-navigation"
+          aria-label="Navegação do questionário"
+        >
+
+          <button
+            type="button"
+            class="intro-back"
+            id="survey-back"
+          >
+            ← Voltar
+          </button>
+
+          <button
+            type="button"
+            class="btn-primary"
+            id="survey-next"
+          >
+            Próxima pergunta
+            <span aria-hidden="true">→</span>
+          </button>
+
+        </nav>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      /* ====================================
+         TRÊS PERGUNTAS / TRÊS FOTOGRAFIAS
+      ==================================== */
+
+      const questions = [
+        {
+          title: "Quem mora aqui?",
+          image: "imagens/palacete-perguntas.jpg",
+          alt: "Fotografia de um palacete"
+        },
+        {
+          title: "Quem circula por aqui?",
+          image: "imagens/rua-perguntas.jpg",
+          alt: "Fotografia de uma rua dos Campos Elíseos"
+        },
+        {
+          title: "Quem construiu isto?",
+          image: "imagens/construcao-perguntas.jpg",
+          alt: "Fotografia histórica de uma construção"
+        }
+      ];
+
+      const title = document.getElementById("titulo-tela-03");
+      const progress = document.getElementById("survey-progress");
+      const photo = document.getElementById("survey-image");
+      const fallback = document.getElementById("survey-image-fallback");
+      const answer = document.getElementById("survey-answer");
+      const errorMessage = document.getElementById("survey-error");
+      const back = document.getElementById("survey-back");
+      const next = document.getElementById("survey-next");
+      const grid = document.querySelector(".survey-grid");
+      const finished = document.getElementById("survey-finished");
+
+      let index = 0;
+      let done = false;
+
+      const storageKey =
+        "campos-eliseos-primeiras-impressoes-v1";
+
+      let responses = ["", "", ""];
+
+      /* Recuperar respostas anteriores */
+
+      try {
+        const saved = JSON.parse(
+          localStorage.getItem(storageKey)
+        );
+
+        if (Array.isArray(saved) && saved.length === 3) {
+          responses = saved.map(value =>
+            typeof value === "string" ? value : ""
+          );
+        }
+      } catch (error) {
+        console.warn("Não foi possível recuperar as respostas.");
+      }
+
+      /* Salvar respostas */
+
+      function save() {
+        try {
+          localStorage.setItem(
+            storageKey,
+            JSON.stringify(responses)
+          );
+        } catch (error) {
+          console.warn("Não foi possível salvar as respostas.");
+        }
+      }
+
+      /* Exibir pergunta */
+
+      function showQuestion() {
+        done = false;
+
+        grid.hidden = false;
+        finished.hidden = true;
+        next.hidden = false;
+
+        progress.textContent =
+          `PERGUNTA 0${index + 1} / 03`;
+
+        title.textContent = questions[index].title;
+
+        photo.src = questions[index].image;
+        photo.alt = questions[index].alt;
+
+        fallback.textContent =
+          "Adicione a fotografia em " +
+          questions[index].image;
+
+        fallback.hidden = true;
+        photo.hidden = false;
+
+        answer.value = responses[index];
+        errorMessage.hidden = true;
+
+        next.innerHTML = index === 2
+          ? 'Concluir <span aria-hidden="true">→</span>'
+          : 'Próxima pergunta <span aria-hidden="true">→</span>';
+
+        window.scrollTo(0, 0);
+      }
+
+      /* Fotografias ausentes */
+
+      photo.addEventListener("error", () => {
+        photo.hidden = true;
+        fallback.hidden = false;
+      });
+
+      photo.addEventListener("load", () => {
+        photo.hidden = false;
+        fallback.hidden = true;
+      });
+
+      /* Registrar resposta */
+
+      answer.addEventListener("input", () => {
+        responses[index] = answer.value;
+        errorMessage.hidden = true;
+        save();
+      });
+
+      /* Voltar */
+
+      back.addEventListener("click", () => {
+        if (done) {
+          index = 2;
+          showQuestion();
+          return;
+        }
+
+        responses[index] = answer.value;
+        save();
+
+        if (index > 0) {
+          index--;
+          showQuestion();
+        } else {
+          const intro = document.getElementById("screen-02");
+          const survey = document.getElementById("screen-03");
+
+          survey.hidden = true;
+          intro.hidden = false;
+          window.scrollTo(0, 0);
+        }
+      });
+
+      /* Avançar */
+
+      next.addEventListener("click", () => {
+        if (done) return;
+
+        if (!answer.value.trim()) {
+          errorMessage.hidden = false;
+          answer.focus();
+          return;
+        }
+
+        responses[index] = answer.value.trim();
+        save();
+
+        if (index < 2) {
+          index++;
+          showQuestion();
+          title.focus({ preventScroll: true });
+        } else {
+          done = true;
+
+          grid.hidden = true;
+          finished.hidden = false;
+
+          title.textContent =
+            "Suas impressões foram registradas.";
+
+          progress.textContent = "ETAPA CONCLUÍDA";
+          next.hidden = true;
+
+          window.scrollTo(0, 0);
+        }
+      });
+
+      /* Reiniciar a visualização ao entrar na Tela 03 */
+
+      document.querySelectorAll(
+        '[data-goto="screen-03"]'
+      ).forEach(button => {
+        button.addEventListener("click", () => {
+          index = 0;
+          showQuestion();
+        });
+      });
+
+      /* Estado inicial */
+
+      showQuestion();
+
+    });
+  </script>
+
 </body>
 </html>
