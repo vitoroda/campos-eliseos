@@ -957,10 +957,52 @@
 
       let index = 0;
 
-      const storageKey =
-        "campos-eliseos-primeiras-impressoes-v1";
+    
+/* ====================================
+   IDENTIFICAÇÃO DA PARTICIPAÇÃO
+==================================== */
 
-      let responses = ["", "", ""];
+const storageKey =
+  "campos-eliseos-primeiras-impressoes-v1";
+
+const participationKey =
+  "campos-eliseos-id-participacao-v1";
+
+let responses = ["", "", ""];
+
+let participationId = "";
+
+try {
+  participationId =
+    localStorage.getItem(participationKey) || "";
+} catch (error) {
+  console.warn("Armazenamento indisponível.");
+}
+
+if (!participationId) {
+  participationId = crypto.randomUUID();
+
+  try {
+    localStorage.setItem(
+      participationKey,
+      participationId
+    );
+  } catch (error) {
+    console.warn("Não foi possível guardar o ID.");
+  }
+}
+
+/* ====================================
+   DADOS DA PARTICIPAÇÃO
+==================================== */
+
+function obterDadosIniciais() {
+  return {
+    id_participacao: participationId,
+    respostas_iniciais: [...responses]
+  };
+}
+
 
 
       /* ====================================
