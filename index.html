@@ -730,6 +730,252 @@
   }
 }
 
+/* ======================================
+   TELA FINAL — FEEDBACK
+====================================== */
+
+#screen-final {
+  background: #253A32;
+  color: #F4EBDD;
+}
+
+.feedback-layout {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: clamp(3rem, 7vw, 7rem);
+  align-items: start;
+  padding: clamp(4rem, 9vh, 7rem) 0;
+}
+
+.feedback-intro {
+  position: sticky;
+  top: 3rem;
+}
+
+.feedback-title {
+  margin: 0;
+  font-family: var(--fonte-titulo, Georgia, serif);
+  font-size: clamp(3.2rem, 5.6vw, 6rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.feedback-title span {
+  display: block;
+  color: #C9AE7C;
+  font-style: italic;
+}
+
+.feedback-description {
+  max-width: 550px;
+  margin-top: 2.5rem;
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.85;
+}
+
+.feedback-form {
+  min-width: 0;
+}
+
+.feedback-form h3 {
+  margin: 0 0 2rem;
+  font-family: var(--fonte-titulo, Georgia, serif);
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 400;
+  color: #C9AE7C;
+}
+
+.feedback-rating {
+  min-width: 0;
+  margin: 0 0 2.5rem;
+  padding: 0 0 2rem;
+  border: 0;
+  border-bottom: 1px solid rgba(201,174,124,.35);
+}
+
+.feedback-rating legend {
+  margin-bottom: 1.25rem;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .15em;
+}
+
+.feedback-stars {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.feedback-star {
+  position: relative;
+  width: 43px;
+  height: 43px;
+  flex: 0 0 43px;
+  color: #C9AE7C;
+}
+
+.feedback-star svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.feedback-star-outline {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.feedback-star-fill {
+  fill: currentColor;
+}
+
+.feedback-star-half {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.feedback-star-whole {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.feedback-star button:focus-visible {
+  outline: 2px solid #F4EBDD;
+  outline-offset: 2px;
+}
+
+.feedback-rating-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: .8rem;
+}
+
+#feedback-rating-value {
+  color: #C9AE7C;
+  font-size: .85rem;
+}
+
+.feedback-clear {
+  border: 0;
+  background: none;
+  color: #F4EBDD;
+  font-size: .75rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.feedback-field {
+  margin-bottom: 1.5rem;
+}
+
+.feedback-field label {
+  display: block;
+  margin-bottom: .7rem;
+  font-size: .85rem;
+}
+
+.feedback-field input,
+.feedback-field textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid rgba(201,174,124,.55);
+  border-radius: 0;
+  background: rgba(0,0,0,.12);
+  color: #F4EBDD;
+  font: inherit;
+  font-size: 1rem;
+}
+
+.feedback-field textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.feedback-field input::placeholder,
+.feedback-field textarea::placeholder {
+  color: rgba(244,235,221,.45);
+}
+
+.feedback-field input:focus,
+.feedback-field textarea:focus {
+  outline: 1px solid #C9AE7C;
+}
+
+.feedback-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin: 2rem 0;
+  font-size: .85rem;
+  line-height: 1.7;
+  cursor: pointer;
+}
+
+.feedback-consent input {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  margin-top: .25rem;
+  accent-color: #C9AE7C;
+}
+
+.feedback-status {
+  font-size: .85rem;
+  line-height: 1.5;
+}
+
+.feedback-submit {
+  width: 100%;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+@media (max-width: 850px) {
+  .feedback-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 3rem 0;
+  }
+
+  .feedback-intro {
+    position: static;
+  }
+
+  .feedback-title {
+    font-size: clamp(3rem, 10vw, 4.5rem);
+  }
+
+  .feedback-description {
+    margin-top: 1.75rem;
+  }
+
+  .feedback-star {
+    width: 37px;
+    height: 37px;
+    flex-basis: 37px;
+  }
+}
+
   </style>
 </head>
 
@@ -1331,6 +1577,171 @@
   </div>
 </section>
 
+<!-- ======================================
+     TELA FINAL — FEEDBACK
+====================================== -->
+
+<section
+  id="screen-final"
+  class="screen screen-intro"
+  aria-labelledby="titulo-final"
+  hidden
+>
+  <div class="intro-inner">
+
+    <p class="label intro-label">
+      <span class="label-number">FIM</span>
+      <span class="label-rule" aria-hidden="true"></span>
+      Café, casas e gente
+    </p>
+
+    <div class="feedback-layout">
+
+      <div class="feedback-intro">
+
+        <h2
+          id="titulo-final"
+          class="feedback-title"
+          tabindex="-1"
+        >
+          Obrigado pelo
+          <span>passeio!</span>
+        </h2>
+
+        <p class="feedback-description">
+          Agradecemos pela experiência, e ficamos na
+          torcida para que sua percepção sobre os
+          Campos Elíseos e a história do café tenha
+          sido minimamente enriquecida e que você
+          tenha sido capaz de reconhecer os agentes
+          históricos apagados pela história oficial.
+          Antes de você ir de vez, por favor, finalize
+          o seu passeio nos contando sobre você.
+        </p>
+
+      </div>
+
+      <form id="feedback-form" class="feedback-form">
+
+        <h3>Responda, por favor.</h3>
+
+        <fieldset class="feedback-rating">
+          <legend>AVALIE A EXPERIÊNCIA</legend>
+
+          <div
+            id="feedback-stars"
+            class="feedback-stars"
+            role="group"
+            aria-label="Avaliação de zero a cinco estrelas"
+          ></div>
+
+          <div class="feedback-rating-footer">
+            <span id="feedback-rating-value">0 / 5</span>
+
+            <button
+              type="button"
+              id="feedback-clear-rating"
+              class="feedback-clear"
+            >
+              Limpar avaliação
+            </button>
+          </div>
+
+          <input
+            type="hidden"
+            id="feedback-rating"
+            name="avaliacao"
+            value="0"
+          >
+        </fieldset>
+
+        <div class="feedback-field">
+          <label for="feedback-name">Nome</label>
+          <input
+            id="feedback-name"
+            name="nome"
+            type="text"
+            maxlength="120"
+            autocomplete="name"
+            placeholder="Seu nome"
+          >
+        </div>
+
+        <div class="feedback-field">
+          <label for="feedback-email">E-mail</label>
+          <input
+            id="feedback-email"
+            name="email"
+            type="email"
+            maxlength="200"
+            autocomplete="email"
+            placeholder="seuemail@exemplo.com"
+          >
+        </div>
+
+        <div class="feedback-field">
+          <label for="feedback-phone">Telefone</label>
+          <input
+            id="feedback-phone"
+            name="telefone"
+            type="tel"
+            maxlength="30"
+            autocomplete="tel"
+            placeholder="(11) 99999-9999"
+          >
+        </div>
+
+        <div class="feedback-field">
+          <label for="feedback-comments">
+            Comentários finais
+          </label>
+          <textarea
+            id="feedback-comments"
+            name="comentarios"
+            rows="5"
+            maxlength="3000"
+            placeholder="Conte o que achou do passeio..."
+          ></textarea>
+        </div>
+
+        <label class="feedback-consent">
+          <input
+            type="checkbox"
+            id="feedback-consent"
+            name="consentimento"
+            required
+          >
+          <span>
+            Eu autorizo o uso das minhas respostas
+            e dados para o relatório final desse
+            projeto. Estas informações não serão
+            divulgadas.
+          </span>
+        </label>
+
+        <p
+          id="feedback-status"
+          class="feedback-status"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+        <button
+          type="submit"
+          id="feedback-submit"
+          class="btn-primary feedback-submit"
+        >
+          Enviar respostas
+          <span aria-hidden="true">→</span>
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+</section>
+
   </main>
 
 
@@ -1880,6 +2291,132 @@ const slides = [
     });
 
   showSlide(0);
+
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const starsContainer =
+    document.getElementById("feedback-stars");
+
+  const ratingInput =
+    document.getElementById("feedback-rating");
+
+  const ratingValue =
+    document.getElementById("feedback-rating-value");
+
+  const clearButton =
+    document.getElementById("feedback-clear-rating");
+
+  const form =
+    document.getElementById("feedback-form");
+
+  const status =
+    document.getElementById("feedback-status");
+
+  if (!starsContainer || !form) return;
+
+  let rating = 0;
+
+  const starPath =
+    "M20 2 L25.5 13.5 L38 15.2 " +
+    "L29 24 L31.2 37 L20 31 " +
+    "L8.8 37 L11 24 L2 15.2 " +
+    "L14.5 13.5 Z";
+
+  function renderStars() {
+    starsContainer.innerHTML = "";
+
+    for (let i = 1; i <= 5; i++) {
+
+      const star = document.createElement("div");
+      star.className = "feedback-star";
+
+      const amount =
+        Math.max(0, Math.min(1, rating - (i - 1)));
+
+      const clipId = "feedback-clip-" + i;
+
+      star.innerHTML = `
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <defs>
+            <clipPath id="${clipId}">
+              <rect
+                x="0"
+                y="0"
+                width="${amount * 40}"
+                height="40"
+              />
+            </clipPath>
+          </defs>
+
+          <path
+            class="feedback-star-outline"
+            d="${starPath}"
+          />
+
+          <path
+            class="feedback-star-fill"
+            d="${starPath}"
+            clip-path="url(#${clipId})"
+          />
+        </svg>
+
+        <button
+          type="button"
+          class="feedback-star-half"
+          aria-label="${i - 0.5} estrelas"
+        ></button>
+
+        <button
+          type="button"
+          class="feedback-star-whole"
+          aria-label="${i} estrelas"
+        ></button>
+      `;
+
+      star.querySelector(".feedback-star-half")
+        .addEventListener("click", () => {
+          setRating(i - 0.5);
+        });
+
+      star.querySelector(".feedback-star-whole")
+        .addEventListener("click", () => {
+          setRating(i);
+        });
+
+      starsContainer.appendChild(star);
+    }
+  }
+
+  function setRating(value) {
+    rating = value;
+    ratingInput.value = String(value);
+
+    ratingValue.textContent =
+      String(value).replace(".", ",") + " / 5";
+
+    renderStars();
+  }
+
+  clearButton.addEventListener("click", () => {
+    setRating(0);
+  });
+
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+
+    if (!form.reportValidity()) return;
+
+    status.textContent =
+      "O formulário está pronto. " +
+      "A conexão de envio ao Google Sheets " +
+      "ainda precisa ser configurada.";
+  });
+
+  setRating(0);
 
 });
 </script>
