@@ -174,38 +174,105 @@
 
     <!-- ============ TELA 02 — PROVISÓRIA ============ -->
 
-    <section
-      id="screen-02"
-      class="screen screen-placeholder"
-      aria-labelledby="titulo-tela-02"
-      hidden
-    >
+    
+<!-- ============ TELA 02 — TRÊS TEMPOS ============ -->
 
-      <div class="placeholder-inner">
+<section
+  id="screen-02"
+  class="screen screen-three-times"
+  aria-labelledby="titulo-tela-02"
+  hidden
+>
+  <div class="three-times-inner">
 
-        <p class="label">
-          <span class="label-number">N.º 02</span>
-        </p>
+    <header class="three-times-header">
+      <p class="label">
+        <span class="label-number">N.º 02</span>
+        <span class="label-rule" aria-hidden="true"></span>
+        Café, casas e gente
+      </p>
 
-        <h2
-          id="titulo-tela-02"
-          class="placeholder-title"
-          tabindex="-1"
+      <h2 id="titulo-tela-02" class="three-times-title" tabindex="-1">
+        Campos Elíseos em três tempos
+      </h2>
+
+      <p class="three-times-question">
+        O que você percebe que permanece e muda com o tempo nessas imagens?
+      </p>
+    </header>
+
+    <div class="three-times-gallery">
+
+      <figure class="three-times-slide is-active">
+        <img
+          src="imagens/campos-01.jpg"
+          alt="Primeira fotografia histórica dos Campos Elíseos."
+          loading="lazy"
         >
-          Próxima etapa: Campos Elíseos, ontem e hoje.
-        </h2>
+        <figcaption>Imagem 01 de 03</figcaption>
+      </figure>
 
-        <button
-          type="button"
-          class="btn-secondary"
-          data-goto="screen-01"
+      <figure class="three-times-slide" hidden>
+        <img
+          src="imagens/campos-02.jpg"
+          alt="Segunda fotografia dos Campos Elíseos."
+          loading="lazy"
         >
-          Voltar à abertura
-        </button>
+        <figcaption>Imagem 02 de 03</figcaption>
+      </figure>
 
+      <figure class="three-times-slide" hidden>
+        <img
+          src="imagens/campos-03.jpg"
+          alt="Terceira fotografia dos Campos Elíseos."
+          loading="lazy"
+        >
+        <figcaption>Imagem 03 de 03</figcaption>
+      </figure>
+
+      <div class="three-times-controls">
+        <span
+          id="three-times-counter"
+          aria-live="polite"
+        >
+          01 / 03
+        </span>
+
+        <div class="three-times-arrows">
+          <button
+            type="button"
+            id="three-times-prev"
+            aria-label="Fotografia anterior"
+            disabled
+          >
+            ←
+          </button>
+
+          <button
+            type="button"
+            id="three-times-next"
+            aria-label="Próxima fotografia"
+          >
+            →
+          </button>
+        </div>
       </div>
 
-    </section>
+    </div>
+
+    <nav class="three-times-navigation" aria-label="Navegação entre telas">
+      <button type="button" class="btn-secondary" data-goto="screen-01">
+        Voltar
+      </button>
+
+      <button type="button" class="btn-primary" data-goto="screen-03">
+        Continuar →
+      </button>
+    </nav>
+
+  </div>
+</section>
+
 
     <!-- Novas telas serão adicionadas aqui -->
 
