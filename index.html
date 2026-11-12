@@ -23,6 +23,151 @@
        Estilos adicionais no próprio HTML
     ========================================== */
 
+/* ==========================================
+   TELA 02 — FOTOGRAFIA AMPLIADA
+   Composição inspirada na Tela 01
+========================================== */
+
+#screen-02 {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 100svh;
+}
+
+/* A fotografia ocupa toda a lateral direita */
+
+#screen-02 .intro-photo {
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 67%;
+  height: 100%;
+  margin: 0;
+  pointer-events: none;
+}
+
+#screen-02 .intro-photo[hidden] {
+  display: none;
+}
+
+#screen-02 .intro-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(100%);
+}
+
+/* Degradê verde sobre a fotografia */
+
+#screen-02 .intro-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    #253A32 0%,
+    rgba(37, 58, 50, 0.98) 10%,
+    rgba(37, 58, 50, 0.78) 32%,
+    rgba(37, 58, 50, 0.25) 65%,
+    rgba(37, 58, 50, 0) 100%
+  );
+}
+
+/* Texto permanece à esquerda */
+
+#screen-02 .intro-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+#screen-02 .intro-with-photo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+#screen-02 .intro-copy {
+  width: min(57%, 690px);
+  position: relative;
+  z-index: 2;
+}
+
+/* Título grande, sem invadir a fotografia */
+
+#screen-02 .intro-title {
+  font-size: clamp(2.8rem, 5.2vw, 5.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.045em;
+}
+
+#screen-02 .intro-title span {
+  display: block;
+}
+
+/* Texto introdutório */
+
+#screen-02 .intro-text {
+  max-width: 480px;
+  margin-top: 2.5rem;
+}
+
+#screen-02 .intro-text p {
+  line-height: 1.7;
+}
+
+/* Navegação sobre a composição */
+
+#screen-02 .intro-navigation {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================
+   VERSÃO PARA CELULARES
+========================================== */
+
+@media (max-width: 800px) {
+
+  #screen-02 .intro-photo {
+    width: 100%;
+    height: 65%;
+    top: 0;
+    bottom: auto;
+  }
+
+  #screen-02 .intro-photo::after {
+    background: linear-gradient(
+      180deg,
+      rgba(37, 58, 50, 0.55) 0%,
+      rgba(37, 58, 50, 0.65) 35%,
+      #253A32 100%
+    );
+  }
+
+  #screen-02 .intro-copy {
+    width: 100%;
+  }
+
+  #screen-02 .intro-title {
+    font-size: clamp(2.7rem, 10vw, 4.5rem);
+  }
+
+  #screen-02 .intro-text {
+    max-width: 100%;
+  }
+
+}
+
     .screen-intro {
       min-height: 100vh;
       min-height: 100svh;
