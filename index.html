@@ -1,310 +1,56 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Do que os Campos Elíseos se lembram?</title>
-
-  <meta
-    name="description"
-    content="Uma história de riqueza, trabalho e memória nos Campos Elíseos de São Paulo. Trabalho de AEX de Café e Escravidão: uma história global, FFLCH-USP."
-  >
-
+  <meta name="description" content="Uma história de riqueza, trabalho e memória nos Campos Elíseos de São Paulo.">
   <meta name="theme-color" content="#253A32">
-
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-  <main id="app">
-
-    <!-- ============ TELA 01 — ABERTURA ============ -->
-
-    <section
-      id="screen-01"
-      class="screen screen-opening"
-      aria-labelledby="titulo-abertura"
-    >
-
-      <!-- IMAGEM DE FUNDO -->
-
-      <figure class="opening-figure">
-
-        <img
-          src="imagens/palacete-abertura.jpg"
-          alt="Estação Júlio Prestes, em São Paulo."
-          width="1600"
-          height="1200"
-          fetchpriority="high"
-          decoding="async"
-        >
-
-        <div
-          class="opening-figure-overlay"
-          aria-hidden="true"
-        ></div>
-
-        <!-- Inserir crédito da imagem quando confirmado -->
-
-        <figcaption class="opening-credit">
-          Estação Julio Prestes, São Paulo
-        </figcaption>
-
-      </figure>
-
-      <!-- CONTEÚDO DA ABERTURA -->
-
-      <div class="opening-content">
-
-        <!-- IDENTIFICAÇÃO -->
-
-        <p class="label reveal" style="--i:0">
-
-          <span class="label-number">N.º 01</span>
-
-          <span
-            class="label-rule"
-            aria-hidden="true"
-          ></span>
-
-          Café, casas e gente
-
-        </p>
-
-        <!-- TÍTULO PRINCIPAL -->
-
-        <h1
-          id="titulo-abertura"
-          class="opening-title reveal"
-          style="--i:1"
-        >
-          Do que os Campos Elíseos
-          <span class="opening-title-accent">
-            se lembram?
-          </span>
-        </h1>
-
-        <!-- SUBTÍTULO -->
-
-        <p
-          class="opening-subtitle reveal"
-          style="--i:2"
-        >
-          Uma história de riqueza, trabalho e memória
-          nos Campos Elíseos de São Paulo.
-        </p>
-
-        <!-- BOTÃO COMEÇAR -->
-
-        <div
-          class="opening-action reveal"
-          style="--i:3"
-        >
-
-          <button
-            type="button"
-            class="btn-primary"
-            data-goto="screen-02"
-          >
-
-            <span>Começar</span>
-
-            <svg
-              width="22"
-              height="12"
-              viewBox="0 0 22 12"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <path
-                d="M0 6h20M15 1l5 5-5 5"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-              />
-            </svg>
-
-          </button>
-
-          <p class="opening-duration">
-            Um breve passeio! Fique com a gente!
-          </p>
-
-        </div>
-
-        <!-- RODAPÉ INSTITUCIONAL -->
-
-        <p
-          class="opening-academic reveal"
-          style="--i:4"
-        >
-          Trabalho de AEX de "Café e Escravidão:
-          uma história global", de Rafael Marquese,
-          FFLCH-USP, Novembro de 2026.
-        </p>
-
-        <!-- INTEGRANTES DO PROJETO -->
-
-        <div
-          class="opening-team reveal"
-          style="--i:5"
-        >
-
-          <p class="opening-team-label">
-            Integrantes
-          </p>
-
-          <p class="opening-team-names">
-            Brendon Henrique dos Reis Silva ·
-            Vítor Hugo Oda Comparini ·
-            Nome do integrante 3
-          </p>
-
-        </div>
-
+<main id="app">
+  <!-- TELA 01 — ABERTURA -->
+  <section id="screen-01" class="screen screen-opening" aria-labelledby="titulo-abertura">
+    <figure class="opening-figure">
+      <img src="imagens/palacete-abertura.jpg" alt="Estação Júlio Prestes, São Paulo." width="1600" height="1200" fetchpriority="high" decoding="async">
+      <div class="opening-figure-overlay" aria-hidden="true"></div>
+      <figcaption class="opening-credit">Estação Júlio Prestes, São Paulo</figcaption>
+    </figure>
+    <div class="opening-content">
+      <p class="label reveal" style="--i:0"><span class="label-number">N.º 01</span><span class="label-rule" aria-hidden="true"></span>Café, casas e gente</p>
+      <h1 id="titulo-abertura" class="opening-title reveal" style="--i:1">Do que os Campos Elíseos <span class="opening-title-accent">se lembram?</span></h1>
+      <p class="opening-subtitle reveal" style="--i:2">Uma história de riqueza, trabalho e memória nos Campos Elíseos de São Paulo.</p>
+      <div class="opening-action reveal" style="--i:3">
+        <button type="button" class="btn-primary" data-goto="screen-02"><span>Começar</span><svg width="22" height="12" viewBox="0 0 22 12" aria-hidden="true" focusable="false"><path d="M0 6h20M15 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <p class="opening-duration">Um breve passeio! Fique com a gente!</p>
       </div>
-
-    </section>
-
-  
-<!-- ============ TELA 02 — INTRODUÇÃO ============ -->
-
-<section
-  id="screen-02"
-  class="screen screen-intro"
-  aria-labelledby="titulo-tela-02"
-  hidden
->
-  <div class="intro-inner">
-
-    <!-- IDENTIFICAÇÃO -->
-
-    <p class="label intro-label">
-      <span class="label-number">N.º 02</span>
-      <span class="label-rule" aria-hidden="true"></span>
-      Café, casas e gente
-    </p>
-
-    <!-- CONTEÚDO PRINCIPAL -->
-
-    <div class="intro-content">
-
-      <p class="intro-eyebrow">
-        PRIMEIRAS IMPRESSÕES
-      </p>
-
-      <h2
-        id="titulo-tela-02"
-        class="intro-title"
-        tabindex="-1"
-      >
-        Antes da história,
-        <span>suas impressões.</span>
-      </h2>
-
-      <div class="intro-text">
-        <p>
-          Antes de conhecermos a história dos Campos Elíseos,
-          queremos saber como você imagina esse lugar.
-        </p>
-
-        <p>
-          Nas próximas telas, você verá algumas imagens
-          e responderá a três perguntas. Observe com atenção
-          e escreva o que vier à sua cabeça.
-        </p>
+      <p class="opening-academic reveal" style="--i:4">Trabalho de AEX de "Café e Escravidão: uma história global", de Rafael Marquese, FFLCH-USP, Novembro de 2026.</p>
+      <div class="opening-team reveal" style="--i:5"><p class="opening-team-label">Integrantes</p><p class="opening-team-names">Brendon Henrique dos Reis Silva · Vítor Hugo Oda Comparini · Nome do integrante 3</p></div>
+    </div>
+  </section>
+  <!-- TELA 02 — INTRODUÇÃO -->
+  <section id="screen-02" class="screen screen-intro" aria-labelledby="titulo-tela-02" hidden>
+    <div class="intro-inner">
+      <p class="label intro-label"><span class="label-number">N.º 02</span><span class="label-rule" aria-hidden="true"></span>Café, casas e gente</p>
+      <div class="intro-content">
+        <p class="intro-eyebrow">Primeiras impressões</p>
+        <h2 id="titulo-tela-02" class="intro-title" tabindex="-1">Antes da história, <span>suas impressões.</span></h2>
+        <div class="intro-text"><p>Antes de conhecermos a história dos Campos Elíseos, queremos saber como você imagina esse lugar.</p><p>Nas próximas telas, você verá algumas imagens e responderá a três perguntas. Observe com atenção e escreva o que vier à sua cabeça.</p></div>
+        <p class="intro-note">Não é necessário conhecer o bairro ou sua história. Não existem respostas certas ou erradas.</p>
       </div>
-
-      <p class="intro-note">
-        Não é necessário conhecer o bairro ou sua história.
-        Não existem respostas certas ou erradas.
-      </p>
-
+      <nav class="intro-navigation" aria-label="Navegação entre telas"><button type="button" class="intro-back" data-goto="screen-01">← Voltar</button><button type="button" class="btn-primary" data-goto="screen-03">Vamos começar <span aria-hidden="true">→</span></button></nav>
     </div>
-
-    <!-- NAVEGAÇÃO -->
-
-    <nav
-      class="intro-navigation"
-      aria-label="Navegação entre telas"
-    >
-
-      <button
-        type="button"
-        class="intro-back"
-        data-goto="screen-01"
-      >
-        ← Voltar
-      </button>
-
-      <button
-        type="button"
-        class="btn-primary"
-        data-goto="screen-03"
-      >
-        Vamos começar
-        <span aria-hidden="true">→</span>
-      </button>
-
-    </nav>
-
-  </div>
-</section>
-
-
-<!-- ============ TELA 03 — PROVISÓRIA ============ -->
-
-<section
-  id="screen-03"
-  class="screen screen-intro"
-  aria-labelledby="titulo-tela-03"
-  hidden
->
-  <div class="intro-inner">
-
-    <p class="label">
-      <span class="label-number">N.º 03</span>
-      <span class="label-rule" aria-hidden="true"></span>
-      Café, casas e gente
-    </p>
-
-    <div class="intro-content">
-
-      <p class="intro-eyebrow">
-        PRIMEIRA PERGUNTA
-      </p>
-
-      <h2
-        id="titulo-tela-03"
-        class="intro-title"
-        tabindex="-1"
-      >
-        Quem mora aqui?
-      </h2>
-
-      <p class="intro-note">
-        Em breve, uma fotografia e um espaço
-        para registrar sua resposta.
-      </p>
-
+  </section>
+  <!-- TELA 03 — PROVISÓRIA -->
+  <section id="screen-03" class="screen screen-intro" aria-labelledby="titulo-tela-03" hidden>
+    <div class="intro-inner">
+      <p class="label intro-label"><span class="label-number">N.º 03</span><span class="label-rule" aria-hidden="true"></span>Café, casas e gente</p>
+      <div class="intro-content"><p class="intro-eyebrow">Primeira pergunta</p><h2 id="titulo-tela-03" class="intro-title" tabindex="-1">Quem mora aqui?</h2><p class="intro-note">Em breve, uma fotografia e um espaço para registrar sua resposta.</p></div>
+      <nav class="intro-navigation" aria-label="Navegação entre telas"><button type="button" class="intro-back" data-goto="screen-02">← Voltar</button></nav>
     </div>
-
-    <nav
-      class="intro-navigation"
-      aria-label="Navegação entre telas"
-    >
-      <button
-        type="button"
-        class="intro-back"
-        data-goto="screen-02"
-      >
-        ← Voltar
-      </button>
-    </nav>
-
-  </div>
-</section>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
