@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>O que a cidade esconde? — Campos Elíseos</title>
+  <meta name="description" content="Uma história de riqueza, trabalho e memória nos Campos Elíseos de São Paulo. Um projeto de História da Universidade de São Paulo.">
+  <meta name="theme-color" content="#253A32">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main id="app">
+
+    <!-- ============ TELA 01 — ABERTURA ============ -->
+    <section id="screen-01" class="screen screen-opening" aria-labelledby="titulo-abertura">
+
+      <figure class="opening-figure">
+        <img
+          src="imagens/palacete-abertura.jpg"
+          alt="Fachada de um palacete histórico no bairro dos Campos Elíseos, em São Paulo."
+          width="1600" height="1200"
+          fetchpriority="high"
+          decoding="async">
+        <div class="opening-figure-overlay" aria-hidden="true"></div>
+        <!-- Quando a fonte da imagem for confirmada, preencha aqui a legenda/crédito -->
+        <figcaption class="opening-credit">Campos Elíseos, São Paulo</figcaption>
+      </figure>
+
+      <div class="opening-content">
+        <p class="label reveal" style="--i:0">
+          <span class="label-number">N.º 01</span>
+          <span class="label-rule" aria-hidden="true"></span>
+          Café, casas e gente
+        </p>
+
+        <h1 id="titulo-abertura" class="opening-title reveal" style="--i:1">
+          O que a cidade <span class="opening-title-accent">esconde?</span>
+        </h1>
+
+        <p class="opening-subtitle reveal" style="--i:2">
+          Uma história de riqueza, trabalho e memória nos Campos Elíseos de São Paulo.
+        </p>
+
+        <div class="opening-action reveal" style="--i:3">
+          <button type="button" class="btn-primary" data-goto="screen-02">
+            <span>Começar</span>
+            <svg width="22" height="12" viewBox="0 0 22 12" aria-hidden="true" focusable="false">
+              <path d="M0 6h20M15 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </button>
+          <p class="opening-duration">Uma experiência de aproximadamente 10 minutos</p>
+        </div>
+
+        <p class="opening-academic reveal" style="--i:4">
+          Um projeto de História da Universidade de São Paulo
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ TELA 02 — PLACEHOLDER (provisória) ============ -->
+    <section id="screen-02" class="screen screen-placeholder" aria-labelledby="titulo-tela-02" hidden>
+      <div class="placeholder-inner">
+        <p class="label"><span class="label-number">N.º 02</span></p>
+        <h2 id="titulo-tela-02" class="placeholder-title" tabindex="-1">
+          Próxima etapa: Campos Elíseos, ontem e hoje.
+        </h2>
+        <button type="button" class="btn-secondary" data-goto="screen-01">Voltar à abertura</button>
+      </div>
+    </section>
+
+    <!-- Novas telas entram aqui: <section id="screen-03" class="screen" hidden> ... -->
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
