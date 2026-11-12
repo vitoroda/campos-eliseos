@@ -1055,19 +1055,38 @@
           index++;
           showQuestion();
           title.focus({ preventScroll: true });
-        } else {
-          done = true;
+        
+} else {
 
-          grid.hidden = true;
-          finished.hidden = false;
+  // Terminou a terceira pergunta.
+  // Segue diretamente para a próxima tela.
 
-          title.textContent =
-            "Suas impressões foram registradas.";
+  const currentScreen =
+    document.getElementById("screen-03");
 
-          progress.textContent = "ETAPA CONCLUÍDA";
-          next.hidden = true;
+  const nextScreen =
+    document.getElementById("screen-04");
 
-          window.scrollTo(0, 0);
+  if (nextScreen) {
+
+    currentScreen.hidden = true;
+    nextScreen.hidden = false;
+
+    window.scrollTo(0, 0);
+
+  } else {
+
+    // Enquanto a Tela 04 não existir,
+    // permanece na terceira pergunta.
+
+    alert(
+      "As próximas páginas da experiência ainda estão em construção."
+    );
+
+  }
+
+}
+
         }
       });
 
