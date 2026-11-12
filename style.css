@@ -1,457 +1,355 @@
-/* ==========================================================
-   O QUE A CIDADE ESCONDE? — style.css
-   1. Variáveis  2. Reset  3. Base de telas  4. Componentes
-   5. Tela 01    6. Placeholder  7. Animações  8. Acessibilidade
-   ========================================================== */
 
-/* ---------- 1. VARIÁVEIS ---------- */
+/* ==========================================
+   CAFÉ, CASAS E GENTE
+   ESTILOS GERAIS
+========================================== */
+
 :root {
-  --verde: #253A32;
-  --verde-escuro: #1B2B25;
-  --creme: #F4EBDD;
-  --ouro: #C9AE7C;
-  --carvao: #222722;
-  --cinza: #B7B2A6;
-
-  --fonte-titulo: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
-  --fonte-texto: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-
-  --espaco-1: 0.5rem;
-  --espaco-2: 1rem;
-  --espaco-3: 1.5rem;
-  --espaco-4: 2.5rem;
-  --espaco-5: 4rem;
-
-  --margem-tela: clamp(1.25rem, 4vw, 3.5rem);
-  --duracao-transicao: 400ms;
+  --verde: #253a32;
+  --creme: #f3ebdd;
+  --creme-suave: #d3c9ad;
+  --branco: #ffffff;
 }
 
-/* ---------- 2. RESET ---------- */
-*, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background: var(--verde);
   color: var(--creme);
-  font-family: var(--fonte-texto);
-  line-height: 1.5;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
+  font-family: Georgia, "Times New Roman", serif;
 }
-h1, h2, p, figure { margin: 0; }
-img { display: block; max-width: 100%; }
-button { font: inherit; color: inherit; cursor: pointer; }
 
-/* ---------- 3. BASE DE TELAS (global, reutilizável) ---------- */
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--creme);
+  outline-offset: 5px;
+}
+
+/* ==========================================
+   SISTEMA DE TELAS
+========================================== */
+
 .screen {
+  position: relative;
   min-height: 100vh;
   min-height: 100svh;
-  position: relative;
-  transition:
-    opacity var(--duracao-transicao) ease,
-    transform var(--duracao-transicao) ease;
-}
-.screen[hidden] { display: none !important; }
-.screen.is-leaving  { opacity: 0; transform: translateY(-12px); }
-.screen.is-entering { opacity: 0; transform: translateY(12px); }
-
-/* ---------- 4. COMPONENTES ---------- */
-.label {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ouro);
-}
-.label-number { color: var(--cinza); letter-spacing: 0.16em; }
-.label-rule { width: 2.5rem; height: 1px; background: var(--ouro); }
-
-.btn-primary,
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.25rem;
-  min-height: 3.25rem;
-  padding: 0.9rem 1.5rem;
-  border: 1px solid var(--creme);
-  border-radius: 0;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
-}
-.btn-primary { background: var(--creme); color: var(--carvao); }
-.btn-primary svg { transition: transform 0.25s ease; }
-.btn-primary:hover { background: var(--ouro); border-color: var(--ouro); }
-.btn-primary:hover svg { transform: translateX(4px); }
-.btn-secondary { background: transparent; color: var(--creme); }
-.btn-secondary:hover { background: var(--creme); color: var(--carvao); }
-
-:focus-visible {
-  outline: 2px solid var(--ouro);
-  outline-offset: 4px;
 }
 
-/* ---------- 5. TELA 01 — ABERTURA ---------- */
+.screen[hidden] {
+  display: none !important;
+}
+
+/* ==========================================
+   TELA 01 — ABERTURA
+========================================== */
+
 .screen-opening {
   display: flex;
-  flex-direction: column;
-  background: var(--verde);
+  align-items: center;
   overflow: hidden;
+  isolation: isolate;
+  padding: 64px clamp(24px, 7vw, 112px);
 }
 
-/* Fotografia — mobile: faixa superior */
+/* Imagem de fundo */
+
 .opening-figure {
-  position: relative;
-  height: 46svh;
-  min-height: 250px;
-  background:
-    linear-gradient(160deg, #3a5247 0%, var(--verde-escuro) 100%); /* fallback sem imagem */
-  overflow: hidden;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  margin: 0;
 }
+
 .opening-figure img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center;
 }
-.opening-figure.has-no-image img { display: none; }
+
 .opening-figure-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(27,43,37,0.15) 0%, rgba(37,58,50,0.0) 40%, var(--verde) 100%);
-  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(13, 26, 22, 0.88) 0%,
+      rgba(13, 26, 22, 0.65) 52%,
+      rgba(13, 26, 22, 0.38) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(13, 26, 22, 0.60),
+      transparent 55%
+    );
 }
+
 .opening-credit {
   position: absolute;
-  top: var(--margem-tela);
-  right: var(--margem-tela);
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--creme);
-  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+  right: 24px;
+  bottom: 18px;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.7);
 }
 
-/* Conteúdo — mobile: sobe sobre a base da foto */
+/* Conteúdo */
+
 .opening-content {
   position: relative;
-  z-index: 2;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: var(--espaco-2);
-  margin-top: -3.5rem;
-  padding: 0 var(--margem-tela) var(--espaco-3);
+  width: 100%;
+  max-width: 850px;
+  padding: 35px 0;
 }
 
-.opening-title {
-  font-family: var(--fonte-titulo);
-  font-weight: 400;
-  font-size: clamp(2.2rem, 11.5vw, 3.6rem);
-  line-height: 0.98;
-  letter-spacing: -0.01em;
+/* Identificação */
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 45px;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--creme);
-  overflow-wrap: break-word;
 }
-.opening-title-accent { display: block; font-style: italic; color: var(--ouro); }
+
+.label-number {
+  white-space: nowrap;
+}
+
+.label-rule {
+  width: 40px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.65;
+}
+
+/* Título */
+
+.opening-title {
+  max-width: 900px;
+  margin: 0;
+  font-size: clamp(48px, 7vw, 106px);
+  font-weight: 400;
+  line-height: 0.99;
+  letter-spacing: -0.055em;
+}
+
+.opening-title-accent {
+  display: block;
+  color: var(--creme-suave);
+  font-style: italic;
+}
+
+/* Subtítulo */
 
 .opening-subtitle {
-  max-width: 32ch;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: var(--creme);
-  opacity: 0.9;
+  max-width: 490px;
+  margin: 30px 0 0;
+  font-size: clamp(17px, 1.7vw, 21px);
+  line-height: 1.55;
+  color: rgba(243, 235, 221, 0.9);
 }
+
+/* Botão */
 
 .opening-action {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--espaco-2);
-  margin-top: var(--espaco-1);
+  margin-top: 40px;
 }
-.opening-action .btn-primary { width: 100%; max-width: 20rem; }
-.opening-duration { font-size: 0.8rem; color: var(--cinza); }
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  min-height: 52px;
+  padding: 15px 23px;
+  border: 1px solid var(--creme);
+  background: var(--creme);
+  color: var(--verde);
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--creme);
+  transform: translateY(-2px);
+}
+
+.btn-primary svg {
+  flex-shrink: 0;
+}
+
+.opening-duration {
+  margin: 15px 0 0;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: rgba(243, 235, 221, 0.75);
+}
+
+/* Rodapé acadêmico */
 
 .opening-academic {
-  margin-top: auto;
-  padding-top: var(--espaco-2);
-  border-top: 1px solid rgba(201,174,124,0.35);
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--cinza);
+  max-width: 620px;
+  margin: 75px 0 0;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  line-height: 1.65;
+  color: rgba(243, 235, 221, 0.75);
 }
 
-/* Tablet e desktop: composição assimétrica */
-@media (min-width: 900px) {
-  .screen-opening {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 100svh;
-    min-height: 640px;
-  }
-  .opening-figure {
-    grid-column: 5 / 13;
-    grid-row: 1;
-    height: 100%;
-    min-height: 0;
-  }
-  .opening-figure-overlay {
-    background:
-      linear-gradient(to right, var(--verde) 0%, rgba(37,58,50,0.55) 22%, rgba(37,58,50,0) 55%),
-      linear-gradient(to top, rgba(27,43,37,0.55) 0%, rgba(27,43,37,0) 40%);
-  }
-  .opening-content {
-    grid-column: 1 / 8;
-    grid-row: 1;
-    margin-top: 0;
-    padding: var(--margem-tela);
-    justify-content: flex-end;
-    gap: var(--espaco-3);
-  }
-  .opening-content .label { margin-bottom: auto; }
-  .opening-title {
-    font-size: clamp(3.5rem, 7.2vw, 8rem);
-    line-height: 0.95;
-  }
-  .opening-subtitle { font-size: 1.15rem; max-width: 34ch; }
-  .opening-action {
-    flex-direction: row;
-    align-items: center;
-    gap: var(--espaco-3);
-  }
-  .opening-action .btn-primary { width: auto; min-width: 13rem; }
-  .opening-academic { margin-top: var(--espaco-3); max-width: 38rem; }
-}
-
-/* Telas baixas (celular na horizontal, janelas curtas) */
-@media (max-height: 560px) and (min-width: 900px) {
-  .opening-title { font-size: clamp(2.5rem, 6vw, 4.5rem); }
-  .opening-subtitle { font-size: 1rem; }
-}
-
-/* ---------- 6. PLACEHOLDER (Tela 02) ---------- */
-.screen-placeholder {
-  display: grid;
-  place-items: center;
-  padding: var(--margem-tela);
-  background: var(--verde-escuro);
-}
-.placeholder-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--espaco-3);
-  max-width: 40rem;
-}
-.placeholder-title {
-  font-family: var(--fonte-titulo);
-  font-weight: 400;
-  font-size: clamp(1.75rem, 5vw, 3rem);
-  line-height: 1.1;
-}
-.placeholder-title:focus { outline: none; }
-
-/* ---------- 7. ANIMAÇÕES ---------- */
-@media (prefers-reduced-motion: no-preference) {
-  .reveal {
-    opacity: 0;
-    transform: translateY(14px);
-    animation: revelar 700ms cubic-bezier(.2,.6,.2,1) forwards;
-    animation-delay: calc(var(--i, 0) * 110ms + 150ms);
-  }
-  .opening-figure img {
-    animation: foto-entrada 1600ms cubic-bezier(.2,.6,.2,1) both;
-  }
-}
-@keyframes revelar { to { opacity: 1; transform: none; } }
-@keyframes foto-entrada {
-  from { opacity: 0; transform: scale(1.04); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
-/* ---------- 8. ACESSIBILIDADE ---------- */
-@media (prefers-reduced-motion: reduce) {
-  :root { --duracao-transicao: 0ms; }
-  *, *::before, *::after {
-    animation: none !important;
-    transition-duration: 0ms !important;
-  }
-}
-
-/* Ajustes da abertura */
-
-.screen-opening {
-  min-height: 100svh;
-  height: auto;
-}
-
-.opening-content {
-  box-sizing: border-box;
-  padding-top: max(48px, 7vh);
-  padding-bottom: max(48px, 7vh);
-}
-
-.opening-title {
-  font-size: clamp(2.2rem, 5.5vw, 5.5rem);
-  line-height: 1.08;
-  text-wrap: balance;
-}
-
-/* Créditos dos integrantes */
+/* Integrantes */
 
 .opening-team {
-  margin-top: 12px;
-  font-size: 0.72rem;
-  line-height: 1.5;
-  letter-spacing: 0.01em;
-  color: inherit;
-  opacity: 0.75;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
 }
 
 .opening-team-label {
-  margin: 0 0 3px;
+  margin: 0 0 6px;
+  font-size: 10px;
   font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(243, 235, 221, 0.65);
 }
 
 .opening-team-names {
   margin: 0;
+  font-size: 11px;
+  line-height: 1.7;
+  color: rgba(243, 235, 221, 0.85);
 }
 
-@media (max-width: 600px) {
+/* ==========================================
+   ANIMAÇÕES
+========================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: reveal-up 0.8s ease forwards;
+  animation-delay: calc(var(--i, 0) * 0.12s);
+}
+
+@keyframes reveal-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================
+   TABLETS
+========================================== */
+
+@media (max-width: 900px) {
+  .screen-opening {
+    padding: 50px 36px;
+  }
+
   .opening-title {
-    font-size: clamp(2rem, 8vw, 3.2rem);
+    font-size: clamp(50px, 8vw, 80px);
   }
 
-  .opening-team {
-    font-size: 0.68rem;
+  .opening-academic {
+    margin-top: 55px;
   }
 }
 
-/* TELA 02 — CAMPOS ELÍSEOS EM TRÊS TEMPOS */
-
-.screen-three-times {
-  min-height: 100svh;
-  height: auto;
-  background: #243a32;
-  color: #f3ebdd;
-}
-
-.screen-three-times:not([hidden]) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.three-times-inner {
-  width: min(100% - 40px, 1000px);
-  margin: 0 auto;
-  padding: 48px 0;
-}
-
-.three-times-header {
-  margin-bottom: 28px;
-}
-
-.three-times-title {
-  margin: 28px 0 14px;
-  font-size: clamp(2.2rem, 5vw, 4.5rem);
-  line-height: 1.08;
-  font-weight: 500;
-  text-wrap: balance;
-}
-
-.three-times-question {
-  max-width: 680px;
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  line-height: 1.5;
-  color: #e3ddcf;
-}
-
-.three-times-gallery {
-  width: 100%;
-}
-
-.three-times-slide {
-  margin: 0;
-}
-
-.three-times-slide[hidden] {
-  display: none !important;
-}
-
-.three-times-slide img {
-  display: block;
-  width: 100%;
-  height: clamp(260px, 45vw, 530px);
-  object-fit: contain;
-  background: #192a23;
-}
-
-.three-times-slide figcaption {
-  margin-top: 10px;
-  font-size: 0.72rem;
-  color: #d3c9ad;
-}
-
-.three-times-controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 16px;
-}
-
-#three-times-counter {
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-}
-
-.three-times-arrows {
-  display: flex;
-  gap: 10px;
-}
-
-.three-times-arrows button {
-  width: 44px;
-  height: 44px;
-  border: 1px solid #9ba99d;
-  border-radius: 50%;
-  background: transparent;
-  color: #f3ebdd;
-  cursor: pointer;
-  font-size: 1.3rem;
-}
-
-.three-times-arrows button:disabled {
-  opacity: 0.3;
-  cursor: default;
-}
-
-.three-times-navigation {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  margin-top: 36px;
-}
+/* ==========================================
+   CELULARES
+========================================== */
 
 @media (max-width: 600px) {
-  .three-times-inner {
-    width: calc(100% - 32px);
-    padding: 32px 0;
+  .screen-opening {
+    align-items: flex-start;
+    padding: 55px 24px 65px;
   }
 
-  .three-times-slide img {
-    height: 330px;
+  .opening-content {
+    padding: 0;
   }
 
-  .three-times-navigation {
-    flex-wrap: wrap;
+  .label {
+    gap: 12px;
+    margin-bottom: 55px;
+    font-size: 10px;
+  }
+
+  .label-rule {
+    width: 25px;
+  }
+
+  .opening-title {
+    font-size: clamp(43px, 11vw, 64px);
+    line-height: 1.03;
+    letter-spacing: -0.05em;
+  }
+
+  .opening-subtitle {
+    margin-top: 26px;
+    font-size: 17px;
+  }
+
+  .opening-action {
+    margin-top: 35px;
+  }
+
+  .opening-academic {
+    margin-top: 65px;
+  }
+
+  .opening-credit {
+    right: 15px;
+    bottom: 12px;
+    font-size: 9px;
+  }
+
+  .opening-figure-overlay {
+    background: rgba(13, 26, 22, 0.72);
+  }
+}
+
+/* ==========================================
+   ACESSIBILIDADE
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .btn-primary {
+    transition: none;
   }
 }
