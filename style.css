@@ -1,3 +1,323 @@
+/* ==========================================================
+   O QUE A CIDADE ESCONDE? — style.css
+   1. Variáveis  2. Reset  3. Base de telas  4. Componentes
+   5. Tela 01    6. Placeholder  7. Animações  8. Acessibilidade
+   ========================================================== */
+
+/* ---------- 1. VARIÁVEIS ---------- */
+:root {
+  --verde: #253A32;
+  --verde-escuro: #1B2B25;
+  --creme: #F4EBDD;
+  --ouro: #C9AE7C;
+  --carvao: #222722;
+  --cinza: #B7B2A6;
+
+  --fonte-titulo: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --fonte-texto: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --espaco-1: 0.5rem;
+  --espaco-2: 1rem;
+  --espaco-3: 1.5rem;
+  --espaco-4: 2.5rem;
+  --espaco-5: 4rem;
+
+  --margem-tela: clamp(1.25rem, 4vw, 3.5rem);
+  --duracao-transicao: 400ms;
+}
+
+/* ---------- 2. RESET ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--verde);
+  color: var(--creme);
+  font-family: var(--fonte-texto);
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, p, figure { margin: 0; }
+img { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; cursor: pointer; }
+
+/* ---------- 3. BASE DE TELAS (global, reutilizável) ---------- */
+.screen {
+  min-height: 100vh;
+  min-height: 100svh;
+  position: relative;
+  transition:
+    opacity var(--duracao-transicao) ease,
+    transform var(--duracao-transicao) ease;
+}
+.screen[hidden] { display: none !important; }
+.screen.is-leaving  { opacity: 0; transform: translateY(-12px); }
+.screen.is-entering { opacity: 0; transform: translateY(12px); }
+
+/* ---------- 4. COMPONENTES ---------- */
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ouro);
+}
+.label-number { color: var(--cinza); letter-spacing: 0.16em; }
+.label-rule { width: 2.5rem; height: 1px; background: var(--ouro); }
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  min-height: 3.25rem;
+  padding: 0.9rem 1.5rem;
+  border: 1px solid var(--creme);
+  border-radius: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.btn-primary { background: var(--creme); color: var(--carvao); }
+.btn-primary svg { transition: transform 0.25s ease; }
+.btn-primary:hover { background: var(--ouro); border-color: var(--ouro); }
+.btn-primary:hover svg { transform: translateX(4px); }
+.btn-secondary { background: transparent; color: var(--creme); }
+.btn-secondary:hover { background: var(--creme); color: var(--carvao); }
+
+:focus-visible {
+  outline: 2px solid var(--ouro);
+  outline-offset: 4px;
+}
+
+/* ---------- 5. TELA 01 — ABERTURA ---------- */
+.screen-opening {
+  display: flex;
+  flex-direction: column;
+  background: var(--verde);
+  overflow: hidden;
+}
+
+/* Fotografia — mobile: faixa superior */
+.opening-figure {
+  position: relative;
+  height: 46svh;
+  min-height: 250px;
+  background:
+    linear-gradient(160deg, #3a5247 0%, var(--verde-escuro) 100%); /* fallback sem imagem */
+  overflow: hidden;
+}
+.opening-figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+.opening-figure.has-no-image img { display: none; }
+.opening-figure-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(27,43,37,0.15) 0%, rgba(37,58,50,0.0) 40%, var(--verde) 100%);
+  pointer-events: none;
+}
+.opening-credit {
+  position: absolute;
+  top: var(--margem-tela);
+  right: var(--margem-tela);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--creme);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+}
+
+/* Conteúdo — mobile: sobe sobre a base da foto */
+.opening-content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-2);
+  margin-top: -3.5rem;
+  padding: 0 var(--margem-tela) var(--espaco-3);
+}
+
+.opening-title {
+  font-family: var(--fonte-titulo);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 11.5vw, 3.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--creme);
+  overflow-wrap: break-word;
+}
+.opening-title-accent { display: block; font-style: italic; color: var(--ouro); }
+
+.opening-subtitle {
+  max-width: 32ch;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--creme);
+  opacity: 0.9;
+}
+
+.opening-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espaco-2);
+  margin-top: var(--espaco-1);
+}
+.opening-action .btn-primary { width: 100%; max-width: 20rem; }
+.opening-duration { font-size: 0.8rem; color: var(--cinza); }
+
+.opening-academic {
+  margin-top: auto;
+  padding-top: var(--espaco-2);
+  border-top: 1px solid rgba(201,174,124,0.35);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cinza);
+}
+
+/* Tablet e desktop: composição assimétrica */
+@media (min-width: 900px) {
+  .screen-opening {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 100svh;
+    min-height: 640px;
+  }
+  .opening-figure {
+    grid-column: 5 / 13;
+    grid-row: 1;
+    height: 100%;
+    min-height: 0;
+  }
+  .opening-figure-overlay {
+    background:
+      linear-gradient(to right, var(--verde) 0%, rgba(37,58,50,0.55) 22%, rgba(37,58,50,0) 55%),
+      linear-gradient(to top, rgba(27,43,37,0.55) 0%, rgba(27,43,37,0) 40%);
+  }
+  .opening-content {
+    grid-column: 1 / 8;
+    grid-row: 1;
+    margin-top: 0;
+    padding: var(--margem-tela);
+    justify-content: flex-end;
+    gap: var(--espaco-3);
+  }
+  .opening-content .label { margin-bottom: auto; }
+  .opening-title {
+    font-size: clamp(3.5rem, 7.2vw, 8rem);
+    line-height: 0.95;
+  }
+  .opening-subtitle { font-size: 1.15rem; max-width: 34ch; }
+  .opening-action {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--espaco-3);
+  }
+  .opening-action .btn-primary { width: auto; min-width: 13rem; }
+  .opening-academic { margin-top: var(--espaco-3); max-width: 38rem; }
+}
+
+/* Telas baixas (celular na horizontal, janelas curtas) */
+@media (max-height: 560px) and (min-width: 900px) {
+  .opening-title { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+  .opening-subtitle { font-size: 1rem; }
+}
+
+/* ---------- 6. PLACEHOLDER (Tela 02) ---------- */
+.screen-placeholder {
+  display: grid;
+  place-items: center;
+  padding: var(--margem-tela);
+  background: var(--verde-escuro);
+}
+.placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espaco-3);
+  max-width: 40rem;
+}
+.placeholder-title {
+  font-family: var(--fonte-titulo);
+  font-weight: 400;
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  line-height: 1.1;
+}
+.placeholder-title:focus { outline: none; }
+
+/* ---------- 7. ANIMAÇÕES ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: revelar 700ms cubic-bezier(.2,.6,.2,1) forwards;
+    animation-delay: calc(var(--i, 0) * 110ms + 150ms);
+  }
+  .opening-figure img {
+    animation: foto-entrada 1600ms cubic-bezier(.2,.6,.2,1) both;
+  }
+}
+@keyframes revelar { to { opacity: 1; transform: none; } }
+@keyframes foto-entrada {
+  from { opacity: 0; transform: scale(1.04); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ---------- 8. ACESSIBILIDADE ---------- */
+@media (prefers-reduced-motion: reduce) {
+  :root { --duracao-transicao: 0ms; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition-duration: 0ms !important;
+  }
+}
+
+/* Ajustes da abertura */
+
+.screen-opening {
+  min-height: 100svh;
+  height: auto;
+}
+
+.opening-content {
+  box-sizing: border-box;
+  padding-top: max(48px, 7vh);
+  padding-bottom: max(48px, 7vh);
+}
+
+.opening-title {
+  font-size: clamp(2.2rem, 5.5vw, 5.5rem);
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+/* Créditos dos integrantes */
+
+.opening-team {
+  margin-top: 12px;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: inherit;
+  opacity: 0.75;
+}
+
+.opening-team-label {
+  margin: 0 0 3px;
   font-weight: 600;
 }
 
@@ -14,6 +334,7 @@
     font-size: 0.68rem;
   }
 }
+
 
 /* ---------- 9. TELA 02 — PRIMEIRAS IMPRESSÕES ---------- */
 .screen-intro {
@@ -116,3 +437,7 @@
     letter-spacing: 0.08em;
   }
 }
+
+/* Abertura: manter o visual editorial original */
+.opening-title { text-transform: uppercase; }
+.opening-title-accent { text-transform: uppercase; }
