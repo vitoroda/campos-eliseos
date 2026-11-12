@@ -285,3 +285,52 @@ button { font: inherit; color: inherit; cursor: pointer; }
     transition-duration: 0ms !important;
   }
 }
+
+/* Ajustes da abertura */
+
+.screen-opening {
+  min-height: 100svh;
+  height: auto;
+}
+
+.opening-content {
+  box-sizing: border-box;
+  padding-top: max(48px, 7vh);
+  padding-bottom: max(48px, 7vh);
+}
+
+.opening-title {
+  font-size: clamp(2.2rem, 5.5vw, 5.5rem);
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+/* Créditos dos integrantes */
+
+.opening-team {
+  margin-top: 12px;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: inherit;
+  opacity: 0.75;
+}
+
+.opening-team-label {
+  margin: 0 0 3px;
+  font-weight: 600;
+}
+
+.opening-team-names {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .opening-title {
+    font-size: clamp(2rem, 8vw, 3.2rem);
+  }
+
+  .opening-team {
+    font-size: 0.68rem;
+  }
+}
