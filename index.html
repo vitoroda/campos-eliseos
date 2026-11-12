@@ -28,6 +28,59 @@
    Composição inspirada na Tela 01
 ========================================== */
 
+/* ==========================================
+   REFINAMENTO DA TELA 02
+========================================== */
+
+/* Fotografia até as bordas da tela */
+#screen-02 .intro-photo {
+  top: 0;
+  right: calc(-1 * var(--margem-tela, 4vw));
+  bottom: 0;
+  width: 70vw;
+  height: 100%;
+}
+
+/* Degradê mais suave */
+#screen-02 .intro-photo::after {
+  background: linear-gradient(
+    90deg,
+    #253A32 0%,
+    rgba(37, 58, 50, 0.95) 12%,
+    rgba(37, 58, 50, 0.65) 35%,
+    rgba(37, 58, 50, 0.15) 70%,
+    transparent 100%
+  );
+}
+
+/* Alinhamento do título com a margem esquerda */
+#screen-02 .intro-with-photo {
+  justify-content: flex-start;
+}
+
+#screen-02 .intro-copy {
+  width: min(60%, 690px);
+  margin-left: 0;
+}
+
+/* Título grande e equilibrado */
+#screen-02 .intro-title {
+  font-size: clamp(2.8rem, 5.2vw, 5.5rem);
+  line-height: 1.04;
+}
+
+@media (max-width: 800px) {
+  #screen-02 .intro-photo {
+    right: calc(-1 * var(--margem-tela, 4vw));
+    width: 100vw;
+    height: 65%;
+  }
+
+  #screen-02 .intro-copy {
+    width: 100%;
+  }
+}
+
 #screen-02 {
   position: relative;
   isolation: isolate;
