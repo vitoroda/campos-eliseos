@@ -2406,16 +2406,92 @@ document.addEventListener("DOMContentLoaded", () => {
     setRating(0);
   });
 
-  form.addEventListener("submit", event => {
-    event.preventDefault();
+  
+form.addEventListener("submit", async event => {
+  event.preventDefault();
 
-    if (!form.reportValidity()) return;
+  if (!form.reportValidity()) return;
+
+  const url =
+    window.CAMPOS_ELISEOS_CONFIG?.appsScriptUrl;
+
+  if (!url) {
+    status.textContent =
+      "O endereço do Google Sheets não está configurado.";
+    return;
+  }
+
+  if (!window.CamposRespostas) {
+    status.textContent =
+      "O sistema de respostas não foi carregado.";
+    return;
+  }
+
+  const botao =
+    document.getElementById("feedback-submit");
+
+  let dados;
+
+  try {
+    dados = CamposRespostas.montarEnvio(form);
+  } catch (erro) {
+    console.error(erro);
 
     status.textContent =
-      "O formulário está pronto. " +
-      "A conexão de envio ao Google Sheets " +
-      "ainda precisa ser configurada.";
-  });
+      "Não foi possível reunir as respostas do passeio.";
+    return;
+  }
+
+  if (!dados.consentimento) {
+    status.textContent =
+      "Marque a autorização antes de enviar.";
+    return;
+  }
+
+  const respostasIniciais = dados.respostas.filter(
+    item => item.tela === "screen-03"
+  );
+
+  if (
+    respostasIniciais.length !== 3 ||
+    respostasIniciais.some(
+      item => !String(item.resposta).trim()
+    )
+  ) {
+    status.textContent =
+      "Responda às três perguntas iniciais antes de enviar.";
+    return;
+  }
+
+  botao.disabled = true;
+  status.textContent = "Enviando respostas...";
+
+  try {
+    await fetch(url, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify(dados)
+    });
+
+    status.textContent =
+      "Solicitação enviada. Confira o registro " +
+      "na planilha para confirmar o recebimento.";
+
+  } catch (erro) {
+    console.error("Falha na solicitação:", erro);
+
+    status.textContent =
+      "Não foi possível enviar. " +
+      "Verifique sua conexão e tente novamente.";
+
+  } finally {
+    botao.disabled = false;
+  }
+});
+
 
   setRating(0);
 
