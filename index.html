@@ -170,26 +170,141 @@
 
     </section>
 
-    <!-- ============ TELA 02 — A CONSTRUIR ============ -->
+  
+<!-- ============ TELA 02 — INTRODUÇÃO ============ -->
 
-    <!--
-      Próxima etapa:
+<section
+  id="screen-02"
+  class="screen screen-intro"
+  aria-labelledby="titulo-tela-02"
+  hidden
+>
+  <div class="intro-inner">
 
-      Tela introdutória:
-      "Antes da história, suas impressões."
+    <!-- IDENTIFICAÇÃO -->
 
-      Seguida pelas perguntas:
+    <p class="label intro-label">
+      <span class="label-number">N.º 02</span>
+      <span class="label-rule" aria-hidden="true"></span>
+      Café, casas e gente
+    </p>
 
-      1. Quem mora aqui?
-      2. Quem circula por aqui?
-      3. Quem construiu isto?
+    <!-- CONTEÚDO PRINCIPAL -->
 
-      As novas telas serão adicionadas aqui.
-    -->
+    <div class="intro-content">
 
-  </main>
+      <p class="intro-eyebrow">
+        PRIMEIRAS IMPRESSÕES
+      </p>
 
-  <script src="script.js"></script>
+      <h2
+        id="titulo-tela-02"
+        class="intro-title"
+        tabindex="-1"
+      >
+        Antes da história,
+        <span>suas impressões.</span>
+      </h2>
 
-</body>
-</html>
+      <div class="intro-text">
+        <p>
+          Antes de conhecermos a história dos Campos Elíseos,
+          queremos saber como você imagina esse lugar.
+        </p>
+
+        <p>
+          Nas próximas telas, você verá algumas imagens
+          e responderá a três perguntas. Observe com atenção
+          e escreva o que vier à sua cabeça.
+        </p>
+      </div>
+
+      <p class="intro-note">
+        Não é necessário conhecer o bairro ou sua história.
+        Não existem respostas certas ou erradas.
+      </p>
+
+    </div>
+
+    <!-- NAVEGAÇÃO -->
+
+    <nav
+      class="intro-navigation"
+      aria-label="Navegação entre telas"
+    >
+
+      <button
+        type="button"
+        class="intro-back"
+        data-goto="screen-01"
+      >
+        ← Voltar
+      </button>
+
+      <button
+        type="button"
+        class="btn-primary"
+        data-goto="screen-03"
+      >
+        Vamos começar
+        <span aria-hidden="true">→</span>
+      </button>
+
+    </nav>
+
+  </div>
+</section>
+
+
+<!-- ============ TELA 03 — PROVISÓRIA ============ -->
+
+<section
+  id="screen-03"
+  class="screen screen-intro"
+  aria-labelledby="titulo-tela-03"
+  hidden
+>
+  <div class="intro-inner">
+
+    <p class="label">
+      <span class="label-number">N.º 03</span>
+      <span class="label-rule" aria-hidden="true"></span>
+      Café, casas e gente
+    </p>
+
+    <div class="intro-content">
+
+      <p class="intro-eyebrow">
+        PRIMEIRA PERGUNTA
+      </p>
+
+      <h2
+        id="titulo-tela-03"
+        class="intro-title"
+        tabindex="-1"
+      >
+        Quem mora aqui?
+      </h2>
+
+      <p class="intro-note">
+        Em breve, uma fotografia e um espaço
+        para registrar sua resposta.
+      </p>
+
+    </div>
+
+    <nav
+      class="intro-navigation"
+      aria-label="Navegação entre telas"
+    >
+      <button
+        type="button"
+        class="intro-back"
+        data-goto="screen-02"
+      >
+        ← Voltar
+      </button>
+    </nav>
+
+  </div>
+</section>
