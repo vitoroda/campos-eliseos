@@ -848,11 +848,7 @@
       next.addEventListener("click", () => {
         if (done) return;
 
-        if (!answer.value.trim()) {
-          errorMessage.hidden = false;
-          answer.focus();
-          return;
-        }
+      
 
         responses[index] = answer.value.trim();
         save();
