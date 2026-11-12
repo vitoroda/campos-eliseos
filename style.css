@@ -334,3 +334,124 @@ button { font: inherit; color: inherit; cursor: pointer; }
     font-size: 0.68rem;
   }
 }
+
+/* TELA 02 — CAMPOS ELÍSEOS EM TRÊS TEMPOS */
+
+.screen-three-times {
+  min-height: 100svh;
+  height: auto;
+  background: #243a32;
+  color: #f3ebdd;
+}
+
+.screen-three-times:not([hidden]) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.three-times-inner {
+  width: min(100% - 40px, 1000px);
+  margin: 0 auto;
+  padding: 48px 0;
+}
+
+.three-times-header {
+  margin-bottom: 28px;
+}
+
+.three-times-title {
+  margin: 28px 0 14px;
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  line-height: 1.08;
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+.three-times-question {
+  max-width: 680px;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  line-height: 1.5;
+  color: #e3ddcf;
+}
+
+.three-times-gallery {
+  width: 100%;
+}
+
+.three-times-slide {
+  margin: 0;
+}
+
+.three-times-slide[hidden] {
+  display: none !important;
+}
+
+.three-times-slide img {
+  display: block;
+  width: 100%;
+  height: clamp(260px, 45vw, 530px);
+  object-fit: contain;
+  background: #192a23;
+}
+
+.three-times-slide figcaption {
+  margin-top: 10px;
+  font-size: 0.72rem;
+  color: #d3c9ad;
+}
+
+.three-times-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+#three-times-counter {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+}
+
+.three-times-arrows {
+  display: flex;
+  gap: 10px;
+}
+
+.three-times-arrows button {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #9ba99d;
+  border-radius: 50%;
+  background: transparent;
+  color: #f3ebdd;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+.three-times-arrows button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.three-times-navigation {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+@media (max-width: 600px) {
+  .three-times-inner {
+    width: calc(100% - 32px);
+    padding: 32px 0;
+  }
+
+  .three-times-slide img {
+    height: 330px;
+  }
+
+  .three-times-navigation {
+    flex-wrap: wrap;
+  }
+}
