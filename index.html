@@ -1,51 +1,1230 @@
 
-/* ====================================
-   AVANÇAR ENTRE AS PERGUNTAS
-==================================== */
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-next.addEventListener("click", () => {
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  if (done) return;
+  <title>Do que os Campos Elíseos se lembram?</title>
 
-  // Salva a resposta atual.
-  responses[index] = answer.value.trim();
-  save();
+  <meta
+    name="description"
+    content="Uma história de riqueza, trabalho e memória nos Campos Elíseos de São Paulo."
+  >
 
-  // Primeira e segunda perguntas.
-  if (index < 2) {
+  <meta name="theme-color" content="#253A32">
 
-    index++;
-    showQuestion();
+  <!-- CSS original da Tela 01 -->
+  <link rel="stylesheet" href="style.css">
 
-    title.focus({ preventScroll: true });
+  <style>
 
-  } else {
+    /* ==========================================
+       CONFIGURAÇÕES GERAIS
+       TELAS 02 E 03
+    ========================================== */
 
-    // Terceira pergunta concluída.
-    // Avança diretamente para a Tela 04.
+    .screen-intro {
+      min-height: 100vh;
+      min-height: 100svh;
+      padding: 3.5rem var(--margem-tela, 4vw);
+      background: var(--verde, #253A32);
+      color: var(--creme, #F4EBDD);
+    }
 
-    const currentScreen =
-      document.getElementById("screen-03");
+    .intro-inner {
+      max-width: 1250px;
+      min-height: calc(100svh - 7rem);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
 
-    const nextScreen =
-      document.getElementById("screen-04");
+    .intro-label {
+      margin: 0;
+    }
 
-    if (nextScreen) {
+    .intro-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 0;
+    }
 
-      currentScreen.hidden = true;
-      nextScreen.hidden = false;
+    .intro-with-photo {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      align-items: center;
+      gap: clamp(2rem, 5vw, 5rem);
+    }
 
-      window.scrollTo(0, 0);
+    .intro-with-photo:has(.intro-photo[hidden]) {
+      display: flex;
+    }
 
-    } else {
+    .intro-copy {
+      min-width: 0;
+    }
 
-      alert(
-        "As próximas páginas da experiência ainda estão em construção."
+    .intro-title {
+      margin: 0;
+      font-family: var(--fonte-titulo, Georgia, serif);
+      font-size: clamp(3rem, 6.5vw, 6.5rem);
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      text-transform: uppercase;
+    }
+
+    .intro-title span {
+      display: block;
+      font-style: italic;
+      color: var(--ouro, #C9AE7C);
+    }
+
+    .intro-text {
+      max-width: 600px;
+      margin-top: 2.5rem;
+    }
+
+    .intro-text p {
+      font-size: clamp(1rem, 1.6vw, 1.25rem);
+      line-height: 1.65;
+    }
+
+    .intro-photo {
+      margin: 0;
+      width: 100%;
+    }
+
+    .intro-photo[hidden] {
+      display: none;
+    }
+
+    .intro-photo img {
+      width: 100%;
+      max-height: 60svh;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      filter: grayscale(100%);
+    }
+
+    .intro-navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(201, 174, 124, 0.35);
+    }
+
+    .intro-back {
+      border: none;
+      background: transparent;
+      padding: 0.75rem 0;
+      color: var(--creme, #F4EBDD);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .intro-back:hover {
+      color: var(--ouro, #C9AE7C);
+    }
+
+
+    /* ==========================================
+       TELA 02 — FOTOGRAFIA AMPLIADA
+    ========================================== */
+
+    #screen-02 {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      min-height: 100svh;
+    }
+
+    #screen-02 .intro-photo {
+      display: block;
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 67%;
+      height: 100%;
+      margin: 0;
+      pointer-events: none;
+    }
+
+    #screen-02 .intro-photo[hidden] {
+      display: none;
+    }
+
+    #screen-02 .intro-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: none;
+      aspect-ratio: auto;
+      object-fit: cover;
+      object-position: center;
+      filter: grayscale(100%);
+    }
+
+    #screen-02 .intro-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        #253A32 0%,
+        rgba(37, 58, 50, 0.98) 10%,
+        rgba(37, 58, 50, 0.78) 32%,
+        rgba(37, 58, 50, 0.25) 65%,
+        rgba(37, 58, 50, 0) 100%
       );
+    }
+
+    #screen-02 .intro-inner {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    #screen-02 .intro-with-photo {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+    }
+
+    #screen-02 .intro-copy {
+      width: min(57%, 690px);
+      position: relative;
+      z-index: 2;
+    }
+
+    #screen-02 .intro-title {
+      font-size: clamp(2.8rem, 5.2vw, 5.5rem);
+      line-height: 1.04;
+      letter-spacing: -0.045em;
+    }
+
+    #screen-02 .intro-title span {
+      display: block;
+    }
+
+    #screen-02 .intro-text {
+      max-width: 480px;
+      margin-top: 2.5rem;
+    }
+
+    #screen-02 .intro-text p {
+      line-height: 1.7;
+    }
+
+    #screen-02 .intro-navigation {
+      position: relative;
+      z-index: 2;
+    }
+
+
+    /* ==========================================
+       QUESTIONÁRIO VISUAL — TELA 03
+    ========================================== */
+
+    .survey-content {
+      flex: 1;
+      width: 100%;
+      padding: clamp(2rem, 5vh, 4rem) 0;
+    }
+
+    .survey-progress {
+      margin-bottom: 1rem;
+      color: var(--ouro, #C9AE7C);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+    }
+
+    .survey-title {
+      margin: 0 0 1.75rem;
+      font-family: var(--fonte-titulo, Georgia, serif);
+      font-size: clamp(2.6rem, 5.4vw, 5.6rem);
+      font-weight: 400;
+      line-height: 1.06;
+      text-transform: uppercase;
+    }
+
+    .survey-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      align-items: center;
+      gap: clamp(1.5rem, 4vw, 4rem);
+    }
+
+    .survey-grid[hidden] {
+      display: none;
+    }
+
+    .survey-figure {
+      margin: 0;
+      min-height: 280px;
+      background: var(--verde-escuro, #1B2B25);
+    }
+
+    .survey-figure img {
+      width: 100%;
+      height: clamp(300px, 42vh, 520px);
+      object-fit: contain;
+    }
+
+    .survey-figure img[hidden] {
+      display: none;
+    }
+
+    .survey-image-fallback {
+      display: grid;
+      place-items: center;
+      min-height: 300px;
+      padding: 2rem;
+      color: var(--cinza, #B7B2A6);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .survey-image-fallback[hidden] {
+      display: none;
+    }
+
+    .survey-form label {
+      display: block;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .survey-form textarea {
+      width: 100%;
+      min-height: 190px;
+      padding: 1rem;
+      border: 1px solid rgba(201, 174, 124, 0.65);
+      border-radius: 0;
+      background: rgba(0, 0, 0, 0.13);
+      color: var(--creme, #F4EBDD);
+      font: inherit;
+      resize: vertical;
+    }
+
+    .survey-form textarea::placeholder {
+      color: var(--cinza, #B7B2A6);
+    }
+
+    .survey-help {
+      margin-top: 0.75rem;
+      color: var(--cinza, #B7B2A6);
+      font-size: 0.8rem;
+    }
+
+    .survey-error {
+      margin-top: 0.75rem;
+      color: #f2c2b3;
+      font-size: 0.85rem;
+    }
+
+    .survey-error[hidden] {
+      display: none;
+    }
+
+
+    /* ==========================================
+       RESPONSIVIDADE
+    ========================================== */
+
+    @media (max-width: 800px) {
+
+      .screen-intro {
+        padding: 2.5rem 1.5rem;
+      }
+
+      .intro-inner {
+        min-height: calc(100svh - 5rem);
+      }
+
+      .intro-with-photo,
+      .survey-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-with-photo {
+        gap: 1.5rem;
+      }
+
+      .intro-content {
+        padding: 3rem 0;
+      }
+
+      .intro-title {
+        font-size: clamp(2.7rem, 10vw, 4.5rem);
+      }
+
+      .intro-photo img {
+        max-height: 38svh;
+        aspect-ratio: 16 / 9;
+      }
+
+      .survey-figure {
+        min-height: 0;
+      }
+
+      .survey-figure img {
+        height: min(42svh, 360px);
+      }
+
+      .survey-content {
+        padding: 2.25rem 0;
+      }
+
+      .survey-title {
+        margin-bottom: 1.3rem;
+      }
+
+      .survey-form textarea {
+        min-height: 125px;
+      }
+
+      .intro-navigation .btn-primary {
+        gap: 0.75rem;
+        padding: 0.85rem 1rem;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+      }
+
+      #screen-02 .intro-photo {
+        width: 100%;
+        height: 65%;
+        top: 0;
+        bottom: auto;
+      }
+
+      #screen-02 .intro-photo::after {
+        background: linear-gradient(
+          180deg,
+          rgba(37, 58, 50, 0.55) 0%,
+          rgba(37, 58, 50, 0.65) 35%,
+          #253A32 100%
+        );
+      }
+
+      #screen-02 .intro-copy {
+        width: 100%;
+      }
+
+      #screen-02 .intro-title {
+        font-size: clamp(2.7rem, 10vw, 4.5rem);
+      }
+
+      #screen-02 .intro-text {
+        max-width: 100%;
+      }
 
     }
 
-  }
+    @media (prefers-reduced-motion: reduce) {
+      .intro-back {
+        transition: none;
+      }
+    }
 
-});
+    /* ==========================================
+       AJUSTES FINAIS DA TELA 02
+       Mantidos do arquivo anterior
+    ========================================== */
 
+    #screen-02 .intro-photo {
+      top: 0;
+      right: calc(-1 * var(--margem-tela, 4vw));
+      bottom: 0;
+      width: 70vw;
+      height: 100%;
+    }
+
+    #screen-02 .intro-photo::after {
+      background: linear-gradient(
+        90deg,
+        #253A32 0%,
+        rgba(37, 58, 50, 0.95) 12%,
+        rgba(37, 58, 50, 0.65) 35%,
+        rgba(37, 58, 50, 0.15) 70%,
+        transparent 100%
+      );
+    }
+
+    #screen-02 .intro-with-photo {
+      justify-content: flex-start;
+    }
+
+    #screen-02 .intro-copy {
+      width: min(60%, 690px);
+      margin-left: 0;
+    }
+
+    #screen-02 .intro-title {
+      font-size: clamp(2.8rem, 5.2vw, 5.5rem);
+      line-height: 1.04;
+    }
+
+    @media (max-width: 800px) {
+
+      #screen-02 .intro-photo {
+        right: calc(-1 * var(--margem-tela, 4vw));
+        width: 100vw;
+        height: 65%;
+      }
+
+      #screen-02 .intro-copy {
+        width: 100%;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <main id="app">
+
+    <!-- ======================================
+         TELA 01 — ABERTURA
+    ====================================== -->
+
+    <section
+      id="screen-01"
+      class="screen screen-opening"
+      aria-labelledby="titulo-abertura"
+    >
+
+      <figure class="opening-figure">
+
+        <img
+          src="imagens/palacete-abertura.jpg"
+          alt="Estação Júlio Prestes, São Paulo."
+          width="1600"
+          height="1200"
+          fetchpriority="high"
+          decoding="async"
+        >
+
+        <div
+          class="opening-figure-overlay"
+          aria-hidden="true"
+        ></div>
+
+        <figcaption class="opening-credit">
+          Estação Júlio Prestes, São Paulo
+        </figcaption>
+
+      </figure>
+
+      <div class="opening-content">
+
+        <p class="label reveal" style="--i:0">
+
+          <span class="label-number">N.º 01</span>
+
+          <span
+            class="label-rule"
+            aria-hidden="true"
+          ></span>
+
+          Café, casas e gente
+
+        </p>
+
+        <h1
+          id="titulo-abertura"
+          class="opening-title reveal"
+          style="--i:1"
+        >
+
+          Do que os Campos Elíseos
+
+          <span class="opening-title-accent">
+            se lembram?
+          </span>
+
+        </h1>
+
+        <p
+          class="opening-subtitle reveal"
+          style="--i:2"
+        >
+
+          Uma história de riqueza, trabalho e memória
+          nos Campos Elíseos de São Paulo.
+
+        </p>
+
+        <div
+          class="opening-action reveal"
+          style="--i:3"
+        >
+
+          <button
+            type="button"
+            class="btn-primary"
+            data-goto="screen-02"
+          >
+
+            <span>Começar</span>
+
+            <svg
+              width="22"
+              height="12"
+              viewBox="0 0 22 12"
+              aria-hidden="true"
+              focusable="false"
+            >
+
+              <path
+                d="M0 6h20M15 1l5 5-5 5"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              />
+
+            </svg>
+
+          </button>
+
+          <p class="opening-duration">
+            Um breve passeio! Fique com a gente!
+          </p>
+
+        </div>
+
+        <p
+          class="opening-academic reveal"
+          style="--i:4"
+        >
+
+          Trabalho de AEX de "Café e Escravidão:
+          uma história global", de Rafael Marquese,
+          FFLCH-USP, Novembro de 2026.
+
+        </p>
+
+        <div
+          class="opening-team reveal"
+          style="--i:5"
+        >
+
+          <p class="opening-team-label">
+            Integrantes
+          </p>
+
+          <p class="opening-team-names">
+
+            Brendon Henrique dos Reis Silva ·
+            Vítor Hugo Oda Comparini ·
+            Nome do integrante 3
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================
+         TELA 02 — PRIMEIRAS IMPRESSÕES
+    ====================================== -->
+
+    <section
+      id="screen-02"
+      class="screen screen-intro"
+      aria-labelledby="titulo-tela-02"
+      hidden
+    >
+
+      <div class="intro-inner">
+
+        <p class="label intro-label">
+
+          <span class="label-number">N.º 02</span>
+
+          <span
+            class="label-rule"
+            aria-hidden="true"
+          ></span>
+
+          Café, casas e gente
+
+        </p>
+
+        <div class="intro-content intro-with-photo">
+
+          <div class="intro-copy">
+
+            <h2
+              id="titulo-tela-02"
+              class="intro-title"
+              tabindex="-1"
+            >
+
+              Primeiras
+
+              <span>impressões.</span>
+
+            </h2>
+
+            <div class="intro-text">
+
+              <p>
+
+                Antes de passearmos pelos Campos,
+                queremos saber como você imagina esse lugar.
+                Não se preocupe, escreva o que vier à sua cabeça!
+
+              </p>
+
+            </div>
+
+          </div>
+
+          <figure
+            class="intro-photo"
+            id="intro-photo"
+          >
+
+            <img
+              src="imagens/foto-introducao.jpg"
+              alt="Fotografia introdutória dos Campos Elíseos"
+              loading="lazy"
+              onerror="this.closest('figure').hidden=true"
+            >
+
+          </figure>
+
+        </div>
+
+        <nav
+          class="intro-navigation"
+          aria-label="Navegação entre telas"
+        >
+
+          <button
+            type="button"
+            class="intro-back"
+            data-goto="screen-01"
+          >
+            ← Voltar
+          </button>
+
+          <button
+            type="button"
+            class="btn-primary"
+            data-goto="screen-03"
+          >
+
+            Vamos começar
+
+            <span aria-hidden="true">→</span>
+
+          </button>
+
+        </nav>
+
+      </div>
+
+    </section>
+
+
+    <!-- ======================================
+         TELA 03 — QUESTIONÁRIO VISUAL
+    ====================================== -->
+
+    <section
+      id="screen-03"
+      class="screen screen-intro"
+      aria-labelledby="titulo-tela-03"
+      hidden
+    >
+
+      <div class="intro-inner">
+
+        <p class="label intro-label">
+
+          <span class="label-number">N.º 03</span>
+
+          <span
+            class="label-rule"
+            aria-hidden="true"
+          ></span>
+
+          Café, casas e gente
+
+        </p>
+
+        <div class="survey-content">
+
+          <p
+            class="survey-progress"
+            id="survey-progress"
+            aria-live="polite"
+          >
+            PERGUNTA 01 / 03
+          </p>
+
+          <h2
+            id="titulo-tela-03"
+            class="survey-title"
+            tabindex="-1"
+          >
+            Quem mora aqui?
+          </h2>
+
+          <div class="survey-grid">
+
+            <figure class="survey-figure">
+
+              <img
+                id="survey-image"
+                src="imagens/palacete-perguntas.jpg"
+                alt="Fotografia de um palacete"
+                loading="lazy"
+              >
+
+              <div
+                id="survey-image-fallback"
+                class="survey-image-fallback"
+                hidden
+              >
+
+                Adicione a fotografia em
+                imagens/palacete-perguntas.jpg
+
+              </div>
+
+            </figure>
+
+            <div class="survey-form">
+
+              <label for="survey-answer">
+                O que você imagina?
+              </label>
+
+              <textarea
+                id="survey-answer"
+                rows="6"
+                maxlength="2000"
+                placeholder="Escreva sua primeira impressão..."
+              ></textarea>
+
+              <p class="survey-help">
+
+                Responda com suas próprias palavras
+                para avançar. Não precisa acertar.
+
+              </p>
+
+              <p
+                class="survey-error"
+                id="survey-error"
+                role="alert"
+                hidden
+              >
+
+                Escreva uma resposta antes de continuar.
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <nav
+          class="intro-navigation"
+          aria-label="Navegação do questionário"
+        >
+
+          <button
+            type="button"
+            class="intro-back"
+            id="survey-back"
+          >
+            ← Voltar
+          </button>
+
+          <button
+            type="button"
+            class="btn-primary"
+            id="survey-next"
+          >
+
+            Próxima pergunta
+
+            <span aria-hidden="true">→</span>
+
+          </button>
+
+        </nav>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ======================================
+       JAVASCRIPT ORIGINAL DO SITE
+  ====================================== -->
+
+  <script src="script.js"></script>
+
+
+  <!-- ======================================
+       JAVASCRIPT DO QUESTIONÁRIO
+  ====================================== -->
+
+  <script>
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+      /* ====================================
+         CONFIGURAÇÃO DAS TRÊS PERGUNTAS
+      ==================================== */
+
+      const questions = [
+
+        {
+          title: "Quem mora aqui?",
+          image: "imagens/palacete-perguntas.jpg",
+          alt: "Fotografia de um palacete"
+        },
+
+        {
+          title: "Quem circula por aqui?",
+          image: "imagens/rua-perguntas.jpg",
+          alt: "Fotografia de uma rua dos Campos Elíseos"
+        },
+
+        {
+          title: "Quem construiu isto?",
+          image: "imagens/construcao-perguntas.jpg",
+          alt: "Fotografia histórica de uma construção"
+        }
+
+      ];
+
+
+      /* ====================================
+         ELEMENTOS DO QUESTIONÁRIO
+      ==================================== */
+
+      const title =
+        document.getElementById("titulo-tela-03");
+
+      const progress =
+        document.getElementById("survey-progress");
+
+      const photo =
+        document.getElementById("survey-image");
+
+      const fallback =
+        document.getElementById("survey-image-fallback");
+
+      const answer =
+        document.getElementById("survey-answer");
+
+      const errorMessage =
+        document.getElementById("survey-error");
+
+      const back =
+        document.getElementById("survey-back");
+
+      const next =
+        document.getElementById("survey-next");
+
+      let index = 0;
+
+      const storageKey =
+        "campos-eliseos-primeiras-impressoes-v1";
+
+      let responses = ["", "", ""];
+
+
+      /* ====================================
+         RECUPERAR RESPOSTAS SALVAS
+      ==================================== */
+
+      try {
+
+        const saved = JSON.parse(
+          localStorage.getItem(storageKey)
+        );
+
+        if (
+          Array.isArray(saved) &&
+          saved.length === questions.length
+        ) {
+
+          responses = saved.map(value =>
+            typeof value === "string" ? value : ""
+          );
+
+        }
+
+      } catch (error) {
+
+        console.warn(
+          "Não foi possível recuperar as respostas."
+        );
+
+      }
+
+
+      /* ====================================
+         SALVAR RESPOSTAS
+      ==================================== */
+
+      function save() {
+
+        try {
+
+          localStorage.setItem(
+            storageKey,
+            JSON.stringify(responses)
+          );
+
+        } catch (error) {
+
+          console.warn(
+            "Não foi possível salvar as respostas."
+          );
+
+        }
+
+      }
+
+
+      /* ====================================
+         MOSTRAR PERGUNTA ATUAL
+      ==================================== */
+
+      function showQuestion() {
+
+        const question = questions[index];
+
+        progress.textContent =
+          `PERGUNTA 0${index + 1} / 03`;
+
+        title.textContent = question.title;
+
+        photo.src = question.image;
+        photo.alt = question.alt;
+
+        fallback.textContent =
+          "Adicione a fotografia em " + question.image;
+
+        fallback.hidden = true;
+        photo.hidden = false;
+
+        answer.value = responses[index];
+
+        errorMessage.hidden = true;
+
+        next.innerHTML = index === 2
+          ? 'Continuar <span aria-hidden="true">→</span>'
+          : 'Próxima pergunta <span aria-hidden="true">→</span>';
+
+        window.scrollTo(0, 0);
+
+      }
+
+
+      /* ====================================
+         FOTOGRAFIAS AUSENTES
+      ==================================== */
+
+      photo.addEventListener("error", () => {
+
+        photo.hidden = true;
+        fallback.hidden = false;
+
+      });
+
+      photo.addEventListener("load", () => {
+
+        photo.hidden = false;
+        fallback.hidden = true;
+
+      });
+
+
+      /* ====================================
+         REGISTRAR RESPOSTA
+      ==================================== */
+
+      answer.addEventListener("input", () => {
+
+        responses[index] = answer.value;
+
+        errorMessage.hidden = true;
+
+        save();
+
+      });
+
+
+      /* ====================================
+         VOLTAR
+      ==================================== */
+
+      back.addEventListener("click", () => {
+
+        responses[index] = answer.value;
+        save();
+
+        if (index > 0) {
+
+          index--;
+          showQuestion();
+
+          title.focus({
+            preventScroll: true
+          });
+
+        } else {
+
+          const intro =
+            document.getElementById("screen-02");
+
+          const survey =
+            document.getElementById("screen-03");
+
+          survey.hidden = true;
+          intro.hidden = false;
+
+          window.scrollTo(0, 0);
+
+        }
+
+      });
+
+
+      /* ====================================
+         AVANÇAR ENTRE AS PERGUNTAS
+      ==================================== */
+
+      next.addEventListener("click", () => {
+
+        // Guarda a resposta atual.
+        responses[index] = answer.value.trim();
+
+        save();
+
+        // Avança da pergunta 1 para a 2,
+        // e da pergunta 2 para a 3.
+
+        if (index < questions.length - 1) {
+
+          index++;
+
+          showQuestion();
+
+          title.focus({
+            preventScroll: true
+          });
+
+          return;
+
+        }
+
+        // Terminou a terceira pergunta.
+        // Tenta abrir diretamente a Tela 04.
+
+        const currentScreen =
+          document.getElementById("screen-03");
+
+        const nextScreen =
+          document.getElementById("screen-04");
+
+        if (nextScreen) {
+
+          currentScreen.hidden = true;
+          nextScreen.hidden = false;
+
+          window.scrollTo(0, 0);
+
+          const nextHeading =
+            nextScreen.querySelector(
+              "h1, h2, [tabindex='-1']"
+            );
+
+          if (nextHeading) {
+
+            if (!nextHeading.hasAttribute("tabindex")) {
+              nextHeading.setAttribute("tabindex", "-1");
+            }
+
+            nextHeading.focus({
+              preventScroll: true
+            });
+
+          }
+
+        } else {
+
+          // Tela 04 ainda não foi criada.
+          // Mantém o visitante na terceira pergunta.
+
+          alert(
+            "As próximas páginas da experiência ainda estão em construção."
+          );
+
+        }
+
+      });
+
+
+      /* ====================================
+         REINICIAR AO ENTRAR NA TELA 03
+      ==================================== */
+
+      document.querySelectorAll(
+        '[data-goto="screen-03"]'
+      ).forEach(button => {
+
+        button.addEventListener("click", () => {
+
+          index = 0;
+
+          showQuestion();
+
+        });
+
+      });
+
+
+      /* ====================================
+         ESTADO INICIAL
+      ==================================== */
+
+      showQuestion();
+
+    });
+
+  </script>
+
+</body>
+</html>
