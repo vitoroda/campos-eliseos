@@ -2832,5 +2832,103 @@ form.addEventListener("submit", async event => {
 <!-- FIM DO EXTRA — TELA 08 -->
 
 
+
+<!-- TELA 09 — COMPARAÇÃO REVERSÍVEL, INTEGRADA -->
+<style id="land09-integrated-css">
+
+#screen-09{--green:#253a32;--cream:#f4ebdd;--gold:#c9ae7c;--muted:#b9c4b9}#screen-09 *{box-sizing:border-box}#screen-09[hidden]{display:none!important}.land09{min-height:100svh;overflow:hidden;position:relative;padding:clamp(26px,4vw,56px) clamp(20px,6vw,90px) 55px}.land09:before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 75% 10%,#435c4833,transparent 65%)}.land09>*{position:relative}.land09-top{display:flex;justify-content:space-between;gap:16px;align-items:center;border-bottom:1px solid #c9ae7c55;padding-bottom:18px;letter-spacing:.18em;text-transform:uppercase;font:11px/1.5 Arial,sans-serif;color:var(--gold)}.land09-head{max-width:920px;margin:clamp(28px,5vh,52px) auto 30px;text-align:center}.land09-kicker{font:11px/1.4 Arial,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}.land09 h1{font-size:clamp(38px,5.6vw,78px);font-weight:400;line-height:1.05;letter-spacing:-.035em;margin:14px 0 18px}.land09 h1 em{color:var(--gold);font-weight:400}.land09-intro{font:clamp(15px,1.4vw,18px)/1.65 Georgia,serif;max-width:720px;margin:auto;color:#e2dfd2}.land09-stage{max-width:1130px;margin:0 auto;position:relative}.land09-photo{height:clamp(330px,49vw,560px);position:relative;overflow:hidden;border:1px solid #c9ae7c77;background:#9a8c72;touch-action:pan-y;user-select:none;cursor:grab}.land09-photo.dragging{cursor:grabbing}.land09-frame{position:absolute;inset:0;overflow:hidden}.land09-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.34) contrast(.94)}.land09-frame .fallback{position:absolute;inset:0;display:grid;place-items:center;text-align:center;background:linear-gradient(155deg,#c9bda3,#857d6d);color:#403b32;padding:24px}.land09-frame .fallback svg{max-width:90%;max-height:82%;opacity:.72}.land09-frame .fallback small{font:10px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase}.land09-frame.new .fallback{background:linear-gradient(150deg,#b6b9a0,#778879)}.land09-frame.old{z-index:2;will-change:clip-path;clip-path:inset(0 0 0 0)}.land09-frame.old:after,.land09-frame.new:after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,#101b18aa,transparent 40%);pointer-events:none}.land09-image-label{position:absolute;bottom:18px;left:22px;z-index:4;background:#253a32e6;color:var(--cream);padding:11px 14px;font:11px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}.land09-frame.new .land09-image-label{left:auto;right:22px}.land09-handle{position:absolute;z-index:5;left:100%;top:0;bottom:0;width:0;display:flex;align-items:center;justify-content:center;pointer-events:none;border-left:2px solid var(--cream)}.land09-handle span{display:grid;place-items:center;width:44px;height:44px;flex-shrink:0;border-radius:50%;background:var(--green);border:1px solid var(--cream);font:20px Arial,sans-serif;transform:translateX(-50%)}.land09-hint{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:15px 0 20px;font:11px/1.5 Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}.land09-btn{font:12px/1.2 Arial,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:var(--cream);background:transparent;border:1px solid #c9ae7c77;padding:13px 18px;cursor:pointer;min-height:44px}.land09-btn:hover,.land09-btn:focus-visible{background:#c9ae7c22;outline-color:var(--gold)}.land09-btn.primary{background:var(--gold);color:var(--green);font-weight:bold}.land09-story{max-width:1130px;margin:26px auto 0;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(24px,5vw,70px);border-top:1px solid #c9ae7c55;padding-top:30px}.land09-num{font:11px Arial,sans-serif;letter-spacing:.18em;color:var(--gold);text-transform:uppercase}.land09-story h2{font-weight:400;font-size:clamp(26px,3vw,42px);line-height:1.13;margin:10px 0 16px}.land09-story p{font-size:clamp(15px,1.35vw,17px);line-height:1.7;margin:0 0 14px;color:#e5e1d7}.land09-note{border-left:2px solid var(--gold);padding:4px 0 4px 19px}.land09-note strong{color:var(--gold);font:11px Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase}.land09-note p{margin-top:12px;font-size:15px}.land09-after{display:none}.land09.show-new .land09-before{display:none}.land09.show-new .land09-after{display:block}.land09-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.land09-cite{max-width:1130px;margin:32px auto 0;font:11px/1.6 Arial,sans-serif;color:#bdc3b9}.land09-cite a{color:var(--gold)}.land09-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:20px 0}.land09-point{border-top:1px solid #c9ae7c66;padding-top:12px}.land09-point b{display:block;font:13px Arial,sans-serif;color:var(--gold);margin-bottom:6px}.land09-point span{font:13px/1.5 Georgia,serif;color:#e5e1d7}@media(max-width:760px){.land09{padding:22px 20px 45px}.land09-top{font-size:9px;letter-spacing:.1em}.land09-head{margin:34px auto 25px}.land09 h1{font-size:clamp(34px,9vw,48px)}.land09-intro{font-size:15px}.land09-photo{height:min(56svh,480px);min-height:290px}.land09-story{grid-template-columns:1fr;gap:18px;padding-top:24px}.land09-image-label{bottom:12px;left:10px;font-size:9px;padding:9px}.land09-frame.new .land09-image-label{right:10px}.land09-hint{align-items:flex-start;font-size:10px}.land09-points{grid-template-columns:1fr;gap:8px}.land09-point{padding-top:10px}.land09-btn{flex:1 1 auto}.land09-handle{width:0}.land09-handle span{width:38px;height:38px}}@media(prefers-reduced-motion:reduce){#screen-09 *,#screen-09 *:before,#screen-09 *:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+#screen-09{background:#253a32;color:#f4ebdd;font-family:Georgia,serif}#screen-09 .land09-nav{max-width:1130px;margin:28px auto 0;padding-top:18px;border-top:1px solid #c9ae7c77;display:flex;justify-content:space-between;gap:16px}#screen-09 .land09-nav button{min-width:120px}#screen-09 .land09-photo:focus-visible{outline:3px solid #c9ae7c;outline-offset:3px}@media(max-width:760px){#screen-09 .land09-nav{margin-top:24px}#screen-09 .land09-nav button{min-width:0;flex:1}#screen-09 .land09-photo{touch-action:pan-y}}
+</style>
+<section class="land09" id="screen-09" hidden aria-label="A mudança na paisagem e o café">
+ <div class="land09-top"><span>CAFÉ, CASAS E GENTE</span><span>09 / A CIDADE DO CAFÉ</span></div>
+ <header class="land09-head"><div class="land09-kicker">Da rua à morada</div><h1>A mudança na paisagem <em>e o café.</em></h1><p class="land09-intro">A riqueza cafeeira ajudou a redesenhar São Paulo. Mas a transformação das casas e das ruas também revela diferentes maneiras de viver — e de trabalhar.</p></header>
+ <div class="land09-stage"><div class="land09-photo" id="land09-photo" tabindex="0" role="slider" aria-label="Arraste para comparar as paisagens de São Paulo antiga e Campos Elíseos; use as setas para ir e voltar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+  <div class="land09-frame new"><div class="fallback" aria-hidden="true"><svg viewBox="0 0 680 320" fill="none" stroke="#425a4c" stroke-width="4"><path d="M0 280H680M0 300H680M40 280V105L130 50L220 105V280M260 280V90L390 25L520 90V280M550 280V115L615 70L680 115"/><path d="M50 110H210M270 95H510M560 120H680M100 280V180H155V280M335 280V170H435V280M75 135H110V165H75zM150 135H185V165H150zM300 115H345V150H300zM430 115H475V150H430z"/><path d="M0 280Q75 245 130 280M500 280Q590 230 680 280M230 280V145M230 170Q180 125 230 90Q280 130 230 170M540 280V145M540 170Q490 125 540 90Q590 130 540 170"/></svg><small>Imagem histórica dos Campos Elíseos — inserir arquivo</small></div><img src="imagens/campos-eliseos-rua.jpg" alt="Fotografia histórica de rua e residências nos Campos Elíseos" onerror="this.style.display='none'"><span class="land09-image-label">Campos Elíseos · ruas planejadas</span></div>
+  <div class="land09-frame old" id="land09-old"><div class="fallback" aria-hidden="true"><svg viewBox="0 0 680 320" fill="none" stroke="#675946" stroke-width="4"><path d="M0 280H680M0 300H680M0 115L80 60L175 115H270L340 78L425 115H520L595 60L680 110M0 115V280H270V115M270 115V280H520V115M520 115V280H680V110M40 140H105V195H40zM165 140H225V195H165zM315 140H385V195H315zM435 140H495V195H435zM565 140H640V195H565zM115 280V205H155V280M390 280V205H430V280"/><path d="M0 110H270M270 110H520M520 110H680M0 125H680"/></svg><small>Imagem histórica do casario de taipa — inserir arquivo</small></div><img src="imagens/sao-paulo-taipa.jpg" alt="Fotografia histórica do casario tradicional de São Paulo" onerror="this.style.display='none'"><span class="land09-image-label">São Paulo · casario tradicional</span><div class="land09-handle" aria-hidden="true"><span>‹ ›</span></div></div>
+ </div><div class="land09-hint"><span id="land09-instruction">↔ Arraste para os dois lados e compare as paisagens</span><button type="button" class="land09-btn" id="land09-skip">Ver Campos Elíseos</button></div></div>
+ <div class="land09-story"><div><div class="land09-before"><div class="land09-num">01 / A cidade herdada</div><h2>Casas junto à rua.</h2><p>Na São Paulo oitocentista, sobrados e casas térreas de taipa compunham boa parte da paisagem. As fachadas frequentemente acompanhavam o alinhamento das ruas, enquanto os cômodos se organizavam em terrenos estreitos e profundos.</p><p>O sobrado podia reunir trabalho, comércio e moradia. Sua organização refletia uma sociedade profundamente marcada pela escravidão.</p></div><div class="land09-after"><div class="land09-num">02 / A cidade projetada</div><h2>Casas afastadas, outras formas de morar.</h2><p>Nos Campos Elíseos, ruas retas e arborizadas e o recuo mínimo de cinco metros entre as residências e a via pública criaram uma paisagem diferente. Os jardins e o afastamento das fachadas expressavam novos ideais de higiene, privacidade e distinção social.</p><div class="land09-points"><div class="land09-point"><b>5 metros</b><span>Recuo mínimo previsto no loteamento.</span></div><div class="land09-point"><b>Alamedas</b><span>Ruas retas e arborizadas.</span></div><div class="land09-point"><b>Palacetes</b><span>Casas amplas, com separação entre estar, repouso e serviços.</span></div></div><p>O palacete não foi apenas uma fachada mais ornamentada: sua distribuição interna procurava separar a vida familiar, as visitas e o trabalho doméstico. A modernização, porém, não se espalhou igualmente pela cidade.</p></div></div>
+ <aside class="land09-note"><div class="land09-before"><strong>O que a fotografia não mostra</strong><p>Essas casas antigas podem parecer desconfortáveis hoje. Mas, como observa Lúcio Costa em passagem recuperada por Maria Cecília Naclério Homem, o funcionamento cotidiano das residências abastadas dependia intensamente do trabalho de pessoas escravizadas: buscar água, cozinhar, limpar, transportar objetos e realizar inúmeros serviços.</p><p>O conforto dos proprietários existia, portanto, às custas de um trabalho frequentemente invisível nas imagens.</p></div><div class="land09-after"><strong>Modernidade e permanências</strong><p>A passagem do sobrado e da chácara ao palacete acompanhou a expansão do café, as mudanças nas técnicas construtivas e, sobretudo, a transformação das relações de trabalho. A Abolição, em 1888, foi um marco decisivo — mas a separação entre patrões e trabalhadores domésticos continuou inscrita nas plantas das novas residências.</p></div></aside></div>
+ <div class="land09-cite">Base histórica: HOMEM, Maria Cecília Naclério. <i>O palacete paulistano: o processo civilizador e a morada da elite do café (1867–1914/18)</i>. Tese (Doutorado), FAU-USP, 1992, especialmente pp. 1–2 e 30–35. Fotografias: preencher autoria, data e acervo ao inserir os arquivos. Os desenhos exibidos na ausência das fotos são apenas esquemas ilustrativos.</div>
+<nav class="land09-nav" aria-label="Navegação entre telas"><button class="land09-btn" type="button" id="land09-back">← Voltar ao mapa</button><button class="land09-btn primary" type="button" id="land09-next">Continuar →</button></nav></section>
+<script id="land09-interaction">
+(function(){
+ const root=document.getElementById('screen-09');
+ const photo=document.getElementById('land09-photo');
+ const old=document.getElementById('land09-old');
+ const handle=old.querySelector('.land09-handle');
+ const hint=document.getElementById('land09-instruction');
+ const skip=document.getElementById('land09-skip');
+ const back=document.getElementById('land09-back');
+ const next=document.getElementById('land09-next');
+ let progress=50,dragging=false;
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function render(p,animate=false){
+  progress=Math.max(0,Math.min(100,p));
+  const duration=animate&&!reduced?'clip-path .3s ease, left .3s ease':'none';
+  old.style.transition=duration;
+  handle.style.transition=animate&&!reduced?'left .3s ease':'none';
+  old.style.clipPath='inset(0 '+progress+'% 0 0)';
+  // A alça marca a borda direita da fotografia antiga.
+  // A fotografia nova é revelada da direita para a esquerda.
+  handle.style.left=(100-progress)+'%';
+  photo.setAttribute('aria-valuenow',String(Math.round(progress)));
+  photo.setAttribute('aria-valuetext',Math.round(progress)+'% da paisagem dos Campos Elíseos revelada');
+  const newDominant=progress>=55;
+  root.classList.toggle('show-new',newDominant);
+  hint.textContent='↔ Arraste para os dois lados e compare as paisagens';
+  skip.textContent=newDominant?'Ver cidade antiga':'Ver Campos Elíseos';
+ }
+ // A alça precisa estar fora do elemento recortado para permanecer visível.
+ photo.appendChild(handle);
+ function fromPointer(e){
+  const r=photo.getBoundingClientRect();
+  render((r.right-e.clientX)/r.width*100);
+ }
+ photo.addEventListener('pointerdown',e=>{
+  if(e.pointerType==='mouse'&&e.button!==0)return;
+  dragging=true;photo.classList.add('dragging');
+  photo.setPointerCapture(e.pointerId);fromPointer(e);
+ });
+ photo.addEventListener('pointermove',e=>{if(dragging)fromPointer(e)});
+ function release(e){if(!dragging)return;dragging=false;photo.classList.remove('dragging');}
+ photo.addEventListener('pointerup',release);
+ photo.addEventListener('pointercancel',release);
+ photo.addEventListener('keydown',e=>{
+  if(e.key==='ArrowLeft'||e.key==='ArrowRight'||e.key==='Home'||e.key==='End'){
+   e.preventDefault();
+   if(e.key==='Home')render(0,true);
+   else if(e.key==='End')render(100,true);
+   else render(progress+(e.key==='ArrowRight'?5:-5),true);
+  }
+ });
+ skip.addEventListener('click',()=>render(progress>=55?0:100,true));
+ back.addEventListener('click',()=>{root.hidden=true;const previous=document.getElementById('screen-08');if(previous)previous.hidden=false;window.scrollTo(0,0)});
+ next.addEventListener('click',()=>{
+  const following=document.getElementById('screen-10')||document.getElementById('screen-final');
+  if(following){root.hidden=true;following.hidden=false;window.scrollTo(0,0)}
+  else alert('Tela concluída. Conecte este botão à próxima tela do projeto.');
+ });
+ render(50);
+})();
+</script>
+<script id="land09-navigation-integration">
+(function(){
+ function setup(){
+  const btn=document.getElementById('map08-next');
+  const map=document.getElementById('screen-08');
+  const page=document.getElementById('screen-09');
+  const feedback=document.getElementById('screen-final');
+  if(!btn||!map||!page)return;
+  btn.addEventListener('click',function(event){
+   if(map.hidden||!map.classList.contains('map08-detail'))return;
+   event.preventDefault();event.stopImmediatePropagation();
+   map.hidden=true;page.hidden=false;if(feedback)feedback.hidden=true;
+   window.scrollTo(0,0);
+  },true);
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup);else setup();
+})();
+</script>
 </body>
 </html>
