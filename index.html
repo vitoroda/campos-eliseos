@@ -1585,17 +1585,21 @@
       <img id="cafe-map-historic" src="imagens/mapa-sao-paulo-1886.jpg" alt="Mapa da Província de São Paulo, 1886, organizado pela Sociedade Promotora de Imigração de São Paulo" draggable="false">
     </div>
     <div class="cafe-farm-image" role="presentation">
-     <img
-  src="imagens/fazenda-cafe.jpg"
-  alt="Fotografia da Fazenda Dumont, em que é possível ver a ferrovia próxima ao local de processamento do café. Retirado de: ">
-      
+      <svg viewBox="0 0 1200 750" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1200" height="750" fill="#a8a18a"/><rect y="465" width="1200" height="285" fill="#6b7655"/>
+        <path d="M0 450 Q250 340 520 450 T1200 410 V520 H0" fill="#879174"/>
+        <g fill="#43543d"><path d="M0 740 L460 470 510 470 200 750Z"/><path d="M230 750 L530 470 580 470 440 750Z"/><path d="M550 750 L610 470 660 470 790 750Z"/><path d="M900 750 L690 470 750 470 1200 740Z"/></g>
+        <path d="M755 455 V300 L970 300 V455" fill="#e4d6b7"/><path d="M720 310 L865 220 1005 310Z" fill="#5a4b3e"/>
+        <rect x="830" y="350" width="60" height="105" fill="#665747"/>
+        <text x="48" y="80" font-family="Georgia,serif" font-size="27" fill="#fff9e8">ILUSTRAÇÃO PROVISÓRIA · SUBSTITUIR POR FOTOGRAFIA DE ACERVO</text>
+      </svg>
     </div>
   </div>
   <div class="cafe-map-layout">
     <div class="cafe-map-topline"><span>N.º 05</span><span>CAFÉ, CASAS E GENTE</span><span id="cafe-map-stage-label">01 / 03</span></div>
     <article class="cafe-map-panel" aria-live="polite">
       <p class="cafe-map-kicker">REGIÃO DE RIBEIRÃO PRETO</p>
-      <h2 id="cafe-map-heading">De onde vem essa riqueza?</h2>
+      <h2 id="cafe-map-heading">Por que os fazendeiros foram para Ribeirão Preto?</h2>
       <div id="cafe-map-text-1" class="cafe-map-paragraph"><p>Para chegarmoas aos Campos Elíseos, vamos dar atenção à região de Ribeirão Preto na metade final do séc. XIX. Ao ponto que a produção cafeeira avançava cada vez mais para o interior paulista, alavancada por ótimos preços no mercado internacional, os grandes magnatas do ramo do café começaram a estabelecer suas fazendas enormes na região do norte paulista.</p></div>
       <div id="cafe-map-text-2" class="cafe-map-paragraph" hidden><p>Contendo um terreno pouco acidentado, e um solo que ganhou fama pela sua qualidade no plantio, a região foi rapidamente tomada pela produção dos magnatas do café brasileiro, concentrando terras antes cultivadas por pequenos trabalhadores de origem mineira, comprando vastas porções de terras com um objetivo claro, expandir a fronteira de plantações de café, pois seus antigos polos de produção estavam sendo esgotados por conta da erosão causada pela monocultura intensiva que rasgou o ecossistema do Vale do Paraíba.</p></div>
     </article>
@@ -1603,11 +1607,39 @@
       <button type="button" class="intro-back" id="cafe-map-back">← Voltar</button>
       <button type="button" class="btn-primary" id="cafe-map-continue">Continuar <span aria-hidden="true">→</span></button>
     </nav>
-    <p class="cafe-map-source">Mapa da Província de São Paulo (1886), Sociedade Promotora de Imigração de S. Paulo. 
-      <br>
-      Fazenda: Propriedade de Henrique Dumont. Autoria não identificada.
-    </p>
+    <p class="cafe-map-source">Mapa da Província de São Paulo (1886), Sociedade Promotora de Imigração de S. Paulo. Fazenda: ilustração provisória, a substituir por fotografia de acervo.</p>
   </div>
+</section>
+
+
+<!-- TELA 06 — ANATOMIA DA MÁQUINA CAFEEIRA -->
+<section id="screen-06" class="screen dumont-screen" hidden data-step="0" aria-labelledby="dumont-title">
+  <div class="dumont-gallery" aria-hidden="true">
+    <div class="dumont-layer is-visible" data-photo="0"><div class="dumont-art dumont-art-0"></div><img src="imagens/fazenda-dumont-geral.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="dumont-layer" data-photo="1"><div class="dumont-art dumont-art-1"></div><img src="imagens/fazenda-cultivo.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="dumont-layer" data-photo="2"><div class="dumont-art dumont-art-2"></div><img src="imagens/fazenda-beneficiamento.jpg" alt="" onerror="this.style.display='none'"></div>
+    <div class="dumont-layer" data-photo="3"><div class="dumont-art dumont-art-3"></div><img src="imagens/fazenda-trabalho.jpg" alt="" onerror="this.style.display='none'"></div>
+  </div>
+  <div class="dumont-shade"></div>
+  <header class="dumont-header"><span>CAFÉ, CASAS E GENTE</span><span>N.º 06 — <span id="dumont-count">01 / 04</span></span></header>
+  <div class="dumont-point dumont-point-a"><b>01</b><span>CULTIVO</span></div>
+  <div class="dumont-point dumont-point-b"><b>02</b><span>INFRAESTRUTURA</span></div>
+  <div class="dumont-point dumont-point-c"><b>03</b><span>TRABALHO</span></div>
+  <article class="dumont-panel" aria-live="polite">
+    <p class="dumont-kicker" id="dumont-kicker">FAZENDA DUMONT / VISÃO GERAL</p>
+    <h2 id="dumont-title">Anatomia da máquina cafeeira</h2>
+    <p id="dumont-copy">Grandes figuras da economia paulista participaram dessa corrida de compras de terras na região, entre elas Henrique Dumont. A fotografia geral nos convida a investigar como a propriedade se organizava.</p>
+    <p class="dumont-draft">Texto demonstrativo: substitua pelos parágrafos originais da tela.</p>
+  </article>
+  <div class="dumont-diagram" aria-label="Etapas da exploração">
+    <div class="dumont-node" data-node="1"><b>01</b><span>TERRA / CULTIVO</span></div>
+    <div class="dumont-node" data-node="2"><b>02</b><span>INFRAESTRUTURA</span></div>
+    <div class="dumont-node" data-node="3"><b>03</b><span>TRABALHO</span></div>
+  </div>
+  <footer class="dumont-footer">
+    <p id="dumont-credit">Fotografias: substitua pelos arquivos históricos identificados no LEIA-ME.</p>
+    <div class="dumont-actions"><button type="button" class="dumont-back" id="dumont-back">← Voltar</button><button type="button" class="dumont-next" id="dumont-next">Continuar →</button></div>
+  </footer>
 </section>
 
 <!-- ======================================
@@ -1847,7 +1879,7 @@ document.addEventListener("DOMContentLoaded", () => {
       atualizar(2);
     } else {
       // A próxima página ainda não foi fornecida: não saltar para o formulário.
-      alert("A próxima tela, sobre a Fazenda Dumont, ainda será adicionada.");
+      tela.hidden = true; document.getElementById("screen-06").hidden = false; window.scrollTo(0, 0);
     }
   });
   voltar.addEventListener("click", () => {
@@ -1862,6 +1894,44 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   observador.observe(tela, {attributes:true,attributeFilter:["hidden"]});
   atualizar(0);
+});
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+ const root=document.getElementById('screen-06'); if(!root)return;
+ const layers=[...root.querySelectorAll('.dumont-layer')];
+ const next=document.getElementById('dumont-next'), back=document.getElementById('dumont-back');
+ const stages=[
+ {k:'FAZENDA DUMONT / VISÃO GERAL',t:'Anatomia da máquina cafeeira',p:'Grandes figuras da economia paulista participaram dessa corrida de compras de terras na região, entre elas Henrique Dumont. A fotografia geral nos convida a investigar como a propriedade se organizava.',c:'Visão geral: insira autoria, data e acervo da fotografia.'},
+ {k:'01 / TERRA E CULTIVO',t:'Uma propriedade voltada ao café',p:'A câmera entra no cafezal. A dimensão territorial e o cultivo constituíam a base da produção cafeeira. O olhar passa da paisagem geral para os pés de café.',c:'Cultivo: insira autoria, data e acervo da fotografia.'},
+ {k:'02 / INSTALAÇÕES',t:'A infraestrutura da produção',p:'A aproximação seguinte revela os espaços de secagem e beneficiamento, além das instalações necessárias à produção. Nem toda imagem de terreiro documenta máquinas ou oficinas.',c:'Beneficiamento: insira autoria, data e acervo da fotografia.'},
+ {k:'03 / TRABALHO',t:'Quem fazia a fazenda funcionar?',p:'O trabalho atravessava todas essas atividades. A última imagem aproxima o visitante das pessoas que sustentavam a produção, preparando a discussão sobre trabalho escravizado e colonato.',c:'Trabalho: insira autoria, data e acervo da fotografia.'}
+ ];
+ let step=0,busy=false,timer;
+ const reduce=matchMedia('(prefers-reduced-motion: reduce)');
+ function render(n,animate=true){
+  clearTimeout(timer);step=n;root.dataset.step=String(n);
+  const x=stages[n];document.getElementById('dumont-kicker').textContent=x.k;document.getElementById('dumont-title').textContent=x.t;
+  document.getElementById('dumont-copy').textContent=x.p;document.getElementById('dumont-credit').textContent=x.c;
+  document.getElementById('dumont-count').textContent=String(n+1).padStart(2,'0')+' / 04';
+  root.querySelectorAll('.dumont-node').forEach((el,i)=>el.classList.toggle('active',i<n));
+  back.textContent=n===0?'← Voltar à região':'← Voltar';next.textContent=n===3?'Rever sequência ↺':'Continuar →';
+  layers.forEach((el,i)=>{el.classList.toggle('is-visible',i===n);el.classList.remove('is-entering')});
+  busy=false;next.disabled=false;back.disabled=false;
+ }
+ function advance(){if(busy)return;if(step===3){render(0);return;}
+  if(reduce.matches){render(step+1,false);return;}
+  busy=true;next.disabled=true;back.disabled=true;
+  const old=layers[step],incoming=layers[step+1];
+  old.classList.add('is-entering');
+  timer=setTimeout(()=>{incoming.classList.add('is-visible');timer=setTimeout(()=>render(step+1),850)},1000);
+ }
+ next.addEventListener('click',advance);
+ back.addEventListener('click',()=>{if(busy){clearTimeout(timer);busy=false;}if(step>0){render(step-1);return;}root.hidden=true;const prev=document.getElementById('screen-05');prev.hidden=false;window.scrollTo(0,0)});
+ const obs=new MutationObserver(()=>{if(root.hidden){clearTimeout(timer);render(0,false)}});obs.observe(root,{attributes:true,attributeFilter:['hidden']});
+ render(0,false);
 });
 </script>
 
