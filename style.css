@@ -502,17 +502,22 @@ button { font: inherit; color: inherit; cursor: pointer; }
   line-height: 1.55;
 }
 
-/* Tela 07 — parágrafos mais largos e mais altos */
-#screen-07 .rail-copy {
-  max-width: 650px;
+/* Tela 07 — ampliar a coluna e subir o conteúdo */
+#screen-07 .rail-slide-inner {
+  width: min(760px, 88vw);
+  padding-top: clamp(75px, 11vh, 115px);
 }
 
-#screen-07 .rail-copy p {
-  max-width: 650px;
+#screen-07 .rail-slide p:not(.rail-eyebrow) {
+  max-width: 720px;
   font-size: 16px;
   line-height: 1.5;
 }
 
-#screen-07 .rail-copy {
-  transform: translateY(-20px);
+/* Ajuste para telas menores */
+@media (max-width: 700px) {
+  #screen-07 .rail-slide-inner {
+    width: 94vw;
+    padding: 70px 3vw 0;
+  }
 }
