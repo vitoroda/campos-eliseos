@@ -2793,7 +2793,7 @@ form.addEventListener("submit", async event => {
   <figure style="margin:0">
    <!-- Duas imagens preparadas separadamente: planta inteira e detalhe feito no Photoshop. -->
    <div class="map08-frame">
-    <img class="map08-img map08-original" src="imagens/planta-sao-paulo.jpg" alt="Planta de São Paulo de 1881. Publicado por Jules Martin. Retirado de: https://www.brasilianaiconografica.art.br/obras/20120/nova-planta-da-cidade-de-sao-paulo-e-suburbios-publicada-por-jules-martin?utm_source=chatgpt.com">
+    <img class="map08-img map08-original" src="imagens/planta-sao-paulo.jpg" alt="Planta de São Paulo de 1881. Publicado por Jules Martin. Retirado de: https://www.brasilianaiconografica.art.br/obras/20120/nova-planta-da-cidade-de-sao-paulo-e-suburbios-publicada-por-jules-martin">
     <img class="map08-img map08-closeup" src="imagens/planta-campos-eliseos-luz.jpg" alt="Detalhe mostra os Campos Elíseos; nesta data, já eram chamados dessa forma, mas suas ruas não estavam desenhadas. A proximidade com a Luz é importante">
     <span class="map08-tag" id="map08-tag" style="z-index:3">SÃO PAULO · PLANTA HISTÓRICA</span>
    </div>
@@ -2818,7 +2818,7 @@ form.addEventListener("submit", async event => {
    e.stopImmediatePropagation();e.preventDefault();rail.hidden=true;final.hidden=true;root.hidden=false;reset();window.scrollTo(0,0);
   },true);
   next.addEventListener('click',function(){
-   if(!detail){detail=true;root.classList.add('map08-detail');tag.textContent='DETALHE · CAMPOS ELÍSEOS E ESTAÇÃO DA LUZ';next.textContent='Continuar →';back.textContent='← Ver planta inteira';return;}
+   if(!detail){detail=true;root.classList.add('map08-detail');tag.textContent='PROXIMIDADE DOS CAMPOS ELÍSEOS COM A ESTAÇÃO DA LUZ';next.textContent='Continuar →';back.textContent='← Ver planta inteira';return;}
    root.hidden=true;final.hidden=false;window.scrollTo(0,0);
   });
   back.addEventListener('click',function(){
