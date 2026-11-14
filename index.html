@@ -1582,23 +1582,7 @@
 <section id="screen-05" class="screen cafe-map-screen" hidden aria-labelledby="cafe-map-heading" data-stage="0">
   <div class="cafe-map-scene" aria-hidden="true">
     <div class="cafe-map-cartography">
-      <svg class="cafe-map-art" viewBox="0 0 1200 750" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-        <rect width="1200" height="750" fill="#d7c6a4"/>
-        <g stroke="#ae9977" fill="none" stroke-width="2" opacity=".6">
-          <path d="M-80 90 Q300 210 650 50 T1300 170"/><path d="M-60 220 Q350 340 720 170 T1250 290"/>
-          <path d="M-30 440 Q360 510 740 360 T1240 430"/><path d="M-30 610 Q400 690 820 540 T1300 650"/>
-        </g>
-        <path d="M145 205 L375 135 595 205 845 175 1040 330 1005 530 770 625 480 570 240 465 Z" fill="#c6b28b" stroke="#6b6d53" stroke-width="5"/>
-        <path d="M765 470 Q730 530 675 560" stroke="#50798b" stroke-width="8" fill="none" opacity=".65"/>
-        <path d="M870 335 Q750 330 640 425" stroke="#8c704f" stroke-width="5" fill="none" stroke-dasharray="11 10"/>
-        <circle cx="865" cy="340" r="15" fill="#8b4b38" stroke="#f5eddd" stroke-width="5"/>
-        <circle cx="640" cy="430" r="15" fill="#294e3d" stroke="#f5eddd" stroke-width="5"/>
-        <g font-family="Georgia,serif" fill="#283d33">
-          <text x="885" y="325" font-size="28">Vale do Paraíba</text>
-          <text x="390" y="400" font-size="32">Ribeirão Preto</text>
-          <text x="55" y="75" font-size="23" letter-spacing="5">SÃO PAULO · MAPA ESQUEMÁTICO</text>
-        </g>
-      </svg>
+      <img id="cafe-map-historic" src="imagens/mapa-sao-paulo-1886.jpg" alt="Mapa da Província de São Paulo, 1886, organizado pela Sociedade Promotora de Imigração de São Paulo" draggable="false">
     </div>
     <div class="cafe-farm-image" role="presentation">
       <svg viewBox="0 0 1200 750" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
@@ -1615,7 +1599,7 @@
     <div class="cafe-map-topline"><span>N.º 05</span><span>CAFÉ, CASAS E GENTE</span><span id="cafe-map-stage-label">01 / 03</span></div>
     <article class="cafe-map-panel" aria-live="polite">
       <p class="cafe-map-kicker">REGIÃO DE RIBEIRÃO PRETO</p>
-      <h2 id="cafe-map-heading">De onde vinha essa riqueza?</h2>
+      <h2 id="cafe-map-heading">Por que os fazendeiros foram para Ribeirão Preto?</h2>
       <div id="cafe-map-text-1" class="cafe-map-paragraph"><p>Para chegarmoas aos Campos Elíseos, vamos dar atenção à região de Ribeirão Preto na metade final do séc. XIX. Ao ponto que a produção cafeeira avançava cada vez mais para o interior paulista, alavancada por ótimos preços no mercado internacional, os grandes magnatas do ramo do café começaram a estabelecer suas fazendas enormes na região do norte paulista.</p></div>
       <div id="cafe-map-text-2" class="cafe-map-paragraph" hidden><p>Contendo um terreno pouco acidentado, e um solo que ganhou fama pela sua qualidade no plantio, a região foi rapidamente tomada pela produção dos magnatas do café brasileiro, concentrando terras antes cultivadas por pequenos trabalhadores de origem mineira, comprando vastas porções de terras com um objetivo claro, expandir a fronteira de plantações de café, pois seus antigos polos de produção estavam sendo esgotados por conta da erosão causada pela monocultura intensiva que rasgou o ecossistema do Vale do Paraíba.</p></div>
     </article>
@@ -1623,7 +1607,7 @@
       <button type="button" class="intro-back" id="cafe-map-back">← Voltar</button>
       <button type="button" class="btn-primary" id="cafe-map-continue">Continuar <span aria-hidden="true">→</span></button>
     </nav>
-    <p class="cafe-map-source">Mapa e fazenda: ilustrações provisórias. Substituir por documentos históricos identificados antes da publicação definitiva.</p>
+    <p class="cafe-map-source">Mapa da Província de São Paulo (1886), Sociedade Promotora de Imigração de S. Paulo. Fazenda: ilustração provisória, a substituir por fotografia de acervo.</p>
   </div>
 </section>
 
@@ -1814,6 +1798,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const texto1 = document.getElementById("cafe-map-text-1");
   const texto2 = document.getElementById("cafe-map-text-2");
   const reduzir = window.matchMedia("(prefers-reduced-motion: reduce)");
+  // Coordenadas aproximadas na imagem original (fração da largura e altura).
+  // A câmera considera o recorte de object-fit: cover para centralizar cada região.
+  const mapaImagem = document.getElementById("cafe-map-historic");
+  function calibrarMapa() {
+    if (!mapaImagem || !mapaImagem.naturalWidth) return;
+    const caixa = mapaImagem.getBoundingClientRect();
+    const largura = caixa.width, altura = caixa.height;
+    const proporcao = Math.max(largura / mapaImagem.naturalWidth, altura / mapaImagem.naturalHeight);
+    const larguraReal = mapaImagem.naturalWidth * proporcao;
+    const alturaReal = mapaImagem.naturalHeight * proporcao;
+    const zoom = 2.45;
+    function destino(nome, x, y) {
+      // x/y medidos sobre a imagem inteira, não sobre o recorte visível.
+      const dx = -(x - .5) * larguraReal * zoom;
+      const dy = -(y - .5) * alturaReal * zoom;
+      tela.style.setProperty("--" + nome + "-x", dx.toFixed(1) + "px");
+      tela.style.setProperty("--" + nome + "-y", dy.toFixed(1) + "px");
+    }
+    destino("vale", .80, .60);
+    destino("ribeirao", .55, .33);
+  }
+  mapaImagem?.addEventListener("load", calibrarMapa);
+  window.addEventListener("resize", calibrarMapa);
+  calibrarMapa();
+
   let etapa = 0;
   let emMovimento = false;
   let temporizadores = [];
