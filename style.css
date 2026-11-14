@@ -496,3 +496,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
   object-fit: cover;
   object-position: center;
 }
+
+#screen-07 .rail-copy p {
+  font-size: 15px;
+  line-height: 1.55;
+}
