@@ -1577,6 +1577,56 @@
   </div>
 </section>
 
+
+<!-- NOVO BLOCO — REGIÃO DE RIBEIRÃO PRETO -->
+<section id="screen-05" class="screen cafe-map-screen" hidden aria-labelledby="cafe-map-heading" data-stage="0">
+  <div class="cafe-map-scene" aria-hidden="true">
+    <div class="cafe-map-cartography">
+      <svg class="cafe-map-art" viewBox="0 0 1200 750" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1200" height="750" fill="#d7c6a4"/>
+        <g stroke="#ae9977" fill="none" stroke-width="2" opacity=".6">
+          <path d="M-80 90 Q300 210 650 50 T1300 170"/><path d="M-60 220 Q350 340 720 170 T1250 290"/>
+          <path d="M-30 440 Q360 510 740 360 T1240 430"/><path d="M-30 610 Q400 690 820 540 T1300 650"/>
+        </g>
+        <path d="M145 205 L375 135 595 205 845 175 1040 330 1005 530 770 625 480 570 240 465 Z" fill="#c6b28b" stroke="#6b6d53" stroke-width="5"/>
+        <path d="M765 470 Q730 530 675 560" stroke="#50798b" stroke-width="8" fill="none" opacity=".65"/>
+        <path d="M870 335 Q750 330 640 425" stroke="#8c704f" stroke-width="5" fill="none" stroke-dasharray="11 10"/>
+        <circle cx="865" cy="340" r="15" fill="#8b4b38" stroke="#f5eddd" stroke-width="5"/>
+        <circle cx="640" cy="430" r="15" fill="#294e3d" stroke="#f5eddd" stroke-width="5"/>
+        <g font-family="Georgia,serif" fill="#283d33">
+          <text x="885" y="325" font-size="28">Vale do Paraíba</text>
+          <text x="390" y="400" font-size="32">Ribeirão Preto</text>
+          <text x="55" y="75" font-size="23" letter-spacing="5">SÃO PAULO · MAPA ESQUEMÁTICO</text>
+        </g>
+      </svg>
+    </div>
+    <div class="cafe-farm-image" role="presentation">
+      <svg viewBox="0 0 1200 750" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <rect width="1200" height="750" fill="#a8a18a"/><rect y="465" width="1200" height="285" fill="#6b7655"/>
+        <path d="M0 450 Q250 340 520 450 T1200 410 V520 H0" fill="#879174"/>
+        <g fill="#43543d"><path d="M0 740 L460 470 510 470 200 750Z"/><path d="M230 750 L530 470 580 470 440 750Z"/><path d="M550 750 L610 470 660 470 790 750Z"/><path d="M900 750 L690 470 750 470 1200 740Z"/></g>
+        <path d="M755 455 V300 L970 300 V455" fill="#e4d6b7"/><path d="M720 310 L865 220 1005 310Z" fill="#5a4b3e"/>
+        <rect x="830" y="350" width="60" height="105" fill="#665747"/>
+        <text x="48" y="80" font-family="Georgia,serif" font-size="27" fill="#fff9e8">ILUSTRAÇÃO PROVISÓRIA · SUBSTITUIR POR FOTOGRAFIA DE ACERVO</text>
+      </svg>
+    </div>
+  </div>
+  <div class="cafe-map-layout">
+    <div class="cafe-map-topline"><span>N.º 05</span><span>CAFÉ, CASAS E GENTE</span><span id="cafe-map-stage-label">01 / 03</span></div>
+    <article class="cafe-map-panel" aria-live="polite">
+      <p class="cafe-map-kicker">REGIÃO DE RIBEIRÃO PRETO</p>
+      <h2 id="cafe-map-heading">Por que os fazendeiros foram para Ribeirão Preto?</h2>
+      <div id="cafe-map-text-1" class="cafe-map-paragraph"><p>Para chegarmoas aos Campos Elíseos, vamos dar atenção à região de Ribeirão Preto na metade final do séc. XIX. Ao ponto que a produção cafeeira avançava cada vez mais para o interior paulista, alavancada por ótimos preços no mercado internacional, os grandes magnatas do ramo do café começaram a estabelecer suas fazendas enormes na região do norte paulista.</p></div>
+      <div id="cafe-map-text-2" class="cafe-map-paragraph" hidden><p>Contendo um terreno pouco acidentado, e um solo que ganhou fama pela sua qualidade no plantio, a região foi rapidamente tomada pela produção dos magnatas do café brasileiro, concentrando terras antes cultivadas por pequenos trabalhadores de origem mineira, comprando vastas porções de terras com um objetivo claro, expandir a fronteira de plantações de café, pois seus antigos polos de produção estavam sendo esgotados por conta da erosão causada pela monocultura intensiva que rasgou o ecossistema do Vale do Paraíba.</p></div>
+    </article>
+    <nav class="cafe-map-navigation" aria-label="Navegação pela região de Ribeirão Preto">
+      <button type="button" class="intro-back" id="cafe-map-back">← Voltar</button>
+      <button type="button" class="btn-primary" id="cafe-map-continue">Continuar <span aria-hidden="true">→</span></button>
+    </nav>
+    <p class="cafe-map-source">Mapa e fazenda: ilustrações provisórias. Substituir por documentos históricos identificados antes da publicação definitiva.</p>
+  </div>
+</section>
+
 <!-- ======================================
      TELA FINAL — FEEDBACK
 ====================================== -->
@@ -1754,6 +1804,59 @@
 </script>
 
 <!-- JavaScript original do site -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const tela = document.getElementById("screen-05");
+  if (!tela) return;
+  const continuar = document.getElementById("cafe-map-continue");
+  const voltar = document.getElementById("cafe-map-back");
+  const etapaLabel = document.getElementById("cafe-map-stage-label");
+  const texto1 = document.getElementById("cafe-map-text-1");
+  const texto2 = document.getElementById("cafe-map-text-2");
+  const reduzir = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let etapa = 0;
+  let emMovimento = false;
+  let temporizadores = [];
+  function cancelar() { temporizadores.forEach(clearTimeout); temporizadores = []; emMovimento = false; continuar.disabled = false; }
+  function agendar(fn, ms) { temporizadores.push(setTimeout(fn, ms)); }
+  function atualizar(n) {
+    etapa = n;
+    tela.dataset.stage = String(etapa);
+    etapaLabel.textContent = String(etapa + 1).padStart(2, "0") + " / 03";
+    texto1.hidden = etapa === 2;
+    texto2.hidden = etapa !== 2;
+  }
+  continuar.addEventListener("click", () => {
+    if (emMovimento) return;
+    if (etapa === 0) {
+      emMovimento = true; continuar.disabled = true;
+      tela.dataset.stage = "vale";
+      agendar(() => {
+        tela.dataset.stage = "ribeirao";
+        agendar(() => { atualizar(1); emMovimento = false; continuar.disabled = false; }, reduzir.matches ? 0 : 1850);
+      }, reduzir.matches ? 0 : 1850);
+    } else if (etapa === 1) {
+      atualizar(2);
+    } else {
+      // A próxima página ainda não foi fornecida: não saltar para o formulário.
+      alert("A próxima tela, sobre a Fazenda Dumont, ainda será adicionada.");
+    }
+  });
+  voltar.addEventListener("click", () => {
+    cancelar();
+    if (etapa > 0) { atualizar(etapa - 1); return; }
+    tela.hidden = true;
+    document.getElementById("screen-04").hidden = false;
+    window.scrollTo(0, 0);
+  });
+  const observador = new MutationObserver(() => {
+    if (tela.hidden) { cancelar(); atualizar(0); }
+  });
+  observador.observe(tela, {attributes:true,attributeFilter:["hidden"]});
+  atualizar(0);
+});
+</script>
+
 <script src="script.js"></script>
 <script src="respostas.js"></script>
 

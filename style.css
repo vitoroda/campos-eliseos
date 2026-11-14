@@ -441,3 +441,29 @@ button { font: inherit; color: inherit; cursor: pointer; }
 /* Abertura: manter o visual editorial original */
 .opening-title { text-transform: uppercase; }
 .opening-title-accent { text-transform: uppercase; }
+
+
+/* BLOCO 05 — RIBEIRÃO PRETO: MAPA → ZOOM → FAZENDA */
+.cafe-map-screen { min-height:100svh; background:var(--verde); color:var(--creme); overflow:hidden; isolation:isolate; }
+.cafe-map-scene { position:absolute; inset:0; z-index:-1; overflow:hidden; }
+.cafe-map-cartography,.cafe-farm-image { position:absolute; inset:0; width:100%; height:100%; }
+.cafe-map-cartography { transform-origin:center; transition:transform 1800ms cubic-bezier(.3,.05,.2,1); }
+.cafe-map-cartography svg,.cafe-farm-image svg { width:100%; height:100%; display:block; }
+.cafe-map-screen[data-stage="vale"] .cafe-map-cartography { transform:scale(2.2) translate(-24%, 9%); }
+.cafe-map-screen[data-stage="ribeirao"] .cafe-map-cartography,
+.cafe-map-screen[data-stage="1"] .cafe-map-cartography { transform:scale(2.3) translate(13%, -2%); }
+.cafe-farm-image { opacity:0; transition:opacity 850ms ease; }
+.cafe-map-screen[data-stage="2"] .cafe-farm-image { opacity:1; }
+.cafe-map-layout { position:relative; display:flex; flex-direction:column; min-height:100svh; padding:clamp(1rem,3vw,2.5rem) var(--margem-tela); gap:1rem; }
+.cafe-map-topline { display:flex; justify-content:space-between; gap:1rem; font-size:.7rem; font-weight:600; letter-spacing:.14em; color:var(--creme); text-shadow:0 1px 4px #1b2b25; }
+.cafe-map-panel { margin:auto 0 1rem; padding:clamp(1.25rem,3vw,2.5rem); background:var(--verde); width:min(100%,780px); box-shadow:0 12px 35px #17241d44; }
+.cafe-map-kicker { color:var(--ouro); letter-spacing:.18em; font-size:.72rem; margin-bottom:1rem; }
+.cafe-map-panel h2 { font-family:var(--fonte-titulo); font-size:clamp(1.8rem,3.5vw,3.7rem); font-weight:400; line-height:1.12; margin-bottom:1.2rem; }
+.cafe-map-paragraph p { font-size:clamp(.95rem,1.25vw,1.12rem); line-height:1.7; }
+.cafe-map-paragraph[hidden] { display:none!important; }
+.cafe-map-navigation { display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+.cafe-map-navigation .intro-back { background:var(--verde); padding:.9rem 1.2rem; }
+.cafe-map-navigation .btn-primary:disabled { opacity:.65; cursor:wait; }
+.cafe-map-source { align-self:flex-end; font-size:.65rem; max-width:600px; background:var(--verde); padding:.35rem .6rem; }
+@media(max-width:700px) { .cafe-map-layout{padding:1rem;}.cafe-map-topline{font-size:.58rem}.cafe-map-panel{padding:1.2rem;margin-top:22vh}.cafe-map-panel h2{font-size:clamp(1.7rem,7vw,2.6rem)}.cafe-map-paragraph p{font-size:.94rem;line-height:1.55}.cafe-map-source{font-size:.6rem}.cafe-map-navigation .btn-primary{letter-spacing:.08em;padding:.8rem 1rem} }
+@media(prefers-reduced-motion:reduce) { .cafe-map-cartography,.cafe-farm-image{transition:none!important;} }
