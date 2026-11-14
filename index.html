@@ -982,7 +982,7 @@
 .dumont-screen{position:relative;min-height:100svh;background:#1b2b25;color:#f4ebdd;overflow:hidden;isolation:isolate}
 .dumont-gallery,.dumont-layer,.dumont-layer img,.dumont-art{position:absolute;inset:0;width:100%;height:100%}
 .dumont-gallery{z-index:-2;overflow:hidden}.dumont-layer{opacity:0;transition:opacity .85s ease,transform 1.75s cubic-bezier(.19,.8,.2,1);transform:scale(1.18);overflow:hidden}.dumont-layer.is-visible{opacity:1;transform:scale(1)}.dumont-layer.is-entering{transform:scale(2.25)}
-.dumont-layer img{object-fit:cover;object-position:center;filter:grayscale(1) sepia(.35) contrast(.92)}
+.dumont-layer{z-index:0;pointer-events:none}.dumont-layer.is-visible{z-index:2}.dumont-layer.is-entering{z-index:1}.dumont-layer img{object-fit:cover;object-position:center;filter:grayscale(1) sepia(.35) contrast(.92)}
 .dumont-art{background:linear-gradient(160deg,#7e8878 0 35%,#b4a38a 35% 44%,#555f4a 44% 60%,#8c7c62 60% 100%)}
 .dumont-art-1{background:repeating-linear-gradient(112deg,transparent 0 65px,#40503e 65px 92px,transparent 92px 126px),linear-gradient(#aaa38a,#626e53)}
 .dumont-art-2{background:repeating-linear-gradient(90deg,transparent 0 105px,#4c5147 105px 117px,transparent 117px 210px),linear-gradient(145deg,#b8a58b 0 48%,#6c5947 48% 100%)}
@@ -1618,14 +1618,7 @@
       <img id="cafe-map-historic" src="imagens/mapa-sao-paulo-1886.jpg" alt="Mapa da Província de São Paulo, 1886, organizado pela Sociedade Promotora de Imigração de São Paulo" draggable="false">
     </div>
     <div class="cafe-farm-image" role="presentation">
-      <div class="cafe-farm-image" role="presentation">
-  <img
-    src="imagens/fazenda-cafe.jpg"
-    alt="Fotografia histórica de uma fazenda cafeeira"
-    draggable="false"
-  >
-</div>
-      </svg>
+      <img src="imagens/fazenda-cafe.jpg" alt="Fotografia histórica de uma fazenda cafeeira" draggable="false">
     </div>
   </div>
   <div class="cafe-map-layout">
@@ -1941,10 +1934,9 @@ document.addEventListener('DOMContentLoaded', () => {
  const next=document.getElementById('dumont-next'), back=document.getElementById('dumont-back');
  const stages=[
  {k:'VISÃO GERAL',t:'Anatomia da máquina cafeeira',p:'Responsável pela riqueza que desembocará nos Campos Elíseos, vamos dar uma olhada na grande fazenda de café e seus processos. É importante frisar que a fazenda não funcionava de maneira isolada: sua expansão dependia dos preços do café no mercado internacional, da disponibilidade e avanço de terras e trabalhadores e, cada vez mais, das ferrovias que ligavam o interior ao porto de Santos, para a exportação. ',c:'Fazenda Santo Antonio do Paiol, cerca de 1885. Fotografia de Marc Ferrez.'},
- {k:'01 / TERRA E CULTIVO',t:'Uma propriedade voltada ao café',p:'A expansão do café para o Oeste do estado aconteceu sobretudo pelo comportamento da plantação, sempre precisando de novas terras férteis; e foi ali que o café encontrou com fatores como a chamada terra roxa, e com relevo favorável à formação de grandes lavouras. Com a chegada das ferrovias, regiões antes distantes dos principais centros comerciais passaram a oferecer novas possibilidades de investimento. Grandes proprietários adquiriram extensas porções de terra, brutalmente expulsando camponeses e indígenas de seus domínios. Entretanto, o café exigia investimentos de longo prazo: os pés recém-plantados levavam cerca de cinco anos para atingir sua plena capacidade produtiva.'},
+ {k:'01 / TERRA E CULTIVO',t:'Uma propriedade voltada ao café',p:'A expansão do café para o Oeste do estado aconteceu sobretudo pelo comportamento da plantação, sempre precisando de novas terras férteis; e foi ali que o café encontrou com fatores como a chamada terra roxa, e com relevo favorável à formação de grandes lavouras. Com a chegada das ferrovias, regiões antes distantes dos principais centros comerciais passaram a oferecer novas possibilidades de investimento. Grandes proprietários adquiriram extensas porções de terra, brutalmente expulsando camponeses e indígenas de seus domínios. Entretanto, o café exigia investimentos de longo prazo: os pés recém-plantados levavam cerca de cinco anos para atingir sua plena capacidade produtiva.',c:'Cafezal: conferir autoria, data e acervo da fotografia.'},
  {k:'02 / INSTALAÇÕES',t:'A infraestrutura da produção',p:'Após a colheita, o café precisava passar por processos de secagem, limpeza e beneficiamento antes de ser ensacado e comercializado. Nas grandes fazendas do Oeste Paulista, essa organização podia envolver algumas técnicas, como a secagem em extensos terreiros ao sol, tulhas para armazenamento, máquinas de beneficiamento e oficinas responsáveis pela manutenção dos equipamentos. A adoção de novas técnicas e maquinários procurava acelerar determinadas tarefas e reduzir os custos da produção, mas exigia investimentos consideráveis. Parte desse mecanismo importante, claro, também era a ferrovia..',c:'Beneficiamento: insira autoria, data e acervo da fotografia.'},
- {k:'03 / TRABALHO',t:'Quem fazia a fazenda funcionar?',p:'No entanto, ao falar de expansão e infraestrutura técnica, podemos acabar esquecendo daquilo que era sustentação da economia do café: trabalho humano. Ao longo do século XIX, pessoas escravizadas foram a base dessa economia, inclusive nas áreas de expansão paulista. Nas últimas décadas do período, a crise da escravidão e a intensificação da imigração transformaram progressivamente as relações de trabalho nas fazendas. Após a Abolição, o colonato se consolidou como uma das principais formas de contratação no Oeste: famílias de trabalhadores recebiam pagamentos pelo trato dos cafezais e pela colheita, além de poderem cultivar determinados alimentos, como forma de garantir esses trabalhadores na propriedade. Essa organização, entretanto, estava longe de representar uma relação plenamente livre de conflitos. Contratos, dívidas e a vigilância buscavam assegurar a permanência e a disciplina dos trabalhadores, que também negociavam, resistiam e procuravam ampliar sua autonomia. Sem essas formas de exploração, nada teria funcionado. 
-.',c:'Trabalho: insira autoria, data e acervo da fotografia.'}
+ {k:'03 / TRABALHO',t:'Quem fazia a fazenda funcionar?',p:'No entanto, ao falar de expansão e infraestrutura técnica, podemos acabar esquecendo daquilo que era sustentação da economia do café: trabalho humano. Ao longo do século XIX, pessoas escravizadas foram a base dessa economia, inclusive nas áreas de expansão paulista. Nas últimas décadas do período, a crise da escravidão e a intensificação da imigração transformaram progressivamente as relações de trabalho nas fazendas. Após a Abolição, o colonato se consolidou como uma das principais formas de contratação no Oeste: famílias de trabalhadores recebiam pagamentos pelo trato dos cafezais e pela colheita, além de poderem cultivar determinados alimentos, como forma de garantir esses trabalhadores na propriedade. Essa organização, entretanto, estava longe de representar uma relação plenamente livre de conflitos. Contratos, dívidas e a vigilância buscavam assegurar a permanência e a disciplina dos trabalhadores, que também negociavam, resistiam e procuravam ampliar sua autonomia. Sem essas formas de exploração, nada teria funcionado.',c:'Trabalho: insira autoria, data e acervo da fotografia.'}
  ];
  let step=0,busy=false,timer;
  const reduce=matchMedia('(prefers-reduced-motion: reduce)');
@@ -1963,7 +1955,7 @@ document.addEventListener('DOMContentLoaded', () => {
   busy=true;next.disabled=true;back.disabled=true;
   const old=layers[step],incoming=layers[step+1];
   old.classList.add('is-entering');
-  timer=setTimeout(()=>{incoming.classList.add('is-visible');timer=setTimeout(()=>render(step+1),850)},1000);
+  timer=setTimeout(()=>{incoming.classList.add('is-visible');old.classList.remove('is-visible');timer=setTimeout(()=>render(step+1),850)},1000);
  }
  next.addEventListener('click',advance);
  back.addEventListener('click',()=>{if(busy){clearTimeout(timer);busy=false;}if(step>0){render(step-1);return;}root.hidden=true;const prev=document.getElementById('screen-05');prev.hidden=false;window.scrollTo(0,0)});
