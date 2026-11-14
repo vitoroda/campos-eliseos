@@ -468,3 +468,12 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .cafe-map-source { align-self:flex-end; font-size:.65rem; max-width:600px; background:var(--verde); padding:.35rem .6rem; }
 @media(max-width:700px) { .cafe-map-layout{padding:1rem;}.cafe-map-topline{font-size:.58rem}.cafe-map-panel{padding:1.2rem;margin-top:22vh}.cafe-map-panel h2{font-size:clamp(1.7rem,7vw,2.6rem)}.cafe-map-paragraph p{font-size:.94rem;line-height:1.55}.cafe-map-source{font-size:.6rem}.cafe-map-navigation .btn-primary{letter-spacing:.08em;padding:.8rem 1rem} }
 @media(prefers-reduced-motion:reduce) { .cafe-map-cartography,.cafe-farm-image{transition:none!important;} }
+
+.cafe-farm-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(100%);
+}
