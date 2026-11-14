@@ -501,3 +501,18 @@ button { font: inherit; color: inherit; cursor: pointer; }
   font-size: 15px;
   line-height: 1.55;
 }
+
+/* Tela 07 — parágrafos mais largos e mais altos */
+#screen-07 .rail-copy {
+  max-width: 650px;
+}
+
+#screen-07 .rail-copy p {
+  max-width: 650px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+#screen-07 .rail-copy {
+  transform: translateY(-20px);
+}
