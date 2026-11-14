@@ -1010,6 +1010,11 @@
 @media (max-width:800px){#screen-06 .dumont-panel {margin-bottom:300px;}}
 
   </style>
+
+<style id="rail-screen-css">
+#screen-07{min-height:100svh;background:#253a32;color:#f4ebdd;padding:clamp(20px,4vw,55px);box-sizing:border-box}#screen-07[hidden]{display:none!important}
+.rail-wrap{max-width:1320px;margin:auto;min-height:calc(100svh - 105px);display:flex;flex-direction:column}.rail-top{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid #c9ae7c77;padding-bottom:17px;color:#c9ae7c;font:11px Arial,sans-serif;letter-spacing:.15em}.rail-layout{display:grid;grid-template-columns:minmax(290px,.85fr) minmax(0,1.2fr);align-items:center;gap:clamp(20px,5vw,70px);flex:1;padding:40px 0}.rail-kicker{font:11px Arial,sans-serif!important;letter-spacing:.17em;color:#c9ae7c}.rail-copy h2{font:normal clamp(38px,5vw,76px)/1.05 Georgia,serif;margin:16px 0 24px}.rail-copy h2 em{color:#c9ae7c;font-weight:normal}.rail-copy p:not(.rail-kicker){font:clamp(16px,1.25vw,19px)/1.7 Georgia,serif;max-width:530px}.rail-visual{position:relative;overflow:hidden;background:#f0e5d0;color:#253a32;min-height:390px;box-shadow:0 22px 55px #0005;padding:20px;display:flex;flex-direction:column}.rail-map-label{font:11px Arial,sans-serif;letter-spacing:.15em;color:#6c6658}.rail-scene{width:100%;flex:1;min-height:300px;display:block}.rail-landscape{transition:opacity .7s ease}.rail-cityscape{opacity:0;transition:opacity .8s ease}.rail-visual.arrived .rail-cityscape{opacity:1}.rail-visual.arrived .rail-landscape{opacity:0}.rail-train{transform:translateX(0);transition:transform 3.2s cubic-bezier(.45,.02,.45,1),opacity .4s}.rail-visual.travelling .rail-train{transform:translateX(650px)}.rail-visual.arrived .rail-train{transform:translateX(390px)}.rail-smoke{animation:rail-puff 2s ease-out infinite;transform-origin:center}.rail-visual:not(.travelling) .rail-smoke{animation-play-state:paused}@keyframes rail-puff{0%{opacity:.6;transform:translate(0,0) scale(.7)}100%{opacity:0;transform:translate(-18px,-32px) scale(1.7)}}.rail-map-note{font:12px/1.5 Arial,sans-serif;color:#6d685e;border-top:1px solid #b6aa94;padding-top:12px}.rail-bottom{display:flex;align-items:center;justify-content:space-between;gap:18px;border-top:1px solid #c9ae7c77;padding-top:18px}.rail-status{font:11px Arial,sans-serif;letter-spacing:.12em;color:#c9ae7c}.rail-controls{display:flex;gap:10px}.rail-controls button{padding:13px 18px;border:1px solid #c9ae7c;background:#f4ebdd;color:#253a32;font:12px Arial,sans-serif;cursor:pointer}.rail-controls button:first-child{background:transparent;color:#f4ebdd}.rail-controls button:disabled{opacity:.5;cursor:wait}@media(max-width:850px){.rail-layout{grid-template-columns:1fr;padding:25px 0}.rail-visual{min-height:300px}.rail-scene{min-height:220px}.rail-bottom{flex-wrap:wrap}.rail-controls{width:100%;justify-content:space-between}}@media(prefers-reduced-motion:reduce){.rail-train,.rail-landscape,.rail-cityscape{transition:none!important}.rail-smoke{animation:none!important}}
+</style>
 </head>
 
 <body>
@@ -1671,6 +1676,27 @@
   </footer>
 </section>
 
+
+<!-- TELA 07 — AS FERROVIAS: UMA VIAGEM À CAPITAL -->
+<section id="screen-07" class="screen" hidden aria-labelledby="rail-title">
+<div class="rail-wrap">
+<header class="rail-top"><span>N.º 07 — CAFÉ, CASAS E GENTE</span><span>DO INTERIOR À CAPITAL</span></header>
+<div class="rail-layout">
+<article class="rail-copy" aria-live="polite"><p class="rail-kicker" id="rail-kicker">01 / 02 — A FERROVIA</p><h2 id="rail-title">O caminho <em>do café.</em></h2><p id="rail-text">O café produzido nas fazendas do interior precisava chegar ao porto de Santos, de onde seguia para o mercado internacional. Para transportar quantidades cada vez maiores de grãos, as ferrovias se tornaram fundamentais. A Companhia Mogiana chegou a Ribeirão Preto em 1883; Henrique Dumont também ligou sua fazenda à rede de trilhos, facilitando o escoamento da produção.</p></article>
+<div class="rail-visual" id="rail-visual" aria-label="Ilustração animada de um trem a vapor que parte do interior e chega à Estação da Luz, em São Paulo">
+<div class="rail-map-label" id="rail-scene-label">RIBEIRÃO PRETO · INTERIOR PAULISTA</div>
+<svg class="rail-scene" viewBox="0 0 720 350" role="img" aria-label="Trem a vapor com vagões de café, paisagem rural e Estação da Luz ilustrada">
+<defs><pattern id="rail-ties" width="28" height="18" patternUnits="userSpaceOnUse"><rect x="2" y="0" width="7" height="18" fill="#a89779" opacity=".65"/></pattern></defs>
+<g class="rail-landscape" fill="none"><path d="M0 220 Q90 135 175 213 T360 210 T540 211 T720 207 V312 H0Z" fill="#c9c6a9"/><path d="M0 270 Q90 218 200 263 T440 252 T720 255 V320 H0Z" fill="#8c9b82"/><g stroke="#61795e" stroke-width="2"><path d="M25 280v-47m-8 16 8-16 8 16M105 290v-58m-10 21 10-21 10 21M550 290v-57m-9 20 9-20 9 20M620 285v-44m-9 19 9-19 9 19"/></g><text x="28" y="80" font-size="17" font-family="Georgia" fill="#61705d">As fazendas do Oeste Paulista</text></g>
+<g class="rail-cityscape"><path d="M0 273 H720V310H0Z" fill="#b2b19e"/><g fill="#8b9a8c"><rect x="18" y="176" width="67" height="98"/><rect x="97" y="203" width="43" height="71"/><rect x="566" y="175" width="60" height="99"/><rect x="639" y="198" width="58" height="76"/></g><g stroke="#253a32" stroke-width="3" fill="#e5d4b4"><path d="M207 272V162H514V272Z"/><path d="M192 162L360 123 529 162Z"/><path d="M218 161V102H259V161 M462 161V102H503V161"/><path d="M226 102V81H251V102 M470 102V81H495V102"/><rect x="333" y="196" width="55" height="76"/><path d="M284 185v60m38-60v60m85-60v60m38-60v60"/><path d="M205 182h310"/></g><text x="360" y="113" text-anchor="middle" font-family="Georgia" font-size="17" fill="#253a32">ESTAÇÃO DA LUZ</text><text x="360" y="52" text-anchor="middle" font-family="Georgia" font-size="22" fill="#253a32">São Paulo</text></g>
+<rect x="0" y="296" width="720" height="15" fill="url(#rail-ties)"/><path d="M0 298H720M0 311H720" stroke="#625d52" stroke-width="4"/>
+<g class="rail-train"><g fill="#253a32" stroke="#253a32" stroke-width="3"><rect x="40" y="242" width="92" height="50" rx="3"/><rect x="104" y="215" width="30" height="29"/><rect x="50" y="225" width="19" height="18"/><rect x="44" y="282" width="105" height="8"/><path d="M130 283H162"/><rect x="164" y="252" width="91" height="39"/><rect x="258" y="252" width="90" height="39"/><path d="M255 284H259"/></g><g fill="#c9ae7c" stroke="#253a32" stroke-width="3"><circle cx="68" cy="297" r="12"/><circle cx="117" cy="297" r="12"/><circle cx="187" cy="297" r="10"/><circle cx="232" cy="297" r="10"/><circle cx="282" cy="297" r="10"/><circle cx="325" cy="297" r="10"/></g><g fill="#b08b59"><path d="M171 252l8-15h15l8 15M202 252l8-15h15l8 15M264 252l8-15h15l8 15M296 252l8-15h15l8 15"/></g><g fill="#e7d8bb"><rect x="110" y="223" width="16" height="16"/><circle class="rail-smoke" cx="60" cy="205" r="11"/><circle class="rail-smoke" cx="73" cy="187" r="15"/></g></g>
+</svg>
+<div class="rail-map-note" id="rail-note">Ilustração esquemática. O café seguia por diferentes companhias ferroviárias até São Paulo e Santos.</div>
+</div></div>
+<footer class="rail-bottom"><span class="rail-status" id="rail-status">TREM PARADO · PRONTO PARA PARTIR</span><div class="rail-controls"><button type="button" id="rail-back">← Voltar à fazenda</button><button type="button" id="rail-next">Continuar — fazer o trem partir →</button></div></footer>
+</div></section>
+
 <!-- ======================================
      TELA FINAL — FEEDBACK
 ====================================== -->
@@ -1946,11 +1972,11 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('dumont-copy').textContent=x.p;document.getElementById('dumont-credit').textContent=x.c;
   document.getElementById('dumont-count').textContent=String(n+1).padStart(2,'0')+' / 04';
   root.querySelectorAll('.dumont-node').forEach((el,i)=>el.classList.toggle('active',i<n));
-  back.textContent=n===0?'← Voltar à região':'← Voltar';next.textContent=n===3?'Rever sequência ↺':'Continuar →';
+  back.textContent=n===0?'← Voltar à região':'← Voltar';next.textContent=n===3?'Seguir para as ferrovias →':'Continuar →';
   layers.forEach((el,i)=>{el.classList.toggle('is-visible',i===n);el.classList.remove('is-entering')});
   busy=false;next.disabled=false;back.disabled=false;
  }
- function advance(){if(busy)return;if(step===3){render(0);return;}
+ function advance(){if(busy)return;if(step===3){root.hidden=true;document.getElementById('screen-07').hidden=false;window.scrollTo(0,0);return;}
   if(reduce.matches){render(step+1,false);return;}
   busy=true;next.disabled=true;back.disabled=true;
   const old=layers[step],incoming=layers[step+1];
@@ -1961,6 +1987,21 @@ document.addEventListener('DOMContentLoaded', () => {
  back.addEventListener('click',()=>{if(busy){clearTimeout(timer);busy=false;}if(step>0){render(step-1);return;}root.hidden=true;const prev=document.getElementById('screen-05');prev.hidden=false;window.scrollTo(0,0)});
  const obs=new MutationObserver(()=>{if(root.hidden){clearTimeout(timer);render(0,false)}});obs.observe(root,{attributes:true,attributeFilter:['hidden']});
  render(0,false);
+});
+</script>
+
+
+<script id="rail-screen-js">
+document.addEventListener('DOMContentLoaded',()=>{
+ const root=document.getElementById('screen-07');if(!root)return;
+ const visual=document.getElementById('rail-visual'),next=document.getElementById('rail-next'),back=document.getElementById('rail-back');
+ const kicker=document.getElementById('rail-kicker'),title=document.getElementById('rail-title'),copy=document.getElementById('rail-text'),status=document.getElementById('rail-status'),label=document.getElementById('rail-scene-label');
+ let stage=0,timer=null;
+ function reset(){clearTimeout(timer);stage=0;visual.classList.remove('travelling','arrived');kicker.textContent='01 / 02 — A FERROVIA';title.innerHTML='O caminho <em>do café.</em>';copy.textContent='O café produzido nas fazendas do interior precisava chegar ao porto de Santos, de onde seguia para o mercado internacional. Para transportar quantidades cada vez maiores de grãos, as ferrovias se tornaram fundamentais. A Companhia Mogiana chegou a Ribeirão Preto em 1883; Henrique Dumont também ligou sua fazenda à rede de trilhos, facilitando o escoamento da produção.';status.textContent='TREM PARADO · PRONTO PARA PARTIR';label.textContent='RIBEIRÃO PRETO · INTERIOR PAULISTA';next.textContent='Continuar — fazer o trem partir →';back.textContent='← Voltar à fazenda';next.disabled=false;back.disabled=false;}
+ function arrive(){stage=1;visual.classList.remove('travelling');visual.classList.add('arrived');kicker.textContent='02 / 02 — CHEGADA À CAPITAL';title.innerHTML='São Paulo, <em>entre a fazenda e o porto.</em>';copy.textContent='Chegamos a São Paulo! A Estação da Luz integrava a ligação ferroviária entre a capital e o porto de Santos. O café atravessava a cidade rumo à exportação, enquanto a riqueza gerada pela economia cafeeira também impulsionava negócios, serviços e transformações urbanas. Entre elas estava a expansão de bairros como os Campos Elíseos, loteados desde a década de 1870.';status.textContent='SÃO PAULO · ESTAÇÃO DA LUZ';label.textContent='CHEGADA À CAPITAL · ESTAÇÃO DA LUZ';next.textContent='Continuar — os Campos Elíseos →';back.textContent='← Refazer a viagem';next.disabled=false;back.disabled=false;}
+ next.addEventListener('click',()=>{if(stage===1){root.hidden=true;document.getElementById('screen-final').hidden=false;window.scrollTo(0,0);return;}if(stage!==0)return;stage=-1;next.disabled=true;back.disabled=true;status.textContent='EM VIAGEM · RUMO À CAPITAL';visual.classList.add('travelling');timer=setTimeout(arrive,matchMedia('(prefers-reduced-motion: reduce)').matches?50:3300);});
+ back.addEventListener('click',()=>{if(stage===-1)return;if(stage===1){reset();return;}root.hidden=true;document.getElementById('screen-06').hidden=false;window.scrollTo(0,0);});
+ new MutationObserver(()=>{if(root.hidden)reset();}).observe(root,{attributes:true,attributeFilter:['hidden']});reset();
 });
 </script>
 
