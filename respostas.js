@@ -2,13 +2,23 @@
 /*
  * CAFÉ, CASAS E GENTE
  * Gerenciador central de respostas
+ *
+ * Guarda as respostas no navegador e reúne
+ * os dados para envio ao Google Sheets.
  */
 
 window.CamposRespostas = (() => {
-  const CHAVE_ID = "campos-eliseos-id-participacao-v1";
-  const CHAVE_INICIAIS = "campos-eliseos-primeiras-impressoes-v1";
-  const CHAVE_FINAIS = "campos-eliseos-impressoes-finais-v1";
-  const CHAVE_EXTRAS = "campos-eliseos-respostas-extras-v1";
+  const CHAVE_ID =
+    "campos-eliseos-id-participacao-v1";
+
+  const CHAVE_INICIAIS =
+    "campos-eliseos-primeiras-impressoes-v1";
+
+  const CHAVE_FINAIS =
+    "campos-eliseos-impressoes-finais-v1";
+
+  const CHAVE_EXTRAS =
+    "campos-eliseos-respostas-extras-v1";
 
   const PERGUNTAS_INICIAIS = [
     {
@@ -49,9 +59,18 @@ window.CamposRespostas = (() => {
   function lerJSON(chave, padrao) {
     try {
       const valor = localStorage.getItem(chave);
-      return valor === null ? padrao : JSON.parse(valor);
+
+      return valor === null
+        ? padrao
+        : JSON.parse(valor);
+
     } catch (erro) {
-      console.warn("Erro ao ler:", chave, erro);
+      console.warn(
+        "Erro ao ler:",
+        chave,
+        erro
+      );
+
       return padrao;
     }
   }
@@ -61,7 +80,11 @@ window.CamposRespostas = (() => {
 
     if (!id) {
       id = crypto.randomUUID();
-      localStorage.setItem(CHAVE_ID, id);
+
+      localStorage.setItem(
+        CHAVE_ID,
+        id
+      );
     }
 
     return id;
@@ -74,7 +97,9 @@ window.CamposRespostas = (() => {
       typeof pergunta !== "string" ||
       !pergunta.trim()
     ) {
-      throw new Error("Identificação da pergunta inválida.");
+      throw new Error(
+        "Identificação da pergunta inválida."
+      );
     }
 
     const extras = lerJSON(CHAVE_EXTRAS, {});
@@ -94,6 +119,7 @@ window.CamposRespostas = (() => {
 
   function obterResposta(id) {
     const extras = lerJSON(CHAVE_EXTRAS, {});
+
     return extras[id]?.resposta ?? "";
   }
 
@@ -102,18 +128,34 @@ window.CamposRespostas = (() => {
     const finais = lerJSON(CHAVE_FINAIS, []);
     const extras = lerJSON(CHAVE_EXTRAS, {});
 
+    const respostasIniciais =
+      PERGUNTAS_INICIAIS.map(
+        (item, indice) => ({
+          ...item,
+          resposta: String(
+            iniciais[indice] ?? ""
+          )
+        })
+      );
+
+    const respostasFinais =
+      PERGUNTAS_FINAIS.map(
+        (item, indice) => ({
+          ...item,
+          resposta: String(
+            finais[indice] ?? ""
+          )
+        })
+      );
+
     const respostas = [
-      ...PERGUNTAS_INICIAIS.map((item, indice) => ({
-        ...item,
-        resposta: String(iniciais[indice] ?? "")
-      })),
-      ...PERGUNTAS_FINAIS.map((item, indice) => ({
-        ...item,
-        resposta: String(finais[indice] ?? "")
-      }))
+      ...respostasIniciais,
+      ...respostasFinais
     ];
 
-    const ids = new Set(respostas.map(item => item.id));
+    const ids = new Set(
+      respostas.map(item => item.id)
+    );
 
     for (const item of Object.values(extras)) {
       if (
@@ -139,29 +181,23 @@ window.CamposRespostas = (() => {
     return {
       id_participacao: obterId(),
       versao_formulario: "3",
+
       respostas: obterTodas(),
 
-      avaliacao: Number(valor("avaliacao")),
+      avaliacao: Number(
+        valor("avaliacao")
+      ),
+
       nome: valor("nome"),
       email: valor("email"),
       idade: valor("idade"),
 
-      conhecimento_previo: valor("conhecimento_previo"),
-      mudanca_percepcao: valor("mudanca_percepcao"),
-      dificuldade: valor("dificuldade"),
-      aprofundamento: valor("aprofundamento"),
+      conhecimento_previo:
+        valor("conhecimento_previo"),
 
-      comentarios: valor("comentarios"),
-      consentimento:
-        campo("consentimento")?.checked === true
-    };
-  }
+      mudanca_percepcao:
+        valor("mudanca_percepcao"),
 
-  return {
-    registrar,
-    obterResposta,
-    obterTodas,
-    montarEnvio,
-    obterId
-  };
-})();
+      dificuldade:
+        valor("dificuldade"),
+
