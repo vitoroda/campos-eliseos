@@ -1023,6 +1023,179 @@
 @media(max-width:700px){#screen-07{min-height:720px}.rail-slide-inner{width:88vw;padding:100px 6vw 0}.rail-slide h2{font-size:clamp(35px,10vw,55px);margin:15px 0}.rail-slide p:not(.rail-eyebrow){font-size:15px;line-height:1.55}.rail-slide::after{background:linear-gradient(180deg,#253a32eb 0%,#253a32c9 60%,#253a3255 100%)}.rail-train-free{left:42%;width:65vw}.rail-bottom{flex-wrap:wrap}.rail-controls{width:100%;justify-content:space-between}.rail-controls button{font-size:11px;padding:12px}.rail-credit{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.rail-world,.rail-train-free{transition:none!important}.rail-wheel,.rail-puff{animation:none!important}}
 </style>
+<style id="screen13-css">
+#screen-13[hidden]{display:none!important}
+#screen-13{background:#253a32;color:#f4ebdd;min-height:100svh;padding:clamp(28px,4vw,65px);box-sizing:border-box;font-family:Georgia,serif}
+#screen-13 *{box-sizing:border-box}
+#screen-13 .s13-wrap{max-width:1240px;margin:auto}
+#screen-13 .s13-top{display:flex;justify-content:space-between;gap:15px;border-bottom:1px solid #c9ae7c66;padding-bottom:17px;font:11px Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#c9ae7c}
+#screen-13 .s13-intro{max-width:960px;margin:clamp(65px,10vh,125px) 0 55px}
+#screen-13 .s13-kicker{font:11px Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#c9ae7c}
+#screen-13 h2{font:normal clamp(48px,7vw,100px)/.99 Georgia,serif;letter-spacing:-.045em;margin:20px 0 32px}
+#screen-13 h2 em{color:#c9ae7c;font-weight:normal}
+#screen-13 .s13-intro p{font-size:clamp(17px,1.65vw,21px);line-height:1.75;max-width:800px}
+#screen-13 .s13-gallery{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:start}
+#screen-13 figure{margin:0;min-width:0}
+#screen-13 .s13-photo{width:100%;height:100%;object-fit:cover;display:block;background:#1b2b25}
+#screen-13 .s13-image{overflow:hidden;background:#1b2b25}
+#screen-13 .s13-large .s13-image{aspect-ratio:1.45}
+#screen-13 .s13-portrait .s13-image{aspect-ratio:.94}
+#screen-13 .s13-wide{grid-column:1/-1}
+#screen-13 .s13-wide .s13-image{aspect-ratio:2.35}
+#screen-13 figcaption{padding:17px 0 24px;border-top:1px solid #c9ae7c77;margin-top:13px}
+#screen-13 .s13-number{font:11px Arial,sans-serif;letter-spacing:.13em;color:#c9ae7c}
+#screen-13 figcaption strong{display:block;font:normal clamp(22px,2.4vw,33px)/1.2 Georgia,serif;margin:9px 0}
+#screen-13 figcaption p{font:15px/1.65 Georgia,serif;margin:0;max-width:720px}
+#screen-13 .s13-source{display:block;margin-top:12px;font:11px/1.5 Arial,sans-serif;color:#bdb3a2}
+#screen-13 .s13-ending{margin:70px 0 50px;padding:38px 0;border-top:1px solid #c9ae7c66;border-bottom:1px solid #c9ae7c66;max-width:940px}
+#screen-13 .s13-ending p{font:clamp(21px,2.3vw,30px)/1.55 Georgia,serif;margin:0}
+#screen-13 .s13-ending em{color:#c9ae7c}
+#screen-13 .s13-nav{display:flex;justify-content:space-between;gap:15px}
+#screen-13 .s13-nav button{border:1px solid #c9ae7c;background:transparent;color:#f4ebdd;padding:14px 22px;font:12px Arial,sans-serif;letter-spacing:.08em;cursor:pointer}
+#screen-13 .s13-nav button:last-child{background:#f4ebdd;color:#253a32}
+#screen-13 .s13-nav button:hover{background:#c9ae7c;color:#253a32}
+@media(max-width:760px){#screen-13 .s13-gallery{grid-template-columns:1fr;gap:24px}#screen-13 .s13-wide{grid-column:auto}#screen-13 .s13-wide .s13-image{aspect-ratio:1.5}#screen-13 .s13-large .s13-image{aspect-ratio:1.25}#screen-13 .s13-portrait .s13-image{aspect-ratio:1.1}#screen-13 .s13-top{font-size:9px}#screen-13 .s13-intro{margin:60px 0 40px}}
+
+/* TELA 13 — COMPOSIÇÃO EDITORIAL FINAL */
+#screen-13 .s13-gallery{
+ display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);
+ grid-template-areas:"casarao cafe" "casarao moradia" "estacao estacao";
+ gap:clamp(14px,2vw,28px);align-items:stretch;
+}
+#screen-13 .s13-gallery>figure:nth-child(1){grid-area:casarao}
+#screen-13 .s13-gallery>figure:nth-child(2){grid-area:cafe}
+#screen-13 .s13-gallery>figure:nth-child(3){grid-area:moradia}
+#screen-13 .s13-gallery>figure:nth-child(4){grid-area:estacao}
+#screen-13 .s13-gallery>figure{display:flex;flex-direction:column;min-width:0}
+#screen-13 .s13-gallery>figure .s13-image{width:100%;aspect-ratio:auto;min-height:0}
+#screen-13 .s13-gallery>figure:nth-child(1) .s13-image{height:clamp(420px,59vw,750px)}
+#screen-13 .s13-gallery>figure:nth-child(2) .s13-image,
+#screen-13 .s13-gallery>figure:nth-child(3) .s13-image{height:clamp(190px,24vw,290px)}
+#screen-13 .s13-gallery>figure:nth-child(4) .s13-image{height:clamp(240px,36vw,460px)}
+#screen-13 .s13-gallery>figure:nth-child(4) .s13-photo{object-position:center 52%}
+#screen-13 .s13-gallery>figure figcaption{flex:1}
+#screen-13 .s13-gallery>figure:nth-child(2) figcaption p,
+#screen-13 .s13-gallery>figure:nth-child(3) figcaption p{font-size:14px}
+@media(max-width:760px){
+ #screen-13 .s13-gallery{grid-template-columns:1fr 1fr;grid-template-areas:"casarao casarao" "cafe moradia" "estacao estacao";gap:16px}
+ #screen-13 .s13-gallery>figure:nth-child(1) .s13-image{height:auto;aspect-ratio:1.3}
+ #screen-13 .s13-gallery>figure:nth-child(2) .s13-image,
+ #screen-13 .s13-gallery>figure:nth-child(3) .s13-image{height:auto;aspect-ratio:.9}
+ #screen-13 .s13-gallery>figure:nth-child(4) .s13-image{height:auto;aspect-ratio:1.65}
+ #screen-13 .s13-gallery figcaption strong{font-size:20px}
+ #screen-13 .s13-gallery figcaption p{font-size:13px!important}
+}
+@media(max-width:420px){#screen-13 .s13-gallery{grid-template-columns:1fr;grid-template-areas:"casarao" "cafe" "moradia" "estacao"}#screen-13 .s13-gallery>figure:nth-child(2) .s13-image,#screen-13 .s13-gallery>figure:nth-child(3) .s13-image{aspect-ratio:1.3}}
+</style>
+<style id="mobile-final-polish">
+#screen-14[hidden],#screen-final[hidden],#screen-13[hidden]{display:none!important}
+#screen-14{background:#253a32;color:#f4ebdd}
+#screen-14 .review-explainer{font:clamp(15px,1.35vw,18px)/1.65 Georgia,serif;max-width:730px;margin:-10px 0 30px;color:#e0d9c9}
+#screen-final .feedback-field select{display:block;width:100%;min-height:48px;padding:13px 15px;border:1px solid #c9ae7caa;background:#253a32;color:#f4ebdd;border-radius:0;font:16px Georgia,serif}
+#screen-final .feedback-return{display:block;margin:0 0 25px;border:1px solid #c9ae7c;color:#f4ebdd;background:transparent;padding:12px 16px;cursor:pointer}
+#screen-final input,#screen-final textarea,#screen-final select{max-width:100%;box-sizing:border-box}
+@media(max-width:800px){
+ html,body{max-width:100%;overflow-x:hidden}
+ #app,.screen{max-width:100%}
+ #screen-01{min-height:100svh}
+ #screen-01 .opening-content{position:relative;z-index:2}
+ #screen-03 .survey-grid,#screen-14 .survey-grid{grid-template-columns:minmax(0,1fr);gap:20px}
+ #screen-03 .survey-figure img,#screen-14 .survey-figure img{display:block;width:100%;height:auto;max-height:42svh;min-height:200px;object-fit:contain}
+ #screen-03 .survey-form textarea,#screen-14 .survey-form textarea{min-height:140px;font-size:16px}
+ #screen-14 .intro-inner{min-height:100svh}
+ #screen-final .feedback-layout{grid-template-columns:1fr;gap:32px}
+ #screen-final .feedback-intro{position:static}
+ #screen-final .feedback-description{line-height:1.65}
+ #screen-06.dumont-screen{height:auto;min-height:0;overflow:visible;display:flex;flex-direction:column;padding:0 0 22px}
+ #screen-06.dumont-screen[hidden]{display:none!important}
+ #screen-06 .dumont-gallery{position:relative;inset:auto;display:block;height:clamp(230px,64vw,410px);flex:none;overflow:hidden;z-index:0}
+ #screen-06 .dumont-layer,#screen-06 .dumont-layer img,#screen-06 .dumont-art{position:absolute;inset:0;width:100%;height:100%}
+ #screen-06 .dumont-shade{display:none}
+ #screen-06 .dumont-header{position:relative;order:-1;top:auto;left:auto;right:auto;background:#253a32;padding:18px 5%;font-size:10px}
+ #screen-06 .dumont-panel{position:relative;order:2;margin:0;width:100%;max-width:none;box-shadow:none;border-left:0;border-top:2px solid #c9ae7c;padding:25px 6%;background:#253a32}
+ #screen-06 .dumont-point{top:auto!important;bottom:auto!important;left:auto!important;right:auto!important;position:relative;order:3;margin:0 5% 10px;transform:none!important;min-height:0}
+ #screen-06 .dumont-point:not([style]){display:none}
+ #screen-06 .dumont-diagram{position:relative;order:4;bottom:auto;left:auto;right:auto;max-width:none;width:90%;margin:8px auto 18px}
+ #screen-06 .dumont-footer{position:relative;order:5;bottom:auto;left:auto;right:auto;width:90%;margin:0 auto;display:flex;flex-direction:column-reverse;align-items:stretch;gap:14px}
+ #screen-06 .dumont-footer p{max-width:none;margin:0;font-size:11px}
+ #screen-06 .dumont-actions{width:100%;display:flex;justify-content:space-between;gap:10px}
+ #screen-06 .dumont-actions button{min-height:44px;flex:1}
+ #screen-07{height:auto;min-height:0;overflow:hidden;display:flex;flex-direction:column;padding:0}
+ #screen-07[hidden]{display:none!important}
+ #screen-07 .rail-topline{position:relative;order:0;left:auto;right:auto;top:auto;padding:20px 5%;background:#253a32;z-index:8}
+ #screen-07 .rail-world{position:relative;order:1;inset:auto;flex:none;height:auto;min-height:0;width:200%;align-items:stretch;transform:translateX(0)}
+ #screen-07 .rail-slide{height:auto;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+ #screen-07 .rail-photo{position:relative;inset:auto;width:100%;height:clamp(230px,66vw,390px);object-fit:cover;filter:grayscale(1) sepia(.24) brightness(.8);flex:none}
+ #screen-07 .rail-slide::after{display:none}
+ #screen-07 .rail-slide-inner{position:relative;z-index:2;width:100%;padding:24px 6% 34px;background:#253a32;box-sizing:border-box;flex:1}
+ #screen-07 .rail-slide h2{font-size:clamp(34px,8.5vw,53px);margin:10px 0 18px}
+ #screen-07 .rail-slide p:not(.rail-eyebrow){font-size:15px;line-height:1.65}
+ #screen-07 .rail-credit{position:relative;z-index:2;bottom:auto;right:auto;max-width:none;text-align:left;background:#253a32;padding:0 6% 18px;font-size:10px}
+ #screen-07 .rail-ground{position:absolute;z-index:5;top:calc(20px + 66vw - 12px);bottom:auto;height:8px;left:0;right:0;pointer-events:none}
+ #screen-07 .rail-train-free{position:absolute;z-index:6;top:calc(20px + 66vw - 91px);bottom:auto;left:25%;width:min(65vw,320px);height:max-content;transform:translateX(0);pointer-events:none}
+ #screen-07.rail-moving .rail-train-free,#screen-07.rail-arrived .rail-train-free{transform:translateX(32%)}
+ #screen-07 .rail-bottom{position:relative;order:3;bottom:auto;left:auto;right:auto;display:flex;flex-wrap:wrap;padding:18px 5% 24px;background:#253a32;margin:0;z-index:8}
+ #screen-07 .rail-controls{width:100%;display:flex;gap:10px}
+ #screen-07 .rail-controls button{flex:1;min-height:44px}
+ #screen-08 .map08-body{grid-template-columns:minmax(0,1fr)!important;gap:20px}
+ #screen-08 .map08-frame{width:100%;min-height:0;aspect-ratio:1.25}
+ #screen-08 .map08-bottom{flex-wrap:wrap}
+ #screen-09 .land09{height:auto;min-height:100svh;overflow:visible}
+ #screen-09 .land09-stage{width:100%;max-width:100%}
+ #screen-10,#screen-11,#screen-12,#screen-13{overflow-x:hidden}
+ #screen-12 .gallery{grid-template-columns:1fr!important}
+ #screen-13 .s13-gallery{grid-template-columns:1fr!important;grid-template-areas:'casarao' 'cafe' 'moradia' 'estacao'!important}
+ #screen-13 .s13-gallery .s13-image{height:auto!important;aspect-ratio:1.4!important}
+ #screen-13 .s13-gallery .s13-photo{object-fit:cover}
+}
+@media(max-width:450px){
+ #screen-07 .rail-train-free{top:calc(20px + 66vw - 75px);width:65vw}
+ #screen-07 .rail-ground{top:calc(20px + 66vw - 8px)}
+ #screen-06 .dumont-diagram{flex-wrap:wrap}
+ #screen-06 .dumont-node{min-width:0;flex:1 1 30%}
+ #screen-final .feedback-stars{gap:4px}
+ #screen-final .feedback-star{width:36px;height:36px;flex-basis:36px}
+ #screen-final .feedback-layout{padding:28px 0}
+ #screen-14 .survey-title{font-size:clamp(30px,9vw,48px)}
+}
+@media(prefers-reduced-motion:reduce){#screen-07 .rail-world,#screen-07 .rail-train-free{transition:none!important}}
+</style>
+<style id="mobile-refinement-2026">
+/* Em telas pequenas, nenhuma fotografia fica sob o texto da narrativa. */
+@media(max-width:800px){
+ #screen-02 .intro-photo{position:relative!important;inset:auto!important;width:100%!important;height:auto!important;order:-1;pointer-events:auto;margin:14px 0 20px}
+ #screen-02 .intro-photo::after{display:none!important}
+ #screen-02 .intro-photo img{display:block;width:100%;height:auto;max-height:38svh;aspect-ratio:16/9;object-fit:cover;filter:grayscale(1)}
+ #screen-02 .intro-with-photo{display:flex!important;flex-direction:column;align-items:stretch}
+ #screen-02 .intro-copy{width:100%!important}
+ #screen-02 .intro-content{padding:20px 0 30px}
+ #screen-05{height:auto!important;min-height:100svh!important;overflow:visible!important}
+ #screen-05 .cafe-map-scene{position:relative!important;inset:auto!important;height:clamp(240px,65vw,430px)!important;overflow:hidden}
+ #screen-05 .cafe-map-layout{position:relative!important;inset:auto!important;width:100%!important;max-width:none!important;min-height:0!important;padding:20px 5% 30px!important;background:#253a32!important;box-sizing:border-box}
+ #screen-05 .cafe-map-panel{position:relative!important;inset:auto!important;width:100%!important;max-width:none!important;margin:18px 0!important;box-sizing:border-box}
+ #screen-05 .cafe-map-navigation,#screen-05 .cafe-map-source{position:relative!important;inset:auto!important;margin-top:16px!important}
+ #screen-07 .rail-train-free,#screen-07 .rail-ground{display:none!important}
+ #screen-07 .rail-mobile-train{position:absolute;z-index:5;top:clamp(175px,50vw,310px);left:24%;width:min(62vw,290px);pointer-events:none;filter:drop-shadow(0 8px 6px #0008);transition:transform 2.7s cubic-bezier(.65,0,.25,1)}
+ #screen-07 .rail-mobile-train svg{display:block;width:100%;height:auto;transform:scaleX(-1)}
+ #screen-07.rail-moving .rail-mobile-train{transform:translateX(24%)}
+ #screen-07 .rail-slide-inner{z-index:2!important}
+ #screen-07 .rail-topline{flex-wrap:wrap;gap:6px;font-size:10px}
+ #screen-07 .rail-bottom{gap:12px}
+ #screen-07 .rail-controls button{white-space:normal;line-height:1.35}
+ #screen-06 .dumont-panel{max-width:100%;overflow-wrap:break-word}
+ #screen-08,#screen-09,#screen-10,#screen-11,#screen-12,#screen-13,#screen-14,#screen-final{max-width:100%;box-sizing:border-box}
+ .screen button,.screen input,.screen select,.screen textarea{touch-action:manipulation}
+ #screen-13 .s13-gallery .s13-image{aspect-ratio:1.35!important}
+}
+@media(max-width:480px){
+ .intro-navigation{flex-wrap:wrap;gap:12px}
+ .intro-navigation button{min-height:44px}
+ #screen-07 .rail-mobile-train{top:calc(66vw - 65px)}
+ #screen-07 .rail-slide-inner{padding-top:24px!important}
+ #screen-final .feedback-stars{flex-wrap:nowrap}
+}
+@media(prefers-reduced-motion:reduce){#screen-07 .rail-mobile-train{transition:none!important}}
+</style>
 </head>
 
 <body>
@@ -1690,12 +1863,12 @@
 <section id="screen-07" class="screen" hidden aria-labelledby="rail-title">
  <div class="rail-world" aria-live="polite">
   <section class="rail-slide rail-interior" aria-label="Partida do interior paulista">
-   <img class="rail-photo" src="imagens/ferrovia-interior.jpg" alt="Fotografia histórica do interior cafeeiro paulista" onerror="this.style.opacity='0'">
+   <img class="rail-photo" src="imagens/ferrovia-interior.jpg" alt="Fotografia histórica do interior cafeeiro paulista" onerror="this.style.opacity='0'"><div class="rail-mobile-train" aria-hidden="true"><svg viewBox="0 0 520 140" aria-hidden="true"><g stroke="#c9ae7c" stroke-width="3" stroke-linejoin="round"><g fill="#253a32"><rect x="175" y="63" width="156" height="55"/><rect x="342" y="63" width="156" height="55"/><path d="M331 103h11"/><rect x="44" y="56" width="120" height="62" rx="4"/><rect x="125" y="25" width="39" height="32"/><rect x="53" y="39" width="27" height="18"/><rect x="38" y="106" width="135" height="12"/><path d="M164 102h11"/></g><g fill="#c9ae7c"><rect x="131" y="32" width="24" height="21"/><rect x="184" y="70" width="136" height="8"/><rect x="352" y="70" width="136" height="8"/><path d="M189 63l17-21h25l17 21M260 63l17-21h25l17 21M356 63l17-21h25l17 21M426 63l17-21h25l17 21"/></g><g fill="#253a32"><circle class="rail-wheel" cx="75" cy="119" r="17"/><circle class="rail-wheel" cx="140" cy="119" r="17"/><circle class="rail-wheel" cx="203" cy="119" r="13"/><circle class="rail-wheel" cx="293" cy="119" r="13"/><circle class="rail-wheel" cx="372" cy="119" r="13"/><circle class="rail-wheel" cx="464" cy="119" r="13"/></g><g stroke-width="2"><path d="M63 119h24M75 107v24M128 119h24M140 107v24"/><path d="M195 119h16M203 111v16M285 119h16M293 111v16M364 119h16M372 111v16M456 119h16M464 111v16"/></g><g fill="#f4ebdd" stroke="none"><circle class="rail-puff" cx="64" cy="28" r="12"/><circle class="rail-puff" cx="83" cy="12" r="16"/></g></g></svg></div>
    <div class="rail-slide-inner"><p class="rail-eyebrow">01 / 02 — O INTERIOR PAULISTA</p><h2 id="rail-title">Café<em>  nos trilhos</em></h2><p>Na ponta dessa teia entre colheita, beneficiamento e trabalho estava a exportação do café para mercados distanciados pelo oceano: EUA e Europa. Para tanto, o café precisava atingir o porto de Santos, mas o meio de transporte usado para isto até então, a mula, já não dava mais conta das dimensões da produção de São Paulo: era muito café.</p><p>Foi nesse contexto que foi necessário investir em ferrovias, permitindo a redução de custos e assim incentivando ainda mais a escalada da  produção. A primeira linha foi a São Paulo Railway, inaugurada em 1867, que foi fundamental para vencer os entraves da Serra do Mar. Depois surgiram a Mogiana, a Sorocabana, e muitas outras. Uma transformação completa nessa rede do café paulista.</p></div>
    <span class="rail-credit">Pátio de Estação em Araras, cerca de 1880. Fotografia de Marc Ferrez. Retirado de: https://brasilianafotografica.bn.gov.br/brasiliana/handle/20.500.12156.1/2253</span>
   </section>
   <section class="rail-slide rail-capital" aria-label="Chegada à capital paulista">
-   <img class="rail-photo" src="imagens/ferrovia-luz.jpg" alt="Fotografia histórica da Estação da Luz, São Paulo" onerror="this.style.opacity='0'">
+   <img class="rail-photo" src="imagens/ferrovia-luz.jpg" alt="Fotografia histórica da Estação da Luz, São Paulo" onerror="this.style.opacity='0'"><div class="rail-mobile-train" aria-hidden="true"><svg viewBox="0 0 520 140" aria-hidden="true"><g stroke="#c9ae7c" stroke-width="3" stroke-linejoin="round"><g fill="#253a32"><rect x="175" y="63" width="156" height="55"/><rect x="342" y="63" width="156" height="55"/><path d="M331 103h11"/><rect x="44" y="56" width="120" height="62" rx="4"/><rect x="125" y="25" width="39" height="32"/><rect x="53" y="39" width="27" height="18"/><rect x="38" y="106" width="135" height="12"/><path d="M164 102h11"/></g><g fill="#c9ae7c"><rect x="131" y="32" width="24" height="21"/><rect x="184" y="70" width="136" height="8"/><rect x="352" y="70" width="136" height="8"/><path d="M189 63l17-21h25l17 21M260 63l17-21h25l17 21M356 63l17-21h25l17 21M426 63l17-21h25l17 21"/></g><g fill="#253a32"><circle class="rail-wheel" cx="75" cy="119" r="17"/><circle class="rail-wheel" cx="140" cy="119" r="17"/><circle class="rail-wheel" cx="203" cy="119" r="13"/><circle class="rail-wheel" cx="293" cy="119" r="13"/><circle class="rail-wheel" cx="372" cy="119" r="13"/><circle class="rail-wheel" cx="464" cy="119" r="13"/></g><g stroke-width="2"><path d="M63 119h24M75 107v24M128 119h24M140 107v24"/><path d="M195 119h16M203 111v16M285 119h16M293 111v16M364 119h16M372 111v16M456 119h16M464 111v16"/></g><g fill="#f4ebdd" stroke="none"><circle class="rail-puff" cx="64" cy="28" r="12"/><circle class="rail-puff" cx="83" cy="12" r="16"/></g></g></svg></div>
    <div class="rail-slide-inner"><p class="rail-eyebrow">02 / 02 — CHEGADA A SÃO PAULO</p><h2>Chegamos <em>à capital</em></h2><p>São Paulo era a cidade em que essas linhas de trem se encontravam, e era o mais importante entreposto da produção cafeeira antes de chegar, finalmente, a Santos. Era na capital paulista que os negócios eram fechados, e, com o tempo, passou a circular mais pessoas, serviços, investimentos, capital e mercadoria na cidade.</p><p>Nesse ambiente em que a “modernidade” estava em voga (aqui, as aspas caem bem: que tipo de modernidade se pode imaginar com a exploração do trabalho, estruturas escravistas ou semi escravistas?), a burguesia ligada ao café, à imagem de cidades como a moderna Paris, buscava uma morada à sua altura. Foi em São Paulo, nas imediações da estação da Luz, que esse sonho de modernidade e novos modos de vida burguês floresceu. E aqui, em 1878, surgem os Campos Elíseos.</p></div>
    <span class="rail-credit">Estação da Luz. Fotografia de Guilherme Gaesnly, cerca de 1902. Retirado de: https://brasilianafotografica.bn.gov.br/brasiliana/handle/20.500.12156.1/959</span>
   </section>
@@ -1807,18 +1980,19 @@
             placeholder="seuemail@exemplo.com"
           >
         </div>
+<div class="feedback-field"><label for="feedback-age">Idade</label>
+<input id="feedback-age" name="idade" type="number" min="1" max="120" inputmode="numeric" placeholder="Sua idade"></div>
+<div class="feedback-field"><label for="feedback-education">Escolaridade</label>
+<select id="feedback-education" name="escolaridade">
+<option value="">Selecione sua escolaridade</option>
+<option>Ensino fundamental incompleto</option><option>Ensino fundamental completo</option>
+<option>Ensino médio incompleto</option><option>Ensino médio completo</option>
+<option>Ensino superior incompleto</option><option>Ensino superior completo</option>
+<option>Pós-graduação</option><option>Prefiro não informar</option>
+</select></div>
 
-        <div class="feedback-field">
-          <label for="feedback-phone">Telefone</label>
-          <input
-            id="feedback-phone"
-            name="telefone"
-            type="tel"
-            maxlength="30"
-            autocomplete="tel"
-            placeholder="(11) 99999-9999"
-          >
-        </div>
+
+        
 
         <div class="feedback-field">
           <label for="feedback-comments">
@@ -2693,6 +2867,12 @@ form.addEventListener("submit", async event => {
 
   try {
     dados = CamposRespostas.montarEnvio(form);
+    dados.idade = document.getElementById('feedback-age')?.value || '';
+    dados.escolaridade = document.getElementById('feedback-education')?.value || '';
+    dados.respostas_finais = window.CamposRevisao?.obterRespostas?.() || JSON.parse(localStorage.getItem('campos-eliseos-impressoes-finais-v1') || '["","",""]');
+    if (Array.isArray(dados.respostas)) {
+      dados.respostas_finais.forEach((resposta,i)=>dados.respostas.push({tela:'screen-14',pergunta:i+1,resposta}));
+    }
   } catch (erro) {
     console.error(erro);
 
@@ -3167,5 +3347,53 @@ form.addEventListener("submit", async event => {
 #screen-12 .s12-nav button:hover{background:#c9ae7c;color:#253a32}
 
 </style>
-<main class="screen page" hidden="" id="screen-12"><div class="topline"><span>Café, casas e gente</span><span>Campos Elíseos · Capítulo 12</span></div><section class="intro"><span class="kicker">Transformações e permanências</span><h1>Uma casa,<br/><em>três tempos,</em><br/>um bairro.</h1><div class="rule"></div><p>Este panorama do bairro durou pouco. Nas primeiras décadas do século XX, os Campos Elíseos começaram a perder parte de seu prestígio como endereço residencial da elite paulistana. Com a rápida expansão urbana, as famílias mais abastadas passaram a se voltar para outros bairros, como Higienópolis e, posteriormente, os Jardins. Ao mesmo tempo, a proximidade com as estações ferroviárias, que, como vimos, havia contribuído para a valorização imobiliária do bairro, também favorecia a circulação de trabalhadores e mercadorias, além da instalação de oficinas, comércios e serviços.</p><p>Esse processo se intensificou ao longo das décadas seguintes, especialmente após a crise de 1929, que atingiu a economia cafeeira. Com a saída de parte da elite, é claro, o bairro não ficou abandonado. Os antigos palacetes tiveram diferentes destinos: alguns foram vendidos, outros demolidos, outros transformados em estabelecimentos comerciais. Houve também aqueles que foram subdivididos e passaram a abrigar diferentes famílias, convertendo-se em casas de cômodos e cortiços. Ao longo do século XX, os Campos Elíseos passaram por profundas transformações sociais e urbanas.</p><p>Entretanto, parece haver uma diferença entre aquilo que se escolhe lembrar do bairro e aquilo que se prefere esquecer.</p><p class="transition">Tomemos como exemplo o casarão da Alameda Cleveland que pertenceu à família Dumont.</p></section><section aria-label="Galeria histórica do Casarão Santos Dumont"><div class="gallery-head"><div><span class="kicker">Galeria documental</span><h2>O Casarão Santos Dumont</h2></div><small>Três imagens · Três momentos</small></div><!-- EDITE AS FONTES DIRETAMENTE NOS PARÁGRAFOS <p class="source"> DE CADA CARTÃO. AS IMAGENS SÃO ARQUIVOS NA MESMA PASTA DESTE HTML. --><div class="gallery"><article class="era"><div class="photo"><img alt="O palacete da família Dumont" loading="lazy" src="casarao-dumont-antigo.png"/><span class="stamp">01 / 03</span></div><div class="era-content"><span class="eyebrow"></span><h3>O palacete da família Dumont</h3><Adquirido pelo eminente cafeicultor Henrique Santos Dumont em 1894, o edifício expressava a riqueza de uma família ligada ao café. A imagem ainda mostra o uso pioneiro de carros e a presenção de Alberto Santos Dumont, o pai da aviação, à direita da imagem.</p><p class="source">Retirado de: https://fotografia.folha.uol.com.br/galerias/1599574630673829-casarao-de-santos-dumont</p></div></article><article class="era"><div class="photo"><img alt="O casarão como moradia coletiva" loading="lazy" src="casarao-dumont-cortico-1997.jpg"/><span class="stamp">02 / 03</span></div><div class="era-content"><span class="eyebrow"></span><h3>O casarão como moradia coletiva</h3><p>A fotografia de 1997 registra a vida cotidiana no interior do casarão, com moradores vivendo de forma coletiva: roupas estendidas e objetos comuns entre os ornamentos da opulenta residência.</p><p class="source">Retirado de: https://fotografia.folha.uol.com.br/galerias/1599574630673829-casarao-de-santos-dumont</p></div></article><article class="era"><div class="photo"><img alt="O Museu da Energia" loading="lazy" src="casarao-dumont-museu-2010.png"/><span class="stamp">03 / 03</span></div><div class="era-content"><span class="eyebrow"></span><h3>O Museu da Energia</h3><p>Em 2005, o casarão foi restaurado e passou a abrigar o Museu da Energia. O objetivo de contar a história da iluminação pública da cidade suscita dúvidas sobre qual memória ele escolhe contar. Em qual página conta-se a história das famílias que moraram ali?</p><p class="source">Imagem de 2010: Google Maps, reproduzida em Felipe Romano, fig. 309, p. 183.</p></div></article></div><p class="note">As imagens foram reproduzidas de trabalhos acadêmicos e possuem datas e proveniências distintas. O registro mais antigo não tem data fotográfica confirmada na fonte consultada. Entre esses momentos, o edifício também teve usos escolares e assistenciais.</p></section><section class="reflection"><p></p></section><footer class="footer">Fontes: Evânio dos Santos Branquinho, <em>Campos Elíseos no centro da crise</em> (2007), pp. 121–124 e 160–162; Felipe Romano dos Santos, <em>Campos Elíseos em três tempos</em>, pp. 179–183.</footer><nav aria-label="Navegação da tela 12" class="s12-nav"><button id="s12-back" type="button">← Voltar</button><button id="s12-next" type="button">Continuar →</button></nav></main>
-<script id="screen12-interaction">(function(){const page=document.getElementById('screen-12');if(!page)return;function go(id){const target=document.getElementById(id);if(!target)return;page.hidden=true;target.hidden=false;window.scrollTo(0,0)}document.getElementById('s12-back')?.addEventListener('click',()=>go('screen-11'));document.getElementById('s12-next')?.addEventListener('click',()=>go('screen-final'));})();</script>
+<main class="screen page" hidden="" id="screen-12"><div class="topline"><span>Café, casas e gente</span><span>Campos Elíseos · Capítulo 12</span></div><section class="intro"><span class="kicker">Transformações e permanências</span><h1>Uma casa,<br/><em>três tempos,</em><br/>um bairro.</h1><div class="rule"></div><p>Este panorama do bairro durou pouco. Nas primeiras décadas do século XX, os Campos Elíseos começaram a perder parte de seu prestígio como endereço residencial da elite paulistana. Com a rápida expansão urbana, as famílias mais abastadas passaram a se voltar para outros bairros, como Higienópolis e, posteriormente, os Jardins. Ao mesmo tempo, a proximidade com as estações ferroviárias, que, como vimos, havia contribuído para a valorização imobiliária do bairro, também favorecia a circulação de trabalhadores e mercadorias, além da instalação de oficinas, comércios e serviços.</p><p>Esse processo se intensificou ao longo das décadas seguintes, especialmente após a crise de 1929, que atingiu a economia cafeeira. Com a saída de parte da elite, é claro, o bairro não ficou abandonado. Os antigos palacetes tiveram diferentes destinos: alguns foram vendidos, outros demolidos, outros transformados em estabelecimentos comerciais. Houve também aqueles que foram subdivididos e passaram a abrigar diferentes famílias, convertendo-se em casas de cômodos e cortiços. Ao longo do século XX, os Campos Elíseos passaram por profundas transformações sociais e urbanas.</p><p>Entretanto, parece haver uma diferença entre aquilo que se escolhe lembrar do bairro e aquilo que se prefere esquecer.</p><p class="transition">Tomemos como exemplo o casarão da Alameda Cleveland que pertenceu à família Dumont.</p></section><section aria-label="Galeria histórica do Casarão Santos Dumont"><div class="gallery-head"><div><span class="kicker">Galeria documental</span><h2>O Casarão Santos Dumont</h2></div><small>Três imagens · Três momentos</small></div><!-- EDITE AS FONTES DIRETAMENTE NOS PARÁGRAFOS <p class="source"> DE CADA CARTÃO. AS IMAGENS SÃO ARQUIVOS NA MESMA PASTA DESTE HTML. --><div class="gallery"><article class="era"><div class="photo"><img alt="O palacete da família Dumont" loading="lazy" src="imagens/casarao-dumont-antigo.png"/><span class="stamp">01 / 03</span></div><div class="era-content"><span class="eyebrow"></span><h3>O palacete da família Dumont</h3><p>Adquirido pelo eminente cafeicultor Henrique Santos Dumont em 1894, o edifício expressava a riqueza de uma família ligada ao café. A imagem ainda mostra o uso pioneiro de carros e a presenção de Alberto Santos Dumont, o pai da aviação, à direita da imagem.</p><p class="source">Retirado de: https://fotografia.folha.uol.com.br/galerias/1599574630673829-casarao-de-santos-dumont</p></div></article><article class="era"><div class="photo"><img alt="O casarão como moradia coletiva" loading="lazy" src="imagens/casarao-dumont-cortico-1997.jpg"/><span class="stamp">02 / 03</span></div><div class="era-content"><span class="eyebrow"></span><h3>O casarão como moradia coletiva</h3><p>A fotografia de 1997 registra a vida cotidiana no interior do casarão, com moradores vivendo de forma coletiva: roupas estendidas e objetos comuns entre os ornamentos da opulenta residência.</p><p class="source">Retirado de: https://fotografia.folha.uol.com.br/galerias/1599574630673829-casarao-de-santos-dumont</p></div></article><article class="era"><div class="photo"><img alt="O Museu da Energia" loading="lazy" src="imagens/casarao-dumont-museu-2010.png"/><span class="stamp">03 / 03</span></div><div class="era-content"><span class="eyebrow"></span><h3>O Museu da Energia</h3><p>Em 2005, o casarão foi restaurado e passou a abrigar o Museu da Energia. O objetivo de contar a história da iluminação pública da cidade suscita dúvidas sobre qual memória ele escolhe contar. Em qual página conta-se a história das famílias que moraram ali?</p><p class="source">Imagem de 2010: Google Maps, reproduzida em Felipe Romano, fig. 309, p. 183.</p></div></article></div><p class="note">As imagens foram reproduzidas de trabalhos acadêmicos e possuem datas e proveniências distintas. O registro mais antigo não tem data fotográfica confirmada na fonte consultada. Entre esses momentos, o edifício também teve usos escolares e assistenciais.</p></section><section class="reflection"><p></p></section><footer class="footer">Fontes: Evânio dos Santos Branquinho, <em>Campos Elíseos no centro da crise</em> (2007), pp. 121–124 e 160–162; Felipe Romano dos Santos, <em>Campos Elíseos em três tempos</em>, pp. 179–183.</footer><nav aria-label="Navegação da tela 12" class="s12-nav"><button id="s12-back" type="button">← Voltar</button><button id="s12-next" type="button">Continuar →</button></nav></main>
+
+<!-- ENCERRAMENTO: TELA 13 E REFORMULAÇÃO DAS IMPRESSÕES -->
+<section aria-labelledby="s13-title" class="screen" hidden="" id="screen-13">
+<div class="s13-wrap">
+<div class="s13-top"><span>N.º 13 · Café, casas e gente</span><span>Campos Elíseos, hoje</span></div>
+<header class="s13-intro">
+<span class="s13-kicker">Registros da visita da equipe</span>
+<h2 id="s13-title">O bairro que <em>permanece.</em></h2>
+<p>Ao caminhar pelos Campos Elíseos hoje, encontramos marcas de diferentes momentos de sua história. Casarões com sinais de abandono, edifícios de moradia popular e monumentos ferroviários dividem a paisagem. Nem tudo foi preservado da mesma maneira — e nem todas as histórias recebem a mesma atenção.</p>
+<p>As fotografias feitas durante nossa visita mostram que o passado do bairro não está apenas nos arquivos: ele continua presente nas ruas, nas construções e até nos pequenos detalhes de sua arquitetura.</p>
+</header>
+<div class="s13-gallery">
+<figure class="s13-large"><div class="s13-image"><img alt="Fachada ornamentada de um casarão com sinais de deterioração e vegetação crescendo entre seus elementos arquitetônicos" class="s13-photo" loading="lazy" src="imagens/visita-casarao.jpg"/></div><figcaption><span class="s13-number">01 / 04 · PATRIMÔNIO</span><strong>As marcas do tempo</strong><p>Os ornamentos da fachada ainda evocam o prestígio de outras épocas. As janelas danificadas, o desgaste e a vegetação mostram, ao mesmo tempo, as transformações e os desafios de conservação.</p><small class="s13-source">Fotografia da visita da equipe aos Campos Elíseos, 2026. Edite este crédito no HTML.</small></figcaption></figure>
+<figure class="s13-portrait"><div class="s13-image"><img alt="Detalhe de guarda-corpo ornamental com folhas e frutos estilizados" class="s13-photo" loading="lazy" src="imagens/visita-ramos-cafe.jpg"/></div><figcaption><span class="s13-number">02 / 04 · DETALHE</span><strong>O café nos ornamentos</strong><p>No guarda-corpo, formas que lembram ramos e frutos de café remetem à riqueza que ajudou a transformar a cidade. Uma história econômica inscrita nos detalhes da arquitetura.</p><small class="s13-source">Fotografia da visita da equipe, 2026. Detalhe da arquitetura da estação ferroviária.</small></figcaption></figure>
+<figure class="s13-portrait"><div class="s13-image"><img alt="Edifício de moradia coletiva com numerosas janelas e sinais de desgaste na fachada" class="s13-photo" loading="lazy" src="imagens/visita-moradia-popular.jpg"/></div><figcaption><span class="s13-number">03 / 04 · MORADIA</span><strong>Outras formas de habitar</strong><p>A paisagem residencial do bairro não se resume aos antigos palacetes. Os edifícios de moradia coletiva também fazem parte de sua história e da vida cotidiana de quem permanece na região.</p><small class="s13-source">Fotografia da visita da equipe, 2026. Identificação do imóvel a completar.</small></figcaption></figure>
+<figure class="s13-large"><div class="s13-image"><img alt="Fachada histórica de estação ferroviária com torre de relógio" class="s13-photo" loading="lazy" src="imagens/visita-estacao-luz.jpg"/></div><figcaption><span class="s13-number">04 / 04 · FERROVIA</span><strong>A ferrovia e a cidade</strong><p>A Estação Júlio Prestes, fotografada pela equipe, recorda o papel dos trens na circulação de mercadorias e pessoas. A ferrovia ajudou a transformar São Paulo — e segue sendo parte da experiência urbana.</p><small class="s13-source">Fotografia da visita da equipe, 2026. Estação Júlio Prestes, São Paulo.</small></figcaption></figure>
+</div>
+<div class="s13-ending"><p>O que fica de um bairro não é apenas aquilo que foi tombado ou restaurado. São também os lugares habitados, as mudanças, os conflitos e as experiências de quem passou por suas ruas. <em>De que histórias os Campos Elíseos se lembram — e quais ainda precisamos contar?</em></p></div>
+<nav aria-label="Navegação da tela 13" class="s13-nav"><button id="s13-back" type="button">← Voltar</button><button id="s13-next" type="button">Encerrar percurso →</button></nav>
+</div>
+</section>
+<section aria-labelledby="review-title" class="screen screen-intro" hidden="" id="screen-14"><div class="intro-inner"><p class="label intro-label"><span class="label-number">N.º 14</span><span aria-hidden="true" class="label-rule"></span>Café, casas e gente · Depois do percurso</p><div class="survey-content"><p aria-live="polite" class="survey-progress" id="review-progress">PERGUNTA 01 / 03</p><h2 class="survey-title" id="review-title" tabindex="-1">Que tipo de pessoa já morou aqui?</h2><p class="review-explainer">Você viu estas imagens no início do percurso. Olhe novamente e responda com o que pensa agora. Suas primeiras impressões continuam guardadas separadamente.</p><div class="survey-grid"><figure class="survey-figure"><img alt="Fotografia de um palacete" id="review-image" loading="lazy" src="imagens/palacete-perguntas.jpg"/><div class="survey-image-fallback" hidden="" id="review-fallback">Fotografia não encontrada.</div></figure><div class="survey-form"><label for="review-answer">E agora, o que você pensa?</label><textarea id="review-answer" maxlength="2000" placeholder="Reformule sua primeira impressão..." rows="6"></textarea><p class="survey-help">Não existe resposta certa. O importante é registrar seu olhar depois da experiência.</p><p class="survey-error" hidden="" id="review-error" role="alert">Escreva uma resposta para continuar.</p></div></div></div><nav aria-label="Navegação da revisão" class="intro-navigation"><button class="intro-back" id="review-back" type="button">← Voltar</button><button class="btn-primary" id="review-next" type="button">Próxima pergunta →</button></nav></div></section>
+<script id="screen12-interaction">(function(){const page=document.getElementById('screen-12');if(!page)return;function go(id){const target=document.getElementById(id);if(!target)return;page.hidden=true;target.hidden=false;window.scrollTo(0,0)}document.getElementById('s12-back')?.addEventListener('click',()=>go('screen-11'));document.getElementById('s12-next')?.addEventListener('click',()=>go('screen-13'));})();</script>
+
+<script id="screen13-interaction">
+(function(){const p=document.getElementById('screen-13');if(!p)return;function go(id){const target=document.getElementById(id);if(!target)return;p.hidden=true;target.hidden=false;window.scrollTo(0,0)}document.getElementById('s13-back')?.addEventListener('click',()=>go('screen-12'));document.getElementById('s13-next')?.addEventListener('click',()=>go('screen-14'));})();
+</script>
+<script id="review-interaction">
+(function(){
+ const page=document.getElementById('screen-14');if(!page)return;
+ const questions=[
+ {title:'Que tipo de pessoa já morou aqui?',image:'imagens/palacete-perguntas.jpg',alt:'Fotografia de um palacete'},
+ {title:'Que tipo de pessoa já circulou aqui?',image:'imagens/rua-perguntas.jpg',alt:'Fotografia de uma rua dos Campos Elíseos'},
+ {title:'De onde vinha a riqueza para construir isso?',image:'imagens/construcao-perguntas.jpg',alt:'Fotografia histórica de uma construção'}];
+ const key='campos-eliseos-impressoes-finais-v1';let index=0;
+ let answers=['','',''];try{const saved=JSON.parse(localStorage.getItem(key));if(Array.isArray(saved)&&saved.length===3)answers=saved.map(v=>typeof v==='string'?v:'')}catch(e){}
+ const title=document.getElementById('review-title'),progress=document.getElementById('review-progress'),image=document.getElementById('review-image'),fallback=document.getElementById('review-fallback'),answer=document.getElementById('review-answer'),error=document.getElementById('review-error'),next=document.getElementById('review-next');
+ function save(){answers[index]=answer.value;try{localStorage.setItem(key,JSON.stringify(answers))}catch(e){}}
+ function show(){const q=questions[index];title.textContent=q.title;progress.textContent='PERGUNTA 0'+(index+1)+' / 03 · DEPOIS DO PERCURSO';image.src=q.image;image.alt=q.alt;image.hidden=false;fallback.hidden=true;answer.value=answers[index];error.hidden=true;next.textContent=index===2?'Ir para o feedback →':'Próxima pergunta →';window.scrollTo(0,0)}
+ function go(id){const target=document.getElementById(id);if(!target)return;page.hidden=true;target.hidden=false;window.scrollTo(0,0)}
+ image.addEventListener('error',()=>{image.hidden=true;fallback.hidden=false});image.addEventListener('load',()=>{image.hidden=false;fallback.hidden=true});
+ answer.addEventListener('input',()=>{save();error.hidden=true});
+ document.getElementById('review-back').addEventListener('click',()=>{save();if(index>0){index--;show();title.focus({preventScroll:true})}else go('screen-13')});
+ next.addEventListener('click',()=>{save();if(!answers[index].trim()){error.hidden=false;answer.focus();return}if(index<2){index++;show();title.focus({preventScroll:true})}else go('screen-final')});
+ document.addEventListener('click',e=>{if(e.target?.id==='feedback-back-to-review'){document.getElementById('screen-final').hidden=true;page.hidden=false;index=2;show()}});
+ window.CamposRevisao={obterRespostas:()=>answers.slice(),getInicial:()=>{try{return JSON.parse(localStorage.getItem('campos-eliseos-primeiras-impressoes-v1'))||[]}catch(e){return []}}};show();
+})();
+</script>
+</body></html>
