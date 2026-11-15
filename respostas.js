@@ -201,3 +201,23 @@ window.CamposRespostas = (() => {
       dificuldade:
         valor("dificuldade"),
 
+      aprofundamento:
+        valor("aprofundamento"),
+
+      comentarios:
+        valor("comentarios"),
+
+      consentimento:
+        campo("consentimento")?.checked === true
+    };
+  }
+
+  return {
+    registrar,
+    obterResposta,
+    obterTodas,
+    montarEnvio,
+    obterId
+  };
+})();
+
