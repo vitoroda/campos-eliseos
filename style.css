@@ -443,81 +443,115 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .opening-title-accent { text-transform: uppercase; }
 
 
-/* BLOCO 05 — RIBEIRÃO PRETO: MAPA → ZOOM → FAZENDA */
-.cafe-map-screen { min-height:100svh; background:var(--verde); color:var(--creme); overflow:hidden; isolation:isolate; }
-.cafe-map-scene { position:absolute; inset:0; z-index:-1; overflow:hidden; }
-.cafe-map-cartography,.cafe-farm-image { position:absolute; inset:0; width:100%; height:100%; }
-.cafe-map-cartography { transform-origin:center; transition:transform 1800ms cubic-bezier(.3,.05,.2,1); }
-.cafe-map-cartography img { display:block; width:100%; height:100%; object-fit:cover; max-width:none; }
-.cafe-farm-image svg { width:100%; height:100%; display:block; }
-.cafe-map-screen[data-stage="vale"] .cafe-map-cartography { transform:translate(var(--vale-x, -60vw), var(--vale-y, -20vh)) scale(2.45); }
-.cafe-map-screen[data-stage="ribeirao"] .cafe-map-cartography,
-.cafe-map-screen[data-stage="1"] .cafe-map-cartography { transform:translate(var(--ribeirao-x, -12vw), var(--ribeirao-y, 35vh)) scale(2.45); }
-.cafe-farm-image { opacity:0; transition:opacity 850ms ease; }
-.cafe-map-screen[data-stage="2"] .cafe-farm-image { opacity:1; }
-.cafe-map-layout { position:relative; display:flex; flex-direction:column; min-height:100svh; padding:clamp(1rem,3vw,2.5rem) var(--margem-tela); gap:1rem; }
-.cafe-map-topline { display:flex; justify-content:space-between; gap:1rem; font-size:.7rem; font-weight:600; letter-spacing:.14em; color:var(--creme); text-shadow:0 1px 4px #1b2b25; }
-.cafe-map-panel { margin:auto 0 1rem; padding:clamp(1.25rem,3vw,2.5rem); background:var(--verde); width:min(100%,780px); box-shadow:0 12px 35px #17241d44; }
-.cafe-map-kicker { color:var(--ouro); letter-spacing:.18em; font-size:.72rem; margin-bottom:1rem; }
-.cafe-map-panel h2 { font-family:var(--fonte-titulo); font-size:clamp(1.8rem,3.5vw,3.7rem); font-weight:400; line-height:1.12; margin-bottom:1.2rem; }
-.cafe-map-paragraph p { font-size:clamp(.95rem,1.25vw,1.12rem); line-height:1.7; }
-.cafe-map-paragraph[hidden] { display:none!important; }
-.cafe-map-navigation { display:flex; justify-content:space-between; align-items:center; gap:1rem; }
-.cafe-map-navigation .intro-back { background:var(--verde); padding:.9rem 1.2rem; }
-.cafe-map-navigation .btn-primary:disabled { opacity:.65; cursor:wait; }
-.cafe-map-source { align-self:flex-end; font-size:.65rem; max-width:600px; background:var(--verde); padding:.35rem .6rem; }
-@media(max-width:700px) { .cafe-map-layout{padding:1rem;}.cafe-map-topline{font-size:.58rem}.cafe-map-panel{padding:1.2rem;margin-top:22vh}.cafe-map-panel h2{font-size:clamp(1.7rem,7vw,2.6rem)}.cafe-map-paragraph p{font-size:.94rem;line-height:1.55}.cafe-map-source{font-size:.6rem}.cafe-map-navigation .btn-primary{letter-spacing:.08em;padding:.8rem 1rem} }
-@media(prefers-reduced-motion:reduce) { .cafe-map-cartography,.cafe-farm-image{transition:none!important;} }
-
-
-/* TELA 06 — FAZENDA DUMONT: entrada progressiva nas fotografias */
-.dumont-screen{position:relative;min-height:100svh;background:#1b2b25;color:#f4ebdd;overflow:hidden;isolation:isolate}
-.dumont-gallery,.dumont-layer,.dumont-layer img,.dumont-art{position:absolute;inset:0;width:100%;height:100%}
-.dumont-gallery{z-index:-2;overflow:hidden}.dumont-layer{opacity:0;transition:opacity .85s ease,transform 1.75s cubic-bezier(.19,.8,.2,1);transform:scale(1.18);overflow:hidden}.dumont-layer.is-visible{opacity:1;transform:scale(1)}.dumont-layer.is-entering{transform:scale(2.25)}
-.dumont-layer img{object-fit:cover;object-position:center;filter:grayscale(1) sepia(.35) contrast(.92)}
-.dumont-art{background:linear-gradient(160deg,#7e8878 0 35%,#b4a38a 35% 44%,#555f4a 44% 60%,#8c7c62 60% 100%)}
-.dumont-art-1{background:repeating-linear-gradient(112deg,transparent 0 65px,#40503e 65px 92px,transparent 92px 126px),linear-gradient(#aaa38a,#626e53)}
-.dumont-art-2{background:repeating-linear-gradient(90deg,transparent 0 105px,#4c5147 105px 117px,transparent 117px 210px),linear-gradient(145deg,#b8a58b 0 48%,#6c5947 48% 100%)}
-.dumont-art-3{background:linear-gradient(125deg,#3d4b3b,#7b745e 55%,#3e4b3a)}
-.dumont-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(19,34,27,.62),transparent 80%),linear-gradient(0deg,rgba(19,34,27,.86),transparent 34%)}
-.dumont-header{position:absolute;top:28px;left:5%;right:5%;display:flex;justify-content:space-between;gap:12px;color:#f4ebdd;font:11px Arial,sans-serif;letter-spacing:.16em;z-index:5}.dumont-header span:last-child{color:#c9ae7c}
-.dumont-panel{position:relative;margin:clamp(90px,15vh,150px) 0 180px 5%;width:min(490px,90vw);padding:clamp(23px,3.3vw,42px);background:#253a32;border-left:2px solid #c9ae7c;box-shadow:0 16px 55px #0007;z-index:4}
-.dumont-kicker{color:#c9ae7c;font:11px Arial,sans-serif;letter-spacing:.15em}.dumont-panel h2{font:normal clamp(29px,3.2vw,46px)/1.08 Georgia,serif;margin:16px 0 20px;color:#f4ebdd}.dumont-panel p:not(.dumont-kicker){font:clamp(15px,1.25vw,18px)/1.6 Georgia,serif;color:#f4ebdd}.dumont-panel .dumont-draft{font:11px/1.5 Arial,sans-serif!important;color:#c9ae7c!important;margin-top:17px}
-.dumont-point{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;opacity:0;transform:scale(.7);transition:.5s;color:#f4ebdd;font:11px Arial,sans-serif;letter-spacing:.12em}.dumont-point b{width:40px;height:40px;display:grid;place-items:center;border-radius:50%;background:#c9ae7c;color:#253a32;box-shadow:0 0 0 9px #c9ae7c44}.dumont-point span{background:#253a32;padding:9px}.dumont-point-a{top:67%;left:61%}.dumont-point-b{top:37%;left:73%}.dumont-point-c{top:69%;left:74%}.dumont-screen[data-step="1"] .dumont-point-a,.dumont-screen[data-step="2"] .dumont-point-b,.dumont-screen[data-step="3"] .dumont-point-c{opacity:1;transform:scale(1)}
-.dumont-diagram{position:absolute;right:5%;bottom:86px;z-index:4;display:flex;max-width:55vw;box-shadow:0 8px 30px #0006}.dumont-node{background:#253a32;border:1px solid #b0a38c;opacity:.5;padding:13px;min-width:120px;font:10px Arial,sans-serif;letter-spacing:.09em;transition:opacity .5s,background .5s}.dumont-node+.dumont-node{border-left:0}.dumont-node b{display:block;color:#c9ae7c;font-size:20px;margin-bottom:8px;font-weight:normal}.dumont-node.active{opacity:1;background:#c9ae7c;color:#253a32}.dumont-node.active b{color:#253a32}
-.dumont-footer{position:absolute;bottom:20px;left:5%;right:5%;display:flex;align-items:center;justify-content:space-between;gap:20px;z-index:6}.dumont-footer p{font:11px/1.45 Arial,sans-serif;color:#f4ebdd;max-width:47%}.dumont-actions{display:flex;gap:9px}.dumont-actions button{padding:12px 18px;border:1px solid #c9ae7c;background:#f4ebdd;color:#253a32;font:11px Arial,sans-serif;letter-spacing:.07em;cursor:pointer}.dumont-actions .dumont-back{background:#253a32;color:#f4ebdd}.dumont-actions button:disabled{opacity:.45;cursor:wait}
-@media(max-width:800px){.dumont-panel{margin:85px 5% 285px;width:90%}.dumont-diagram{left:5%;right:5%;max-width:none;bottom:132px}.dumont-node{min-width:0;flex:1;padding:10px 7px;font-size:9px}.dumont-footer{flex-wrap:wrap}.dumont-footer p{order:2;max-width:100%}.dumont-actions{width:100%;justify-content:space-between}.dumont-point span{display:none}.dumont-screen{min-height:900px}}
-@media(prefers-reduced-motion:reduce){.dumont-layer,.dumont-point{transition:none!important}}
-
-.cafe-farm-image img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+/* =====================================================================
+   CAMPOS ELÍSEOS — LAYOUTS INDEPENDENTES DESKTOP / MOBILE
+   Carregado APÓS os estilos embutidos do index.html.
+   ===================================================================== */
+#app > .screen[hidden],#app > #screen-09[hidden],#screen-14[hidden]{display:none!important}
+#screen-14{background:#253a32;color:#f4ebdd}
+#screen-14 .review-explainer{font:clamp(15px,1.35vw,18px)/1.65 Georgia,serif;max-width:730px;margin:-10px 0 30px;color:#e0d9c9}
+#screen-final .feedback-return{display:block;margin:0 0 25px;border:1px solid #c9ae7c;color:#f4ebdd;background:transparent;padding:12px 16px;cursor:pointer}
+#screen-final .feedback-research{margin:26px 0 30px;padding:24px 0 6px;border:0;border-top:1px solid #c9ae7c66}
+#screen-final .feedback-research legend{padding:0 14px 0 0;color:#c9ae7c;font:12px Arial,sans-serif;letter-spacing:.13em}
+#screen-final .feedback-field select{width:100%;min-height:48px;padding:13px 15px;border:1px solid #c9ae7caa;background:#253a32;color:#f4ebdd;border-radius:0;font:16px Georgia,serif}
+#screen-final input,#screen-final textarea,#screen-final select{max-width:100%;box-sizing:border-box}
+/* DESKTOP: trem e textos ocupam áreas distintas; tela cresce para conter o conteúdo. */
+@media(min-width:801px){
+ #screen-07{height:auto!important;min-height:max(100svh,850px)!important;overflow:hidden!important}
+ #screen-07 .rail-world{height:100%;min-height:850px}
+ #screen-07 .rail-slide{height:100%;min-height:850px}
+ #screen-07 .rail-slide-inner{width:min(570px,45vw)!important;padding:clamp(105px,13vh,145px) 0 190px 6vw!important}
+ #screen-07 .rail-slide h2{font-size:clamp(43px,4.8vw,73px);margin:18px 0 20px}
+ #screen-07 .rail-slide p:not(.rail-eyebrow){font-size:clamp(15px,1.05vw,18px);line-height:1.54;max-width:510px}
+ #screen-07 .rail-slide::after{background:linear-gradient(90deg,#253a32f5 0%,#253a32db 30%,#253a3255 68%,transparent 100%),linear-gradient(0deg,#253a32c9 0%,transparent 22%)}
+ #screen-07 .rail-ground{bottom:112px!important}
+ #screen-07 .rail-train-free{bottom:calc(112px + 12px)!important;left:59%!important;width:clamp(220px,28vw,420px)!important}
+ #screen-07 .rail-bottom{bottom:14px!important;left:6vw;right:6vw;padding-top:15px;min-height:74px;box-sizing:border-box}
+ #screen-07 .rail-credit{bottom:160px;right:3vw;max-width:190px}
+ #screen-06 .dumont-panel{max-width:min(490px,43vw)}
 }
-
-#screen-07 .rail-copy p {
-  font-size: 15px;
-  line-height: 1.55;
+/* MOBILE: cada fotografia, mapa e animação tem área própria, acima da narrativa. */
+@media(max-width:800px){
+ html,body{max-width:100%;overflow-x:clip}
+ #app,.screen{max-width:100%;box-sizing:border-box}
+ #screen-01 .opening-content{position:relative;z-index:2}
+ .screen-intro{padding:24px 5vw!important}
+ .intro-inner{min-height:0!important}
+ .intro-content{padding:28px 0!important}
+ .intro-title,.survey-title{font-size:clamp(32px,9vw,56px)}
+ .intro-navigation{flex-wrap:wrap;gap:12px;padding-top:18px}
+ .intro-navigation button{min-height:44px}
+ #screen-02 .intro-with-photo{display:flex!important;flex-direction:column;align-items:stretch;gap:16px}
+ #screen-02 .intro-photo{position:relative!important;inset:auto!important;order:-1;width:100%!important;height:auto!important;margin:0;pointer-events:auto}
+ #screen-02 .intro-photo::after{display:none!important}
+ #screen-02 .intro-photo img{width:100%;height:auto;max-height:40svh;aspect-ratio:16/9;object-fit:cover;filter:grayscale(1)}
+ #screen-02 .intro-copy{width:100%!important}
+ #screen-03 .survey-grid,#screen-14 .survey-grid{display:grid;grid-template-columns:1fr!important;gap:20px}
+ #screen-03 .survey-figure img,#screen-14 .survey-figure img{width:100%;height:auto;min-height:0;max-height:42svh;object-fit:contain}
+ #screen-03 .survey-form textarea,#screen-14 .survey-form textarea{min-height:130px;font-size:16px}
+ #screen-04 .journey-content{display:flex;flex-direction:column;gap:20px}
+ #screen-04 .journey-image-frame{height:auto;aspect-ratio:4/3;max-height:50svh}
+ #screen-05{height:auto!important;min-height:100svh!important;overflow:visible!important;display:flex!important;flex-direction:column}
+ #screen-05[hidden]{display:none!important}
+ #screen-05 .cafe-map-scene{position:relative!important;inset:auto!important;height:clamp(270px,72vw,450px)!important;flex:none;overflow:hidden;order:1}
+ #screen-05 .cafe-map-layout{position:relative!important;inset:auto!important;width:100%!important;max-width:none!important;min-height:0!important;padding:20px 5vw 30px!important;background:#253a32!important;box-sizing:border-box;order:2}
+ #screen-05 .cafe-map-panel{position:relative!important;inset:auto!important;width:100%!important;max-width:none!important;margin:18px 0!important;box-sizing:border-box;max-height:none!important;overflow:visible!important}
+ #screen-05 .cafe-map-navigation,#screen-05 .cafe-map-source{position:relative!important;inset:auto!important;margin-top:18px!important;max-width:100%}
+ #screen-05 .cafe-map-topline{position:relative!important;inset:auto!important;flex-wrap:wrap;gap:8px}
+ #screen-06.dumont-screen{height:auto!important;min-height:0!important;overflow:visible!important;display:flex!important;flex-direction:column;padding:0 0 22px}
+ #screen-06.dumont-screen[hidden]{display:none!important}
+ #screen-06 .dumont-gallery{position:relative!important;inset:auto!important;display:block;height:clamp(280px,76vw,460px)!important;flex:none;overflow:hidden;z-index:0}
+ #screen-06 .dumont-layer,#screen-06 .dumont-layer img,#screen-06 .dumont-art{position:absolute;inset:0;width:100%;height:100%}
+ #screen-06 .dumont-shade{display:none}
+ #screen-06 .dumont-header{position:relative!important;order:-1;inset:auto!important;background:#253a32;padding:18px 5vw;font-size:10px;flex-wrap:wrap}
+ #screen-06 .dumont-panel{position:relative!important;order:2;margin:0!important;width:100%!important;max-width:none!important;box-shadow:none;border-left:0;border-top:2px solid #c9ae7c;padding:25px 6vw;background:#253a32}
+ #screen-06 .dumont-point{position:relative!important;order:3;inset:auto!important;margin:0 5vw 10px;transform:none!important}
+ #screen-06 .dumont-point span{display:none}
+ #screen-06 .dumont-diagram{position:relative!important;order:4;inset:auto!important;max-width:none;width:90%;margin:8px auto 18px;flex-wrap:wrap}
+ #screen-06 .dumont-node{min-width:0;flex:1 1 30%;padding:12px 8px}
+ #screen-06 .dumont-footer{position:relative!important;order:5;inset:auto!important;width:90%;margin:0 auto;display:flex;flex-direction:column-reverse;align-items:stretch;gap:14px}
+ #screen-06 .dumont-footer p{max-width:none;margin:0}
+ #screen-06 .dumont-actions{width:100%;display:flex;justify-content:space-between;gap:10px}
+ #screen-06 .dumont-actions button{min-height:44px;flex:1}
+ #screen-07{height:auto!important;min-height:0!important;overflow:hidden!important;display:flex;flex-direction:column;padding:0}
+ #screen-07[hidden]{display:none!important}
+ #screen-07 .rail-topline{position:relative!important;order:0;inset:auto!important;padding:20px 5vw;background:#253a32;z-index:8;flex-wrap:wrap;gap:8px}
+ #screen-07 .rail-world{position:relative!important;order:1;inset:auto!important;flex:none;height:auto!important;min-height:0!important;width:200%;align-items:stretch}
+ #screen-07 .rail-slide{height:auto!important;min-height:0!important;display:flex;flex-direction:column;overflow:hidden}
+ #screen-07 .rail-photo{position:relative!important;inset:auto!important;width:100%;height:clamp(250px,75vw,440px)!important;object-fit:cover;filter:grayscale(1) sepia(.24) brightness(.85);flex:none}
+ #screen-07 .rail-slide::after{display:none!important}
+ #screen-07 .rail-slide-inner{position:relative!important;z-index:2;width:100%!important;padding:26px 6vw 30px!important;background:#253a32;box-sizing:border-box;flex:1}
+ #screen-07 .rail-slide h2{font-size:clamp(34px,8.5vw,53px);margin:12px 0 18px}
+ #screen-07 .rail-slide p:not(.rail-eyebrow){font-size:16px;line-height:1.65}
+ #screen-07 .rail-credit{position:relative!important;z-index:2;inset:auto!important;max-width:none;text-align:left;background:#253a32;padding:0 6vw 18px;font-size:10px}
+ #screen-07 .rail-ground{position:absolute!important;z-index:5;top:calc(68px + clamp(250px,75vw,440px) - 10px)!important;bottom:auto!important;height:8px;left:0;right:0;pointer-events:none}
+ #screen-07 .rail-train-free{position:absolute!important;z-index:6;top:calc(68px + clamp(250px,75vw,440px) - 105px)!important;bottom:auto!important;left:25%;width:min(65vw,320px);height:max-content;transform:translateX(0);pointer-events:none}
+ #screen-07.rail-moving .rail-train-free,#screen-07.rail-arrived .rail-train-free{transform:translateX(32%)}
+ #screen-07 .rail-bottom{position:relative!important;order:3;inset:auto!important;display:flex;flex-wrap:wrap;padding:18px 5vw 24px;background:#253a32;margin:0;z-index:8}
+ #screen-07 .rail-controls{width:100%;display:flex;gap:10px}
+ #screen-07 .rail-controls button{flex:1;min-height:44px;white-space:normal}
+ #screen-08 .map08-body{grid-template-columns:1fr!important;gap:20px}
+ #screen-08 .map08-frame{width:100%;min-height:260px;aspect-ratio:1.25}
+ #screen-08 .map08-bottom{flex-wrap:wrap}
+ #screen-09{overflow-x:hidden}
+ #screen-09 .land09{height:auto;min-height:100svh;overflow:visible}
+ #screen-09 .land09-stage{width:100%;max-width:100%}
+ #screen-09 .land09-photo{height:min(57svh,480px);min-height:260px}
+ #screen-09 .land09-story{grid-template-columns:1fr}
+ #screen-10,#screen-11,#screen-12{overflow-x:hidden}
+ #screen-12 .gallery{grid-template-columns:1fr!important}
+ #screen-final .feedback-layout{grid-template-columns:1fr;gap:30px}
+ #screen-final .feedback-intro{position:static}
+ #screen-final .feedback-description{line-height:1.65}
+ #screen-final .feedback-stars{gap:4px}
+ #screen-final .feedback-star{width:36px;height:36px;flex-basis:36px}
+ #screen-final .feedback-layout{padding:28px 0}
+ .screen button,.screen input,.screen select,.screen textarea{touch-action:manipulation}
 }
-
-/* Tela 07 — ampliar a coluna e subir o conteúdo */
-#screen-07 .rail-slide-inner {
-  width: min(760px, 88vw);
-  padding-top: clamp(75px, 11vh, 115px);
+@media(max-width:480px){
+ #screen-06 .dumont-diagram{flex-wrap:wrap}
+ #screen-07 .rail-controls button{padding:12px 8px;font-size:11px}
+ #screen-07 .rail-train-free{width:68vw}
+ #screen-14 .survey-title{font-size:clamp(30px,9vw,48px)}
 }
-
-#screen-07 .rail-slide p:not(.rail-eyebrow) {
-  max-width: 720px;
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-/* Ajuste para telas menores */
-@media (max-width: 700px) {
-  #screen-07 .rail-slide-inner {
-    width: 94vw;
-    padding: 70px 3vw 0;
-  }
-}
+@media(prefers-reduced-motion:reduce){#screen-07 .rail-world,#screen-07 .rail-train-free{transition:none!important}}
