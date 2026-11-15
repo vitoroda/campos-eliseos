@@ -2828,7 +2828,12 @@ form.addEventListener("submit", async event => {
     dados.aprofundamento = document.getElementById('feedback-depth')?.value || '';
     dados.respostas_finais = window.CamposRevisao?.obterRespostas?.() || JSON.parse(localStorage.getItem('campos-eliseos-impressoes-finais-v1') || '["","",""]');
     if (Array.isArray(dados.respostas)) {
-      dados.respostas_finais.forEach((resposta,i)=>dados.respostas.push({tela:'screen-14',pergunta:i+1,resposta}));
+      dados.respostas_finais.forEach((resposta,i)=>dados.respostas.push({
+        id:['final_moradores','final_circulacao','final_construcao'][i],
+        pergunta:['Que tipo de pessoa já morou aqui?','Que tipo de pessoa já circulou aqui?','De onde vinha a riqueza para construir isso?'][i],
+        tela:'screen-14',
+        resposta:String(resposta ?? '')
+      }));
     }
   } catch (erro) {
     console.error(erro);
