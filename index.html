@@ -5962,9 +5962,8 @@ form.addEventListener("submit", async event => {
     </article>
     <nav class="lux10-footer" aria-label="Navegação da tela 10"><button type="button" class="lux10-btn" id="lux10-back">← Voltar</button><button type="button" class="lux10-btn primary" id="lux10-next">Continuar →</button></nav>
 <script id="screen10-interaction">(function(){const page=document.getElementById('screen-10');if(!page)return;function go(id){const target=document.getElementById(id);if(!target)return;page.hidden=true;target.hidden=false;window.scrollTo(0,0)}document.getElementById('lux10-back')?.addEventListener('click',()=>go('screen-09'));document.getElementById('lux10-next')?.addEventListener('click',()=>go(document.getElementById('screen-11')?'screen-11':'screen-final'))})();</script>
-</body>
-</html>
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Quem também morava aqui? — Campos Elíseos</title></head><body style="margin:0;background:#253A32"><style id="screen11-styles">
+<style id="screen11-styles">
+#screen-11[hidden]{display:none!important}
 #screen-11{background:#253A32;color:#F4EBDD;min-height:100vh}
 #screen-11 .s11-wrap{max-width:1140px;margin:auto;padding:clamp(30px,5vw,68px) clamp(20px,5vw,70px) 65px}
 #screen-11 .s11-top{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid #c9ae7c65;padding-bottom:14px;color:#c9ae7c;font:10px/1.5 Arial,sans-serif;letter-spacing:.18em}
@@ -6002,7 +6001,8 @@ form.addEventListener("submit", async event => {
 #screen-11 .s11-hero .s11-frame img{width:100%;max-height:560px;object-fit:cover;object-position:center}
 #screen-11 .s11-hero figcaption{max-width:820px}
 @media(min-width:850px){#screen-11 .s11-hero{margin-left:-22px;margin-right:-22px}}
-</style><section id="screen-11" class="screen" aria-labelledby="s11-title">
+</style>
+<section id="screen-11" class="screen" hidden aria-labelledby="s11-title">
 <div class="s11-wrap">
 <header class="s11-top"><span>N.º 11 / OUTRAS FORMAS DE MORAR</span><span>CAFÉ, CASAS E GENTE</span></header>
 <h2 id="s11-title" tabindex="-1">Quem <em>também</em> morava aqui?</h2>
@@ -6038,9 +6038,10 @@ form.addEventListener("submit", async event => {
 <p>MORAES, Luís Fernando Simões. “O Campos Elíseos Paulistano e suas transformações: percepções sobre usos do território (séculos XIX a XXI)”. In: <i>A Cidade Interpretada</i>, 2019, p. 87–93, especialmente p. 89, fig. 2. Planta de casas operárias, Alameda dos Andradas (1910); fonte original indicada: Projeto Sirca.</p>
 </footer>
 
+<nav class="s11-nav" aria-label="Navegação da tela 11"><button type="button" id="s11-back">← Voltar</button><button type="button" id="s11-next">Continuar →</button></nav>
 </div>
 <div class="s11-overlay" hidden role="dialog" aria-modal="true" aria-label="Imagem histórica ampliada"><button type="button" class="s11-close" aria-label="Fechar imagem ampliada">FECHAR ×</button><img alt=""></div>
 </section>
-<script id="screen11-interaction">(function(){const page=document.getElementById('screen-11');if(!page)return;const overlay=page.querySelector('.s11-overlay');const enlarged=overlay.querySelector('img');function close(){overlay.hidden=true;document.body.style.overflow='';}page.querySelectorAll('[data-s11-zoom]').forEach(b=>b.addEventListener('click',()=>{const img=b.closest('figure').querySelector('img');enlarged.src=img.src;enlarged.alt=img.alt;overlay.hidden=false;document.body.style.overflow='hidden';overlay.querySelector('button').focus();}));overlay.querySelector('button').addEventListener('click',close);overlay.addEventListener('click',e=>{if(e.target===overlay)close();});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!overlay.hidden)close();});function go(id){const target=document.getElementById(id);if(!target)return;page.hidden=true;target.hidden=false;window.scrollTo(0,0);}})();</script></body></html>
+<script id="screen11-interaction">(function(){const page=document.getElementById('screen-11');if(!page)return;const overlay=page.querySelector('.s11-overlay');const enlarged=overlay.querySelector('img');function close(){overlay.hidden=true;document.body.style.overflow='';}page.querySelectorAll('[data-s11-zoom]').forEach(b=>b.addEventListener('click',()=>{const img=b.closest('figure').querySelector('img');enlarged.src=img.src;enlarged.alt=img.alt;overlay.hidden=false;document.body.style.overflow='hidden';overlay.querySelector('button').focus();}));overlay.querySelector('button').addEventListener('click',close);overlay.addEventListener('click',e=>{if(e.target===overlay)close();});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!overlay.hidden)close();});function go(id){const target=document.getElementById(id);if(!target)return;page.hidden=true;target.hidden=false;window.scrollTo(0,0);}document.getElementById("s11-back")?.addEventListener("click",()=>go("screen-10"));document.getElementById("s11-next")?.addEventListener("click",()=>go("screen-final"));})();</script>
 </body>
 </html>
